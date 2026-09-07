@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Donate | ReConnect</title>
+
+<title>NGO Profile | ReConnect</title>
 
 <style>
 * {
@@ -14,8 +15,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f8faf9;
-    color: #24352d;
+    background: #f6faf7;
+    color: #26352d;
 }
 
 /* NAVBAR */
@@ -41,201 +42,195 @@ nav a {
     text-decoration: none;
     color: #333;
     margin-left: 25px;
-    font-weight: 500;
 }
 
 nav a:hover {
     color: #1f7a4d;
 }
 
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 55px 20px 35px;
-    background: linear-gradient(135deg, #e9f8ef, #fff4e8);
-}
-
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 12px;
-    color: #1f7a4d;
-}
-
-.hero p {
-    font-size: 18px;
-    color: #5c6b63;
-}
-
-/* MAIN */
-.container {
-    max-width: 900px;
-    margin: 40px auto;
+/* BACK */
+.back {
+    max-width: 1100px;
+    margin: 25px auto 0;
     padding: 0 20px;
 }
 
-/* PROGRESS */
-.steps {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 35px;
-}
-
-.step {
-    padding: 10px 18px;
-    border-radius: 20px;
-    background: #e5ebe7;
-    color: #66736b;
-    font-size: 14px;
-}
-
-.step.active {
-    background: #1f7a4d;
-    color: white;
-}
-
-/* CARD */
-.card {
-    background: white;
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    margin-bottom: 25px;
-}
-
-.card h2 {
-    margin-bottom: 25px;
+.back a {
     color: #1f7a4d;
-}
-
-/* FORM */
-label {
-    display: block;
-    margin-bottom: 8px;
+    text-decoration: none;
     font-weight: bold;
 }
 
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #d5ddd8;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    font-size: 15px;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: #1f7a4d;
-}
-
-/* DONATION TYPES */
-.donation-types {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-.type {
-    flex: 1;
-    padding: 20px;
-    border: 2px solid #dce5df;
-    border-radius: 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.type:hover {
-    border-color: #1f7a4d;
-    background: #f2faf5;
-}
-
-.type.selected {
-    border-color: #1f7a4d;
-    background: #eaf7ef;
-}
-
-.type span {
-    font-size: 30px;
-    display: block;
-    margin-bottom: 8px;
-}
-
-/* BUTTON */
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 12px;
-    background: #1f7a4d;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #17633e;
-}
-
-/* ITEM SECTION */
-#itemSection {
-    display: none;
-}
-
-/* SUCCESS */
-.success {
-    display: none;
-    text-align: center;
+/* HERO */
+.profile-header {
+    max-width: 1100px;
+    margin: 25px auto;
     padding: 40px;
+    background: linear-gradient(135deg, #e7f7ed, #fff1df);
+    border-radius: 25px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 
-.success .icon {
+.photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 65px;
-    margin-bottom: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
-.success h2 {
+.profile-header h1 {
+    font-size: 35px;
     color: #1f7a4d;
     margin-bottom: 12px;
 }
 
-.success p {
+.badge {
+    display: inline-block;
+    background: #1f7a4d;
+    color: white;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.info {
+    color: #5c6b63;
+    line-height: 1.7;
+}
+
+/* LAYOUT */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.07);
+}
+
+.card h2 {
+    color: #1f7a4d;
+    margin-bottom: 18px;
+}
+
+.card p {
+    line-height: 1.7;
+    color: #5d6962;
+}
+
+/* REQUIREMENTS */
+.requirements {
+    padding: 20px;
+    background: #fff8ed;
+    border-radius: 15px;
+    border-left: 5px solid #e8953d;
+}
+
+/* DETAILS */
+.detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid #e8eee9;
+}
+
+.detail:last-child {
+    border-bottom: none;
+}
+
+.detail strong {
+    color: #35443b;
+}
+
+.detail span {
     color: #66736b;
-    line-height: 1.6;
+    text-align: right;
+}
+
+/* BUTTONS */
+.action-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color: white;
+    background: #1f7a4d;
+}
+
+.action-btn:hover {
+    background: #17633e;
+}
+
+.action-btn.orange {
+    background: #e8953d;
+}
+
+.action-btn.orange:hover {
+    background: #ce7621;
+}
+
+/* CONTACT */
+.contact-box {
+    background: #f1f8f3;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.contact-box p {
+    margin: 7px 0;
 }
 
 /* FOOTER */
 footer {
-    margin-top: 60px;
+    margin-top: 50px;
     background: #183d2b;
     color: white;
     text-align: center;
     padding: 30px;
 }
 
-@media(max-width: 650px) {
+@media(max-width: 750px) {
+
     nav {
         flex-direction: column;
         gap: 15px;
     }
 
-    nav a {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .donation-types {
+    .profile-header {
         flex-direction: column;
+        text-align: center;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-header h1 {
+        font-size: 28px;
     }
 }
 </style>
@@ -245,6 +240,7 @@ footer {
 
 <!-- NAVBAR -->
 <nav>
+
     <div class="logo">🤝 ReConnect</div>
 
     <div>
@@ -252,306 +248,296 @@ footer {
         <a href="ngos.html">Find NGOs</a>
         <a href="volunteer.html">Volunteer</a>
     </div>
+
 </nav>
 
 
-<!-- HERO -->
-<section class="hero">
-    <h1>Make a Difference 💚</h1>
-    <p>Your contribution can help an NGO continue its work.</p>
+<!-- BACK -->
+<div class="back">
+    <a href="ngos.html">← Back to NGOs</a>
+</div>
+
+
+<!-- PROFILE HEADER -->
+<section class="profile-header">
+
+    <div class="photo">
+        🌱
+    </div>
+
+    <div>
+
+        <div class="badge">
+            ✓ Listed NGO
+        </div>
+
+        <h1 id="ngoName">
+            Loading...
+        </h1>
+
+        <div class="info">
+            📍 <span id="ngoAddress">Loading...</span>
+            <br>
+            🎯 <span id="ngoWork">Loading...</span>
+        </div>
+
+    </div>
+
 </section>
 
 
+<!-- MAIN -->
 <div class="container">
 
-    <!-- STEPS -->
-    <div class="steps">
-        <div class="step active" id="step1">1. NGO</div>
-        <div class="step" id="step2">2. Donation</div>
-        <div class="step" id="step3">3. Details</div>
-    </div>
+<div class="grid">
 
+<!-- LEFT -->
+<div>
 
-    <!-- NGO SELECTION -->
-    <div class="card" id="ngoCard">
+    <!-- ABOUT -->
+    <div class="card">
 
-        <h2>🏢 Select an NGO</h2>
+        <h2>💚 About This NGO</h2>
 
-        <label>Select NGO</label>
-
-        <select id="ngoSelect">
-            <option value="">Loading NGOs...</option>
-        </select>
-
-        <button onclick="nextStep()">
-            Continue →
-        </button>
+        <p id="about">
+            This organization is listed in the ReConnect NGO directory.
+        </p>
 
     </div>
 
 
-    <!-- DONATION -->
-    <div class="card" id="donationCard" style="display:none;">
+    <!-- REQUIREMENTS -->
+    <div class="card">
 
-        <h2>💚 Choose Donation Type</h2>
+        <h2>📦 Current Requirements</h2>
 
-        <div class="donation-types">
+        <div class="requirements">
 
-            <div class="type" onclick="selectType('money', this)">
-                <span>💰</span>
-                <strong>Money</strong>
-                <p>Financial contribution</p>
-            </div>
-
-            <div class="type" onclick="selectType('item', this)">
-                <span>📦</span>
-                <strong>Items</strong>
-                <p>Donate useful items</p>
-            </div>
+            <p>
+                Current donation requirements are not available
+                in the provided NGO directory.
+                NGOs can update their requirements when the
+                ReConnect backend is connected.
+            </p>
 
         </div>
 
-        <button onclick="goToDetails()">
-            Continue →
-        </button>
+    </div>
+
+
+    <!-- INFORMATION -->
+    <div class="card">
+
+        <h2>🏢 Organization Information</h2>
+
+        <div class="detail">
+            <strong>Chairman / CEO</strong>
+            <span id="ceo">Not provided</span>
+        </div>
+
+        <div class="detail">
+            <strong>Local Contact</strong>
+            <span id="contact">Not provided</span>
+        </div>
+
+        <div class="detail">
+            <strong>Working Since</strong>
+            <span id="since">Not provided</span>
+        </div>
+
+        <div class="detail">
+            <strong>Working with BMC</strong>
+            <span id="bmc">Not provided</span>
+        </div>
+
+        <div class="detail">
+            <strong>FCRA</strong>
+            <span id="fcra">Not provided</span>
+        </div>
+
+        <div class="detail">
+            <strong>Ward / Department</strong>
+            <span id="ward">Not provided</span>
+        </div>
 
     </div>
 
 
-    <!-- DETAILS -->
-    <div class="card" id="detailsCard" style="display:none;">
+    <!-- ADDRESS -->
+    <div class="card">
 
-        <h2>📝 Donation Details</h2>
+        <h2>📍 Address</h2>
 
-        <form onsubmit="submitDonation(event)">
-
-            <label>Your Name</label>
-            <input
-                type="text"
-                id="name"
-                placeholder="Enter your name"
-                required
-            >
-
-            <label>Email</label>
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-            >
-
-            <!-- MONEY -->
-            <div id="moneySection">
-
-                <label>Donation Amount (₹)</label>
-
-                <input
-                    type="number"
-                    id="amount"
-                    placeholder="Enter amount"
-                    min="1"
-                >
-
-            </div>
-
-
-            <!-- ITEMS -->
-            <div id="itemSection">
-
-                <label>Item Name</label>
-
-                <input
-                    type="text"
-                    id="itemName"
-                    placeholder="Example: Clothes, Books, Food"
-                >
-
-                <label>Condition</label>
-
-                <select id="condition">
-                    <option value="">Select condition</option>
-                    <option>New</option>
-                    <option>Good</option>
-                    <option>Used</option>
-                </select>
-
-                <label>Item Description</label>
-
-                <textarea
-                    id="itemDescription"
-                    rows="4"
-                    placeholder="Describe the items you want to donate..."
-                ></textarea>
-
-            </div>
-
-
-            <button type="submit">
-                ❤️ Submit Donation
-            </button>
-
-        </form>
-
-    </div>
-
-
-    <!-- SUCCESS -->
-    <div class="card success" id="successCard">
-
-        <div class="icon">🎉</div>
-
-        <h2>Thank You for Donating!</h2>
-
-        <p>
-            Your donation request has been recorded successfully.
-            <br>
-            ReConnect helps connect generous donors with NGOs that need support.
+        <p id="fullAddress">
+            Loading...
         </p>
-
-        <br>
-
-        <button onclick="window.location.href='ngos.html'">
-            Explore More NGOs
-        </button>
 
     </div>
 
 </div>
 
 
+<!-- RIGHT -->
+<div>
+
+    <div class="card">
+
+        <h2>Take Action 💚</h2>
+
+        <!-- IMPORTANT -->
+        <a
+            href="donate.html"
+            class="action-btn"
+        >
+            💰 Donate Now
+        </a>
+
+        <a
+            href="donate.html"
+            class="action-btn orange"
+        >
+            📦 Donate Items
+        </a>
+
+        <a
+            href="volunteer.html"
+            class="action-btn"
+        >
+            🙋 Volunteer
+        </a>
+
+    </div>
+
+
+    <!-- CONTACT -->
+    <div class="card">
+
+        <h2>📞 Contact</h2>
+
+        <div class="contact-box">
+
+            <p>
+                📱 <strong id="phone">
+                    Not provided
+                </strong>
+            </p>
+
+            <p>
+                ✉️ <strong id="email">
+                    Not provided
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- WORK -->
+    <div class="card">
+
+        <h2>🎯 Areas of Work</h2>
+
+        <p id="workSide">
+            Not provided
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+</div>
+
+
 <footer>
-    <p>🤝 ReConnect — Connect. Donate. Make a Difference.</p>
+    🤝 ReConnect — Connect. Donate. Make a Difference.
 </footer>
 
 
 <script>
 
-let ngos = [];
-let selectedType = "";
+const params = new URLSearchParams(window.location.search);
 
+const ngoIndex = parseInt(params.get("ngo"));
 
-/* LOAD NGO DATA */
 fetch("ngos.json")
 .then(response => response.json())
 .then(data => {
 
-    ngos = data;
+    if (
+        isNaN(ngoIndex) ||
+        ngoIndex < 0 ||
+        ngoIndex >= data.length
+    ) {
+        document.getElementById("ngoName").textContent =
+            "NGO not found";
+        return;
+    }
 
-    const select = document.getElementById("ngoSelect");
+    const ngo = data[ngoIndex];
 
-    select.innerHTML =
-        '<option value="">Select an NGO</option>';
+    const name =
+        ngo["Name of Institution"] || "NGO";
 
-    ngos.forEach((ngo, index) => {
+    const address =
+        ngo["Address"] || "Address not provided";
 
-        const option = document.createElement("option");
+    const work =
+        ngo["Area of Work"] || "Area of work not provided";
 
-        option.value = index;
+    document.getElementById("ngoName").textContent = name;
 
-        option.textContent =
-            ngo["Name of Institution"] || "NGO " + (index + 1);
+    document.getElementById("ngoAddress").textContent = address;
 
-        select.appendChild(option);
+    document.getElementById("ngoWork").textContent = work;
 
-    });
+    document.getElementById("about").textContent =
+        name +
+        " is an organization listed in the ReConnect NGO directory. " +
+        "The organization works in the area of " +
+        work +
+        ".";
+
+    document.getElementById("ceo").textContent =
+        ngo["Chairman/CEO"] || "Not provided";
+
+    document.getElementById("contact").textContent =
+        ngo["Local Contact Person"] || "Not provided";
+
+    document.getElementById("since").textContent =
+        ngo["Working Since"] || "Not provided";
+
+    document.getElementById("bmc").textContent =
+        ngo["Working with BMC"] || "Not provided";
+
+    document.getElementById("fcra").textContent =
+        ngo["FCRA"] || "Not provided";
+
+    document.getElementById("ward").textContent =
+        ngo["Ward/Department"] || "Not provided";
+
+    document.getElementById("fullAddress").textContent =
+        address;
+
+    document.getElementById("phone").textContent =
+        ngo["Contact No."] || "Not provided";
+
+    document.getElementById("email").textContent =
+        ngo["Email ID"] || "Not provided";
+
+    document.getElementById("workSide").textContent =
+        work;
 
 })
 .catch(error => {
 
     console.error(error);
 
-    document.getElementById("ngoSelect").innerHTML =
-        '<option value="">Unable to load NGOs</option>';
+    document.getElementById("ngoName").textContent =
+        "Unable to load NGO";
 
 });
-
-
-/* STEP 1 → STEP 2 */
-function nextStep() {
-
-    const ngo = document.getElementById("ngoSelect").value;
-
-    if (ngo === "") {
-        alert("Please select an NGO.");
-        return;
-    }
-
-    document.getElementById("ngoCard").style.display = "none";
-
-    document.getElementById("donationCard").style.display = "block";
-
-    document.getElementById("step1").classList.remove("active");
-
-    document.getElementById("step2").classList.add("active");
-}
-
-
-/* SELECT DONATION TYPE */
-function selectType(type, element) {
-
-    selectedType = type;
-
-    document.querySelectorAll(".type").forEach(card => {
-        card.classList.remove("selected");
-    });
-
-    element.classList.add("selected");
-}
-
-
-/* STEP 2 → STEP 3 */
-function goToDetails() {
-
-    if (selectedType === "") {
-        alert("Please choose a donation type.");
-        return;
-    }
-
-    document.getElementById("donationCard").style.display = "none";
-
-    document.getElementById("detailsCard").style.display = "block";
-
-    document.getElementById("step2").classList.remove("active");
-
-    document.getElementById("step3").classList.add("active");
-
-
-    if (selectedType === "money") {
-
-        document.getElementById("moneySection").style.display = "block";
-
-        document.getElementById("itemSection").style.display = "none";
-
-        document.getElementById("amount").required = true;
-
-        document.getElementById("itemName").required = false;
-
-    } else {
-
-        document.getElementById("moneySection").style.display = "none";
-
-        document.getElementById("itemSection").style.display = "block";
-
-        document.getElementById("amount").required = false;
-
-        document.getElementById("itemName").required = true;
-
-    }
-
-}
-
-
-/* SUBMIT */
-function submitDonation(event) {
-
-    event.preventDefault();
-
-    document.getElementById("detailsCard").style.display = "none";
-
-    document.getElementById("successCard").style.display = "block";
-
-}
 
 </script>
 
