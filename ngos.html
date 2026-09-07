@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Find NGOs | ReConnect</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5fff9;
+            color: #173b32;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #159957;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #173b32;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #159957;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 75px 20px;
+            background: linear-gradient(
+                135deg,
+                #d9fff0,
+                #e4f4ff,
+                #fff4d9
+            );
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #159957;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #607d75;
+        }
+
+        /* SEARCH AREA */
+        .search-section {
+            padding: 45px 8%;
+            text-align: center;
+        }
+
+        .search-section h2 {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        .search-box {
+            width: 80%;
+            max-width: 700px;
+            padding: 16px 22px;
+            border: 2px solid #d6e8df;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: #159957;
+        }
+
+        /* FILTERS */
+        .filters {
+            margin-top: 20px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 20px;
+            background: #e2f5ed;
+            color: #173b32;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #159957;
+            color: white;
+        }
+
+        /* NGO CARDS */
+        .ngo-container {
+            padding: 20px 8% 80px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .ngo-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .ngo-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .ngo-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .ngo-card h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .ngo-card p {
+            color: #607d75;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .verified {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 6px 12px;
+            background: #dff8e9;
+            color: #159957;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .ngo-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 11px 22px;
+            background: #159957;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .ngo-button:hover {
+            background: #0b7a53;
+        }
+
+        /* NO RESULTS */
+        #noResults {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            font-size: 20px;
+            color: #607d75;
+            grid-column: 1 / -1;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #102d26;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 850px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .ngo-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .search-box {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="index.html" class="logo">
+            🌱 ReConnect
+        </a>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ngos.html">Find NGOs</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#volunteer">Volunteer</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>Find <span>NGOs</span></h1>
+
+        <p>
+            Discover verified organizations and find a cause
+            you care about.
+        </p>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section class="search-section">
+
+        <h2>🔎 Find an NGO</h2>
+
+        <input
+            type="text"
+            id="searchInput"
+            class="search-box"
+            placeholder="Search NGO by name, location or cause..."
+            onkeyup="searchNGOs()"
+        >
+
+        <div class="filters">
+
+            <button class="filter-btn active" onclick="filterNGOs('all', this)">
+                All
+            </button>
+
+            <button class="filter-btn" onclick="filterNGOs('education', this)">
+                📚 Education
+            </button>
+
+            <button class="filter-btn" onclick="filterNGOs('environment', this)">
+                🌱 Environment
+            </button>
+
+            <button class="filter-btn" onclick="filterNGOs('health', this)">
+                ❤️ Health
+            </button>
+
+            <button class="filter-btn" onclick="filterNGOs('animals', this)">
+                🐾 Animals
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- NGO CARDS -->
+
+    <section class="ngo-container" id="ngoContainer">
+
+
+        <!-- NGO 1 -->
+
+        <div class="ngo-card"
+             data-category="education"
+             data-search="education learning children mumbai">
+
+            <div class="ngo-icon">📚</div>
+
+            <h3>Bright Future Foundation</h3>
+
+            <span class="verified">
+                ✓ Verified NGO
+            </span>
+
+            <p>📍 Mumbai, Maharashtra</p>
+
+            <p>
+                Focuses on education and learning opportunities
+                for underprivileged children.
+            </p>
+
+            <a href="#" class="ngo-button">
+                View NGO
+            </a>
+
+        </div>
+
+
+        <!-- NGO 2 -->
+
+        <div class="ngo-card"
+             data-category="environment"
+             data-search="environment recycling green pune">
+
+            <div class="ngo-icon">🌱</div>
+
+            <h3>Green Earth Initiative</h3>
+
+            <span class="verified">
+                ✓ Verified NGO
+            </span>
+
+            <p>📍 Pune, Maharashtra</p>
+
+            <p>
+                Works on environmental protection, recycling
+                and sustainability.
+            </p>
+
+            <a href="#" class="ngo-button">
+                View NGO
+            </a>
+
+        </div>
+
+
+        <!-- NGO 3 -->
+
+        <div class="ngo-card"
+             data-category="health"
+             data-search="health medical healthcare nashik">
+
+            <div class="ngo-icon">❤️</div>
+
+            <h3>Care For All Foundation</h3>
+
+            <span class="verified">
+                ✓ Verified NGO
+            </span>
+
+            <p>📍 Nashik, Maharashtra</p>
+
+            <p>
+                Supports healthcare and essential medical
+                assistance for communities.
+            </p>
+
+            <a href="#" class="ngo-button">
+                View NGO
+            </a>
+
+        </div>
+
+
+        <!-- NGO 4 -->
+
+        <div class="ngo-card"
+             data-category="animals"
+             data-search="animals dogs cats animal welfare mumbai">
+
+            <div class="ngo-icon">🐾</div>
+
+            <h3>Animal Care Trust</h3>
+
+            <span class="verified">
+                ✓ Verified NGO
+            </span>
+
+            <p>📍 Mumbai, Maharashtra</p>
+
+            <p>
+                Works towards animal rescue, care and
+                adoption.
+            </p>
+
+            <a href="#" class="ngo-button">
+                View NGO
+            </a>
+
+        </div>
+
+
+        <!-- NGO 5 -->
+
+        <div class="ngo-card"
+             data-category="education"
+             data-search="education women skills training thane">
+
+            <div class="ngo-icon">🎓</div>
+
+            <h3>Udaan Education Trust</h3>
+
+            <span class="verified">
+                ✓ Verified NGO
+            </span>
+
+            <p>📍 Thane, Maharashtra</p>
+
+            <p>
+                Provides education and skill development
+                opportunities.
+            </p>
+
+            <a href="#" class="ngo-button">
+                View NGO
+            </a>
+
+        </div>
+
+
+        <!-- NGO 6 -->
+
+        <div class="ngo-card"
+             data-category="environment"
+             data-search="environment trees water sustainability nagpur">
+
+            <div class="ngo-icon">🌍</div>
+
+            <h3>Green Maharashtra</h3>
+
+            <span class="verified">
+                ✓ Verified NGO
+            </span>
+
+            <p>📍 Nagpur, Maharashtra</p>
+
+            <p>
+                Promotes tree plantation, water conservation
+                and sustainable living.
+            </p>
+
+            <a href="#" class="ngo-button">
+                View NGO
+            </a>
+
+        </div>
+
+
+        <div id="noResults">
+            😕 No NGOs found. Try another search.
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 ReConnect | Connect. Donate. Make a Difference. 🌱
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        let currentCategory = "all";
+
+
+        function searchNGOs() {
+
+            const searchText =
+                document.getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+            const cards =
+                document.querySelectorAll(".ngo-card");
+
+            let visibleCount = 0;
+
+
+            cards.forEach(function(card) {
+
+                const text =
+                    card.dataset.search.toLowerCase();
+
+                const category =
+                    card.dataset.category;
+
+
+                const matchesSearch =
+                    text.includes(searchText);
+
+                const matchesCategory =
+                    currentCategory === "all" ||
+                    category === currentCategory;
+
+
+                if (matchesSearch && matchesCategory) {
+
+                    card.style.display = "block";
+
+                    visibleCount++;
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+
+            if (visibleCount === 0) {
+
+                document.getElementById("noResults")
+                    .style.display = "block";
+
+            } else {
+
+                document.getElementById("noResults")
+                    .style.display = "none";
+
+            }
+
+        }
+
+
+        function filterNGOs(category, button) {
+
+            currentCategory = category;
+
+
+            document
+                .querySelectorAll(".filter-btn")
+                .forEach(function(btn) {
+
+                    btn.classList.remove("active");
+
+                });
+
+
+            button.classList.add("active");
+
+
+            searchNGOs();
+
+        }
+
+    </script>
+
+</body>
+
+</html>
