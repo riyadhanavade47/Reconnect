@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>ReConnect | Connect. Donate. Make a Difference.</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -23,16 +25,21 @@
             color: #173b32;
         }
 
-        /* NAVBAR */
+
+        /* ================= NAVBAR ================= */
+
         nav {
             background: white;
             padding: 18px 7%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             position: sticky;
             top: 0;
             z-index: 1000;
+
             box-shadow: 0 3px 15px rgba(0,0,0,0.08);
         }
 
@@ -40,6 +47,7 @@
             font-size: 27px;
             font-weight: bold;
             color: #159957;
+            text-decoration: none;
         }
 
         nav ul {
@@ -52,19 +60,25 @@
             text-decoration: none;
             color: #173b32;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         nav a:hover {
             color: #159957;
         }
 
-        /* HERO */
+
+        /* ================= HERO ================= */
+
         .hero {
             min-height: 88vh;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
+
             padding: 60px 20px;
 
             background: linear-gradient(
@@ -75,10 +89,14 @@
             );
         }
 
+        .hero-content {
+            max-width: 950px;
+        }
+
         .hero h1 {
-            font-size: 58px;
-            max-width: 900px;
-            margin-bottom: 20px;
+            font-size: 60px;
+            line-height: 1.15;
+            margin-bottom: 25px;
         }
 
         .hero h1 span {
@@ -86,11 +104,14 @@
         }
 
         .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: auto;
+            font-size: 21px;
             line-height: 1.7;
+            max-width: 800px;
+            margin: auto;
         }
+
+
+        /* ================= BUTTONS ================= */
 
         .buttons {
             margin-top: 35px;
@@ -98,11 +119,18 @@
 
         .btn {
             display: inline-block;
-            padding: 15px 28px;
+
+            padding: 16px 30px;
+
             margin: 8px;
+
             border-radius: 30px;
+
             text-decoration: none;
+
             font-weight: bold;
+            font-size: 17px;
+
             transition: 0.3s;
         }
 
@@ -117,11 +145,15 @@
         }
 
         .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.15);
         }
 
-        /* SECTIONS */
+
+        /* ================= SECTIONS ================= */
+
         section {
             padding: 80px 8%;
             text-align: center;
@@ -135,35 +167,49 @@
         .subtitle {
             color: #607d75;
             margin-bottom: 45px;
+            font-size: 18px;
         }
 
-        /* CARDS */
+
+        /* ================= CARDS ================= */
+
         .cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
         }
 
         .card {
             background: white;
+
             padding: 35px 25px;
+
             border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+
             transition: 0.3s;
         }
 
         .card:hover {
             transform: translateY(-10px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.12);
         }
 
         .icon {
-            font-size: 45px;
-            margin-bottom: 15px;
+            font-size: 48px;
+            margin-bottom: 18px;
         }
 
         .card h3 {
-            margin-bottom: 12px;
             font-size: 23px;
+            margin-bottom: 12px;
         }
 
         .card p {
@@ -171,7 +217,9 @@
             color: #607d75;
         }
 
-        /* IMPACT */
+
+        /* ================= IMPACT ================= */
+
         .impact {
             background: #173b32;
             color: white;
@@ -179,31 +227,82 @@
 
         .impact-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 30px;
+
             margin-top: 40px;
         }
 
         .impact-box h3 {
-            font-size: 42px;
+            font-size: 45px;
             color: #7fffd4;
         }
 
         .impact-box p {
-            margin-top: 8px;
+            margin-top: 10px;
+            font-size: 17px;
         }
 
-        /* CTA */
-        .cta {
-            background: linear-gradient(135deg, #159957, #0b7a53);
+
+        /* ================= HOW IT WORKS ================= */
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+
+            margin: 0 auto 15px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #159957;
             color: white;
+
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+
+        /* ================= VOLUNTEER ================= */
+
+        .volunteer-section {
+            background: #eefaf5;
+        }
+
+
+        /* ================= CTA ================= */
+
+        .cta {
+            background:
+                linear-gradient(
+                    135deg,
+                    #159957,
+                    #0b7a53
+                );
+
+            color: white;
+
             border-radius: 30px;
+
             margin: 60px 8%;
+
             padding: 70px 30px;
+
+            text-align: center;
         }
 
         .cta h2 {
             margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
         }
 
         .cta .btn {
@@ -211,16 +310,46 @@
             color: #159957;
         }
 
-        /* FOOTER */
+
+        /* ================= CONTACT ================= */
+
+        .contact-box {
+            background: white;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-box p {
+            margin: 12px;
+            font-size: 17px;
+        }
+
+
+        /* ================= FOOTER ================= */
+
         footer {
             background: #102d26;
+
             color: white;
+
             text-align: center;
+
             padding: 30px;
         }
 
-        /* MOBILE */
-        @media (max-width: 800px) {
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 850px) {
 
             nav {
                 flex-direction: column;
@@ -234,254 +363,489 @@
             }
 
             .hero h1 {
-                font-size: 40px;
+                font-size: 42px;
             }
 
             .cards,
             .impact-grid {
                 grid-template-columns: 1fr;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- NAVIGATION -->
+
+    <!-- ================= NAVIGATION ================= -->
+
     <nav>
-        <div class="logo">🌱 ReConnect</div>
+
+        <a href="index.html" class="logo">
+            🌱 ReConnect
+        </a>
 
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#how">How It Works</a></li>
-            <li><a href="#volunteer">Volunteer</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <!-- NGO PAGE -->
+
+            <li>
+                <a href="ngos.html">
+                    Find NGOs
+                </a>
+            </li>
+
+            <li>
+                <a href="#how">
+                    How It Works
+                </a>
+            </li>
+
+            <li>
+                <a href="#volunteer">
+                    Volunteer
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
         </ul>
+
     </nav>
 
 
-    <!-- HERO -->
+    <!-- ================= HERO ================= -->
+
     <section class="hero" id="home">
 
-        <div>
+        <div class="hero-content">
+
             <h1>
-                Connect. <span>Donate.</span><br>
+                Connect.
+                <span>Donate.</span>
+                <br>
                 Make a Difference.
             </h1>
 
             <p>
-                ReConnect brings donors, verified NGOs, volunteers
-                and college communities together to create meaningful
-                social impact.
+                ReConnect brings donors, NGOs, volunteers
+                and college communities together to create
+                meaningful social impact.
             </p>
 
-            <div class="buttons">
-                <a href="#how" class="btn primary">🤝 Find Opportunities</a>
 
-                <a href="#volunteer" class="btn secondary">
+            <div class="buttons">
+
+                <!-- THIS OPENS NGO PAGE -->
+
+                <a
+                    href="ngos.html"
+                    class="btn primary"
+                >
+                    🤝 Find NGOs
+                </a>
+
+
+                <a
+                    href="#volunteer"
+                    class="btn secondary"
+                >
                     🙋 Become a Volunteer
                 </a>
+
             </div>
+
         </div>
 
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- ================= ABOUT ================= -->
+
     <section id="about">
 
-        <h2>Why ReConnect?</h2>
+        <h2>
+            Why ReConnect?
+        </h2>
 
         <p class="subtitle">
             Making giving easier, safer and more meaningful.
         </p>
 
+
         <div class="cards">
 
-            <div class="card">
-                <div class="icon">🤝</div>
-                <h3>Connect</h3>
-                <p>
-                    Connect donors and volunteers with verified NGOs
-                    based on real community needs.
-                </p>
-            </div>
 
             <div class="card">
-                <div class="icon">💝</div>
-                <h3>Contribute</h3>
+
+                <div class="icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Connect
+                </h3>
+
                 <p>
-                    Donate money, useful items or your valuable time
-                    to causes that matter.
+                    Connect donors and volunteers with
+                    NGOs based on real community needs.
                 </p>
+
             </div>
 
+
             <div class="card">
-                <div class="icon">🌍</div>
-                <h3>Create Impact</h3>
+
+                <div class="icon">
+                    💝
+                </div>
+
+                <h3>
+                    Contribute
+                </h3>
+
                 <p>
-                    Track how your contribution helps people,
-                    communities and the environment.
+                    Donate money, useful items or your
+                    valuable time to causes that matter.
                 </p>
+
             </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🌍
+                </div>
+
+                <h3>
+                    Create Impact
+                </h3>
+
+                <p>
+                    Track how your contribution helps
+                    people, communities and the environment.
+                </p>
+
+            </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- IMPACT -->
+    <!-- ================= IMPACT ================= -->
+
     <section class="impact">
 
-        <h2>Our Growing Impact</h2>
+        <h2>
+            Our Growing Impact
+        </h2>
+
 
         <div class="impact-grid">
 
-            <div class="impact-box">
-                <h3>311+</h3>
-                <p>NGOs Connected</p>
-            </div>
 
             <div class="impact-box">
-                <h3>100+</h3>
-                <p>Volunteer Opportunities</p>
+
+                <h3>
+                    311+
+                </h3>
+
+                <p>
+                    NGOs in Directory
+                </p>
+
             </div>
 
+
             <div class="impact-box">
-                <h3>♻️</h3>
-                <p>Promoting Reuse & Recycling</p>
+
+                <h3>
+                    100+
+                </h3>
+
+                <p>
+                    Volunteer Opportunities
+                </p>
+
             </div>
+
+
+            <div class="impact-box">
+
+                <h3>
+                    ♻️
+                </h3>
+
+                <p>
+                    Promoting Reuse & Recycling
+                </p>
+
+            </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- HOW IT WORKS -->
+    <!-- ================= HOW IT WORKS ================= -->
+
     <section id="how">
 
-        <h2>How ReConnect Works</h2>
+        <h2>
+            How ReConnect Works
+        </h2>
 
         <p class="subtitle">
             Four simple steps to make your contribution count.
         </p>
 
+
         <div class="cards">
 
-            <div class="card">
-                <div class="icon">🔎</div>
-                <h3>1. Find</h3>
-                <p>
-                    Discover verified NGOs and their current requirements.
-                </p>
-            </div>
 
             <div class="card">
-                <div class="icon">❤️</div>
-                <h3>2. Choose</h3>
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <div class="icon">
+                    🔎
+                </div>
+
+                <h3>
+                    Find
+                </h3>
+
                 <p>
-                    Select a cause, donation or volunteer opportunity
-                    that interests you.
+                    Discover NGOs and their current
+                    requirements.
                 </p>
+
             </div>
 
+
             <div class="card">
-                <div class="icon">🎁</div>
-                <h3>3. Contribute</h3>
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <div class="icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    Choose
+                </h3>
+
                 <p>
-                    Donate items, money or your time to support the cause.
+                    Select a cause or volunteering
+                    opportunity that interests you.
                 </p>
+
             </div>
+
+
+            <div class="card">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <div class="icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Contribute
+                </h3>
+
+                <p>
+                    Donate items, money or your
+                    valuable time.
+                </p>
+
+            </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- VOLUNTEER -->
-    <section id="volunteer">
+    <!-- ================= VOLUNTEER ================= -->
 
-        <h2>Be Part of the Change</h2>
+    <section
+        id="volunteer"
+        class="volunteer-section"
+    >
+
+        <h2>
+            Be Part of the Change
+        </h2>
 
         <p class="subtitle">
             There are many ways you can contribute.
         </p>
 
+
         <div class="cards">
 
-            <div class="card">
-                <div class="icon">🙋</div>
-                <h3>Volunteer</h3>
-                <p>
-                    Find volunteering opportunities and contribute
-                    your skills and time.
-                </p>
-            </div>
 
             <div class="card">
-                <div class="icon">🎓</div>
-                <h3>College Clubs</h3>
+
+                <div class="icon">
+                    🙋
+                </div>
+
+                <h3>
+                    Volunteer
+                </h3>
+
                 <p>
-                    Connect student communities with NGOs and
-                    social initiatives.
+                    Find volunteering opportunities
+                    and contribute your skills and time.
                 </p>
+
             </div>
 
+
             <div class="card">
-                <div class="icon">♻️</div>
-                <h3>Reuse & Recycle</h3>
+
+                <div class="icon">
+                    🎓
+                </div>
+
+                <h3>
+                    College Clubs
+                </h3>
+
                 <p>
-                    Give useful items a second life instead of
-                    sending them to waste.
+                    Connect student communities with
+                    NGOs and social initiatives.
                 </p>
+
             </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    ♻️
+                </div>
+
+                <h3>
+                    Reuse & Recycle
+                </h3>
+
+                <p>
+                    Give useful items a second life
+                    instead of sending them to waste.
+                </p>
+
+            </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- CTA -->
+    <!-- ================= CTA ================= -->
+
     <div class="cta">
 
-        <h2>Ready to Make an Impact?</h2>
+        <h2>
+            Ready to Make an Impact?
+        </h2>
 
         <p>
             Your small contribution can create a big difference.
         </p>
 
+
         <br>
 
-        <a href="#volunteer" class="btn">
-            Join ReConnect 🌱
+
+        <a
+            href="ngos.html"
+            class="btn"
+        >
+            Explore NGOs 🌱
         </a>
 
     </div>
 
 
-    <!-- CONTACT -->
+    <!-- ================= CONTACT ================= -->
+
     <section id="contact">
 
-        <h2>Contact ReConnect</h2>
+        <h2>
+            Contact ReConnect
+        </h2>
 
         <p class="subtitle">
             Have a question or want to partner with us?
         </p>
 
-        <p>
-            📧 reconnect@example.com
-        </p>
+
+        <div class="contact-box">
+
+            <p>
+                📧 reconnect@example.com
+            </p>
+
+            <p>
+                🤝 Want to partner with ReConnect?
+            </p>
+
+            <p>
+                🌱 Together we can create meaningful impact.
+            </p>
+
+        </div>
 
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- ================= FOOTER ================= -->
+
     <footer>
 
-        <p>© 2026 ReConnect | Connect. Donate. Make a Difference. 🌱</p>
+        <p>
+            © 2026 ReConnect |
+            Connect. Donate. Make a Difference. 🌱
+        </p>
 
     </footer>
 
+
 </body>
+
 </html>
