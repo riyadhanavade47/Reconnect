@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | ReConnect</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #eaf6f0, #f7fbf8);
+            color: #26382f;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #176b4d;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #176b4d;
+        }
+
+        .home-btn {
+            background: #176b4d;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 20px;
+        }
+
+        /* MAIN */
+
+        .main {
+            min-height: calc(100vh - 75px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+
+        /* LEFT SIDE */
+
+        .welcome-section {
+            background: linear-gradient(135deg, #176b4d, #48a878);
+            color: white;
+            padding: 55px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .welcome-icon {
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .welcome-section p {
+            line-height: 1.7;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .role-list {
+            list-style: none;
+        }
+
+        .role-list li {
+            margin: 14px 0;
+            font-size: 16px;
+        }
+
+        /* LOGIN SIDE */
+
+        .login-section {
+            padding: 50px 45px;
+        }
+
+        .login-section h2 {
+            color: #176b4d;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #68736d;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* TABS */
+
+        .tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #d9e2dd;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-weight: bold;
+            color: #6b746f;
+            font-size: 15px;
+        }
+
+        .tab.active {
+            color: #176b4d;
+            border-bottom: 3px solid #176b4d;
+        }
+
+        /* FORM */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #34463d;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd8d1;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #176b4d;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            background: #176b4d;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .login-button:hover {
+            background: #0f5139;
+        }
+
+        /* REGISTER */
+
+        .register-text {
+            text-align: center;
+            margin-top: 25px;
+            color: #68736d;
+        }
+
+        .register-link {
+            color: #176b4d;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* CREATE ACCOUNT */
+
+        #registerForm {
+            display: none;
+        }
+
+        .back-login {
+            margin-top: 18px;
+            text-align: center;
+        }
+
+        .back-login button {
+            border: none;
+            background: none;
+            color: #176b4d;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* SUCCESS / ERROR */
+
+        .message {
+            display: none;
+            margin-top: 18px;
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.5;
+        }
+
+        .success {
+            background: #e1f5e9;
+            border-left: 5px solid #176b4d;
+            color: #24543e;
+        }
+
+        .error {
+            background: #ffeaea;
+            border-left: 5px solid #c0392b;
+            color: #8b2e26;
+        }
+
+        /* DEMO NOTE */
+
+        .demo-note {
+            margin-top: 22px;
+            padding: 13px;
+            background: #fff8df;
+            border-radius: 9px;
+            color: #665522;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #123f30;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .login-container {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-section {
+                padding: 40px 30px;
+            }
+
+            .login-section {
+                padding: 40px 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        🌱 ReConnect
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="ngos.html">Find NGOs</a>
+        </li>
+
+        <li>
+            <a href="donate.html">Donate</a>
+        </li>
+
+        <li>
+            <a href="college.html">College/NSS</a>
+        </li>
+
+        <li>
+            <a href="reuse.html">Reuse & Recycle</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- MAIN -->
+
+<section class="main">
+
+    <div class="login-container">
+
+
+        <!-- LEFT -->
+
+        <div class="welcome-section">
+
+            <div class="welcome-icon">
+                🌱
+            </div>
+
+            <h1>
+                Welcome to ReConnect
+            </h1>
+
+            <p>
+                One platform connecting people,
+                NGOs and student communities
+                to create meaningful social impact.
+            </p>
+
+
+            <ul class="role-list">
+
+                <li>
+                    👤 <strong>Donor</strong> — Donate money or useful items
+                </li>
+
+                <li>
+                    🏢 <strong>NGO</strong> — Manage needs and donations
+                </li>
+
+                <li>
+                    🎓 <strong>College/NSS</strong> — Organize community activities
+                </li>
+
+                <li>
+                    🛠️ <strong>Admin</strong> — Manage and verify the platform
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="login-section">
+
+
+            <!-- LOGIN -->
+
+            <div id="loginForm">
+
+                <h2>
+                    Login
+                </h2>
+
+                <p class="subtitle">
+                    Sign in to continue to your ReConnect account.
+                </p>
+
+
+                <div class="tabs">
+
+                    <button
+                        class="tab active"
+                        onclick="selectRole('Donor', this)">
+                        👤 Donor
+                    </button>
+
+                    <button
+                        class="tab"
+                        onclick="selectRole('NGO', this)">
+                        🏢 NGO
+                    </button>
+
+                    <button
+                        class="tab"
+                        onclick="selectRole('College/NSS', this)">
+                        🎓 College
+                    </button>
+
+                    <button
+                        class="tab"
+                        onclick="selectRole('Admin', this)">
+                        🛠️ Admin
+                    </button>
+
+                </div>
+
+
+                <form id="loginFormElement">
+
+                    <div class="form-group">
+
+                        <label>
+                            Login As
+                        </label>
+
+                        <select id="loginRole">
+
+                            <option value="Donor">
+                                👤 Donor
+                            </option>
+
+                            <option value="NGO">
+                                🏢 NGO
+                            </option>
+
+                            <option value="College/NSS">
+                                🎓 College/NSS
+                            </option>
+
+                            <option value="Admin">
+                                🛠️ Admin
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-button">
+
+                        Login
+
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="loginMessage"
+                    class="message">
+                </div>
+
+
+                <p class="register-text">
+
+                    Don't have an account?
+
+                    <a
+                        class="register-link"
+                        onclick="showRegister()">
+
+                        Create Account
+
+                    </a>
+
+                </p>
+
+
+                <div class="demo-note">
+
+                    <strong>ℹ️ Prototype Note:</strong>
+                    This login system is currently a frontend
+                    demonstration using browser storage.
+                    A real project would use secure authentication
+                    and a backend database.
+
+                </div>
+
+            </div>
+
+
+            <!-- REGISTER -->
+
+            <div id="registerForm">
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <p class="subtitle">
+                    Create your ReConnect account and select your role.
+                </p>
+
+
+                <form id="registerFormElement">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            placeholder="Enter your full name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Contact Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="registerContact"
+                            placeholder="Enter contact number"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Account Type
+                        </label>
+
+                        <select id="registerRole" required>
+
+                            <option value="">
+                                Select role
+                            </option>
+
+                            <option value="Donor">
+                                👤 Donor
+                            </option>
+
+                            <option value="NGO">
+                                🏢 NGO
+                            </option>
+
+                            <option value="College/NSS">
+                                🎓 College/NSS
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Create password"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-button">
+
+                        Create Account
+
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="registerMessage"
+                    class="message">
+                </div>
+
+
+                <div class="back-login">
+
+                    <button onclick="showLogin()">
+
+                        ← Back to Login
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        🌱 <strong>ReConnect</strong>
+    </p>
+
+    <p>
+        Connecting people, NGOs and student communities.
+    </p>
+
+</footer>
+
+
+<script>
+
+
+/* SELECT ROLE */
+
+function selectRole(role, button) {
+
+    document.getElementById("loginRole").value = role;
+
+
+    const tabs =
+        document.querySelectorAll(".tab");
+
+
+    tabs.forEach(function(tab) {
+
+        tab.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+}
+
+
+/* SHOW REGISTER */
+
+function showRegister() {
+
+    document.getElementById("loginForm").style.display =
+        "none";
+
+    document.getElementById("registerForm").style.display =
+        "block";
+
+}
+
+
+/* SHOW LOGIN */
+
+function showLogin() {
+
+    document.getElementById("registerForm").style.display =
+        "none";
+
+    document.getElementById("loginForm").style.display =
+        "block";
+
+}
+
+
+/* CREATE ACCOUNT */
+
+document
+    .getElementById("registerFormElement")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("registerName").value;
+
+        const email =
+            document.getElementById("registerEmail").value;
+
+        const contact =
+            document.getElementById("registerContact").value;
+
+        const role =
+            document.getElementById("registerRole").value;
+
+        const password =
+            document.getElementById("registerPassword").value;
+
+
+        let users =
+            JSON.parse(
+                localStorage.getItem(
+                    "reconnectUsers"
+                )
+            ) || [];
+
+
+        const existingUser =
+            users.find(function(user) {
+
+                return user.email.toLowerCase() ===
+                    email.toLowerCase();
+
+            });
+
+
+        if (existingUser) {
+
+            showMessage(
+                "registerMessage",
+                "An account with this email already exists.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const user = {
+
+            userId:
+                "RC-USER-" +
+                Math.floor(
+                    100000 +
+                    Math.random() * 900000
+                ),
+
+            name: name,
+
+            email: email,
+
+            contact: contact,
+
+            role: role,
+
+            password: password,
+
+            createdAt:
+                new Date().toISOString()
+
+        };
+
+
+        users.push(user);
+
+
+        localStorage.setItem(
+            "reconnectUsers",
+            JSON.stringify(users)
+        );
+
+
+        showMessage(
+            "registerMessage",
+
+            "🎉 Account created successfully! " +
+            "You can now return to Login and sign in.",
+
+            "success"
+        );
+
+
+        document
+            .getElementById("registerFormElement")
+            .reset();
+
+    });
+
+
+/* LOGIN */
+
+document
+    .getElementById("loginFormElement")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("loginEmail").value;
+
+        const password =
+            document.getElementById("loginPassword").value;
+
+        const role =
+            document.getElementById("loginRole").value;
+
+
+        let users =
+            JSON.parse(
+                localStorage.getItem(
+                    "reconnectUsers"
+                )
+            ) || [];
+
+
+        /*
+            DEMO ADMIN ACCOUNT
+        */
+
+        if (
+            role === "Admin" &&
+            email === "admin@reconnect.com" &&
+            password === "admin123"
+        ) {
+
+            localStorage.setItem(
+                "reconnectLoggedInUser",
+                JSON.stringify({
+                    name: "ReConnect Admin",
+                    email: email,
+                    role: "Admin"
+                })
+            );
+
+
+            showMessage(
+                "loginMessage",
+                "✅ Admin login successful! Redirecting...",
+                "success"
+            );
+
+
+            setTimeout(function() {
+
+                window.location.href =
+                    "ngo-donations.html";
+
+            }, 1000);
+
+
+            return;
+
+        }
+
+
+        const user =
+            users.find(function(account) {
+
+                return (
+                    account.email.toLowerCase() ===
+                    email.toLowerCase() &&
+
+                    account.password ===
+                    password &&
+
+                    account.role ===
+                    role
+                );
+
+            });
+
+
+        if (!user) {
+
+            showMessage(
+                "loginMessage",
+                "❌ Invalid email, password or account type.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        localStorage.setItem(
+            "reconnectLoggedInUser",
+            JSON.stringify(user)
+        );
+
+
+        showMessage(
+            "loginMessage",
+            "✅ Login successful! Welcome " +
+            user.name +
+            ".",
+            "success"
+        );
+
+
+        /*
+            CURRENT PROTOTYPE ROUTING
+        */
+
+        setTimeout(function() {
+
+            if (user.role === "NGO") {
+
+                window.location.href =
+                    "ngo-donations.html";
+
+            }
+
+            else if (user.role === "College/NSS") {
+
+                window.location.href =
+                    "college.html";
+
+            }
+
+            else {
+
+                window.location.href =
+                    "index.html";
+
+            }
+
+        }, 1000);
+
+    });
+
+
+/* MESSAGE FUNCTION */
+
+function showMessage(id, text, type) {
+
+    const message =
+        document.getElementById(id);
+
+
+    message.style.display =
+        "block";
+
+
+    message.className =
+        "message " + type;
+
+
+    message.innerHTML =
+        text;
+
+}
+
+</script>
+
+
+</body>
+
+</html>
