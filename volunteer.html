@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Volunteer Opportunities | ReConnect</title>
+    <title>Volunteer | ReConnect</title>
 
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #f4faf6;
+            font-family: Arial, sans-serif;
+            background: #f5faf7;
             color: #24352d;
         }
 
-        /* ================= NAVBAR ================= */
-
+        /* NAVBAR */
         nav {
             background: white;
-            padding: 16px 6%;
+            padding: 18px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,13 +41,13 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
         }
 
         nav a {
             text-decoration: none;
-            color: #34443c;
+            color: #333;
             font-weight: 600;
         }
 
@@ -56,246 +55,256 @@
             color: #176b4d;
         }
 
-        .active {
-            color: #176b4d !important;
-        }
-
-        .register-btn {
+        .donate-btn {
             background: #176b4d;
             color: white !important;
-            padding: 10px 17px;
+            padding: 10px 18px;
             border-radius: 25px;
         }
 
-        /* ================= HERO ================= */
-
+        /* HERO */
         .hero {
-            background: linear-gradient(135deg, #176b4d, #3d9b70);
-            color: white;
-            padding: 65px 20px;
+            padding: 70px 8%;
             text-align: center;
+            background: linear-gradient(135deg, #e8f7ef, #f8fffb);
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 45px;
+            color: #176b4d;
             margin-bottom: 15px;
         }
 
         .hero p {
             max-width: 750px;
             margin: auto;
-            font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 17px;
+            color: #52635a;
         }
 
-        /* ================= CONTAINER ================= */
-
-        .container {
-            max-width: 1150px;
+        /* FILTER SECTION */
+        .filter-section {
+            width: 86%;
+            max-width: 1100px;
             margin: 45px auto;
-            padding: 0 20px;
-        }
-
-        /* ================= FILTER ================= */
-
-        .filter-box {
             background: white;
-            padding: 25px;
-            border-radius: 18px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
         }
 
-        .filter-box h2 {
+        .filter-section h2 {
             color: #176b4d;
             margin-bottom: 8px;
         }
 
-        .filter-box p {
-            color: #68756f;
-            margin-bottom: 18px;
+        .filter-section p {
+            color: #66756d;
+            margin-bottom: 25px;
         }
 
-        .filter-row {
+        .filters {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
-        .filter-group label {
+        .filter-box label {
             display: block;
             font-weight: bold;
             margin-bottom: 8px;
         }
 
-        select,
-        input {
+        select {
             width: 100%;
-            padding: 13px;
-            border: 1px solid #d3ddd7;
+            padding: 14px;
+            border: 1px solid #ccd9d2;
             border-radius: 10px;
+            background: white;
             font-size: 15px;
-            background: #fbfdfc;
-            outline: none;
+            cursor: pointer;
         }
 
-        select:focus,
-        input:focus {
-            border-color: #176b4d;
-            box-shadow: 0 0 0 3px rgba(23,107,77,0.1);
+        select:focus {
+            outline: 2px solid #8bc9aa;
         }
 
-        /* ================= TITLE ================= */
+        /* OPPORTUNITIES */
+        .opportunities {
+            width: 86%;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
 
         .section-title {
             text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
 
         .section-title h2 {
+            font-size: 32px;
             color: #176b4d;
-            font-size: 30px;
             margin-bottom: 8px;
         }
 
         .section-title p {
-            color: #68756f;
+            color: #68766f;
         }
 
-        /* ================= CARDS ================= */
-
-        .activity-grid {
+        .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            gap: 25px;
         }
 
-        .activity-card {
+        .card {
             background: white;
             border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
             transition: 0.3s;
+            border: 1px solid #edf2ef;
         }
 
-        .activity-card:hover {
+        .card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 10px 28px rgba(0,0,0,0.12);
-        }
-
-        .activity-icon {
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #e8f5ed;
-            font-size: 65px;
-        }
-
-        .activity-content {
-            padding: 22px;
-        }
-
-        .activity-content h3 {
-            color: #176b4d;
-            font-size: 21px;
-            margin-bottom: 10px;
-        }
-
-        .organizer {
-            font-size: 14px;
-            color: #53625a;
-            margin-bottom: 12px;
-            font-weight: bold;
-        }
-
-        .description {
-            color: #66736c;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .details {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 18px;
-        }
-
-        .detail {
-            font-size: 14px;
-            color: #53625a;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
         }
 
         .category {
             display: inline-block;
-            background: #eef7f1;
+            background: #e5f6ec;
             color: #176b4d;
-            padding: 7px 11px;
+            padding: 7px 12px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             margin-bottom: 15px;
         }
 
-        .volunteer-btn {
+        .card h3 {
+            color: #25382f;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .organizer {
+            color: #176b4d;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #68766f;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .details {
+            border-top: 1px solid #e8eee9;
+            padding-top: 15px;
+            margin-bottom: 18px;
+        }
+
+        .details p {
+            margin: 8px 0;
+            color: #4e5d55;
+            font-size: 14px;
+        }
+
+        .join-btn {
             width: 100%;
             border: none;
             background: #176b4d;
             color: white;
             padding: 13px;
-            border-radius: 25px;
+            border-radius: 10px;
             font-size: 15px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        .volunteer-btn:hover {
-            background: #0f563d;
+        .join-btn:hover {
+            background: #0f573d;
         }
 
-        /* ================= NO RESULTS ================= */
-
-        #noResults {
-            display: none;
-            background: white;
+        .no-results {
             text-align: center;
-            padding: 35px;
+            background: white;
+            padding: 45px;
             border-radius: 15px;
-            color: #68756f;
+            color: #66756d;
+            display: none;
         }
 
-        #noResults h3 {
-            color: #176b4d;
-            margin-bottom: 8px;
-        }
-
-        /* ================= ORGANIZER SECTION ================= */
-
-        .organizer-section {
-            margin-top: 55px;
-            background: white;
-            padding: 35px;
-            border-radius: 18px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        /* HOW IT WORKS */
+        .how {
+            background: #eaf7f0;
+            padding: 60px 8%;
             text-align: center;
         }
 
-        .organizer-section h2 {
+        .how h2 {
+            color: #176b4d;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .step {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .step-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+            color: #24382f;
+        }
+
+        .step p {
+            color: #68766f;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* ORGANIZATION SECTION */
+        .organization {
+            width: 86%;
+            max-width: 1000px;
+            margin: 55px auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+        }
+
+        .organization h2 {
             color: #176b4d;
             margin-bottom: 12px;
         }
 
-        .organizer-section p {
-            color: #68756f;
+        .organization p {
+            color: #68766f;
             line-height: 1.6;
-            max-width: 700px;
-            margin: auto;
+            margin-bottom: 20px;
         }
 
-        .add-opportunity-btn {
-            margin-top: 20px;
+        .register-btn {
             display: inline-block;
             background: #176b4d;
             color: white;
@@ -305,106 +314,50 @@
             font-weight: bold;
         }
 
-        /* ================= HOW IT WORKS ================= */
-
-        .info-section {
-            background: white;
-            border-radius: 18px;
-            padding: 35px;
-            margin-top: 35px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-        }
-
-        .info-section h2 {
-            color: #176b4d;
-            margin-bottom: 10px;
-        }
-
-        .info-section > p {
-            color: #68756f;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .step {
-            text-align: center;
-            padding: 15px;
-        }
-
-        .step-icon {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .step h3 {
-            color: #176b4d;
-            margin-bottom: 7px;
-        }
-
-        .step p {
-            color: #68756f;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        /* ================= MODAL ================= */
-
+        /* MODAL */
         .modal {
             display: none;
             position: fixed;
-            z-index: 500;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: rgba(0,0,0,0.45);
-            overflow-y: auto;
-            padding: 25px 15px;
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .modal-content {
             background: white;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
+            width: 100%;
+            max-width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
             border-radius: 20px;
+            padding: 30px;
             position: relative;
         }
 
         .close {
             position: absolute;
             right: 20px;
-            top: 12px;
-            font-size: 30px;
+            top: 15px;
+            font-size: 28px;
             cursor: pointer;
-            color: #68756f;
-        }
-
-        .close:hover {
-            color: #176b4d;
+            color: #555;
         }
 
         .modal-content h2 {
             color: #176b4d;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
 
-        .selected-activity {
-            background: #eef8f2;
-            padding: 15px;
-            border-radius: 10px;
-            color: #176b4d;
-            font-weight: bold;
-            margin-bottom: 20px;
+        .modal-content .subtitle {
+            color: #68766f;
+            margin-bottom: 22px;
         }
 
         .form-group {
-            margin-bottom: 17px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
@@ -413,69 +366,67 @@
             margin-bottom: 7px;
         }
 
-        textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            min-height: 90px;
             padding: 12px;
-            border: 1px solid #d3ddd7;
-            border-radius: 10px;
-            resize: vertical;
-            outline: none;
-            font-size: 15px;
+            border: 1px solid #ccd9d2;
+            border-radius: 9px;
+            font-size: 14px;
         }
 
-        textarea:focus {
-            border-color: #176b4d;
+        .form-group textarea {
+            min-height: 90px;
+            resize: vertical;
         }
 
         .submit-btn {
             width: 100%;
-            border: none;
             background: #176b4d;
             color: white;
+            border: none;
             padding: 14px;
-            border-radius: 25px;
-            font-size: 16px;
+            border-radius: 10px;
             font-weight: bold;
+            font-size: 15px;
             cursor: pointer;
-        }
-
-        .submit-btn:hover {
-            background: #0f563d;
+            margin-top: 5px;
         }
 
         .success {
             display: none;
-            background: #e8f7ee;
-            border: 1px solid #a9d9bb;
+            background: #e6f7ed;
             color: #176b4d;
             padding: 18px;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: center;
+            border-radius: 12px;
+            margin-top: 18px;
+            line-height: 1.6;
         }
 
-        /* ================= FOOTER ================= */
-
+        /* FOOTER */
         footer {
-            background: #123d2d;
+            background: #123f30;
             color: white;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 55px;
+            padding: 25px;
         }
 
         footer p {
-            margin-top: 7px;
-            color: #d5e7de;
+            opacity: 0.85;
         }
 
-        /* ================= MOBILE ================= */
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            nav ul {
+                gap: 12px;
+            }
 
-        @media (max-width: 950px) {
-
-            .activity-grid {
+            .cards {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filters {
+                grid-template-columns: 1fr;
             }
 
             .steps {
@@ -483,8 +434,7 @@
             }
         }
 
-        @media (max-width: 700px) {
-
+        @media (max-width: 650px) {
             nav {
                 flex-direction: column;
                 gap: 15px;
@@ -493,23 +443,24 @@
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 12px;
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 34px;
             }
 
-            .filter-row {
-                grid-template-columns: 1fr;
-            }
-
-            .activity-grid {
+            .cards {
                 grid-template-columns: 1fr;
             }
 
             .steps {
                 grid-template-columns: 1fr;
+            }
+
+            .filter-section,
+            .opportunities,
+            .organization {
+                width: 92%;
             }
         }
     </style>
@@ -517,1264 +468,779 @@
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
+<!-- NAVBAR -->
 <nav>
-
-    <div class="logo">
-        🌱 ReConnect
-    </div>
+    <div class="logo">🌱 ReConnect</div>
 
     <ul>
-
-        <li>
-            <a href="index.html">
-                Home
-            </a>
-        </li>
-
-        <li>
-            <a href="ngos.html">
-                Find NGOs
-            </a>
-        </li>
-
-        <li>
-            <a href="donate.html">
-                Donate
-            </a>
-        </li>
-
-        <li>
-            <a href="volunteer.html" class="active">
-                Volunteer
-            </a>
-        </li>
-
-        <li>
-            <a href="reuse.html">
-                Reuse & Recycle
-            </a>
-        </li>
-
-        <li>
-            <a href="ngo-register.html" class="register-btn">
-                Register NGO
-            </a>
-        </li>
-
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ngos.html">Find NGOs</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="reuse.html">Reuse & Recycle</a></li>
+        <li><a href="login.html" class="donate-btn">Login</a></li>
     </ul>
-
 </nav>
 
 
-<!-- ================= HERO ================= -->
-
+<!-- HERO -->
 <section class="hero">
-
     <h1>🤝 Volunteer & Make a Difference</h1>
 
     <p>
-        Find meaningful volunteer opportunities organized by
-        NGOs, government organizations and college clubs.
-        Choose an activity and contribute your time to the community.
+        Find volunteering opportunities based on your interests,
+        location and the type of activity you would like to participate in.
+        From environmental drives to community service, choose where
+        you want to contribute.
     </p>
+</section>
+
+
+<!-- FILTERS -->
+<section class="filter-section">
+
+    <h2>🔎 Find Opportunities That Match Your Interest</h2>
+
+    <p>
+        Select your area of interest and location to find suitable
+        volunteering opportunities.
+    </p>
+
+    <div class="filters">
+
+        <!-- INTEREST -->
+        <div class="filter-box">
+            <label>🌱 What are you interested in?</label>
+
+            <select id="interestFilter" onchange="filterOpportunities()">
+
+                <option value="all">All Interests</option>
+
+                <option value="environment">
+                    🌱 Environment & Nature
+                </option>
+
+                <option value="beach">
+                    🏖️ Beach Cleaning
+                </option>
+
+                <option value="walkathon">
+                    🚶 Walkathons & Marathons
+                </option>
+
+                <option value="recycling">
+                    ♻️ Recycling & Waste Management
+                </option>
+
+                <option value="education">
+                    📚 Education & Teaching
+                </option>
+
+                <option value="child">
+                    👶 Child Welfare
+                </option>
+
+                <option value="senior">
+                    👵 Senior Citizen Support
+                </option>
+
+                <option value="women">
+                    👩 Women Empowerment
+                </option>
+
+                <option value="healthcare">
+                    🏥 Healthcare
+                </option>
+
+                <option value="blood">
+                    🩸 Blood Donation
+                </option>
+
+                <option value="food">
+                    🍱 Food & Community Support
+                </option>
+
+                <option value="disaster">
+                    🚨 Disaster & Relief
+                </option>
+
+                <option value="animal">
+                    🐾 Animal Welfare
+                </option>
+
+                <option value="awareness">
+                    📢 Awareness & Social Campaigns
+                </option>
+
+                <option value="college">
+                    🎓 College / NSS Activities
+                </option>
+
+                <option value="government">
+                    🏛️ Government Campaigns
+                </option>
+
+                <option value="ngo">
+                    🤝 NGO Activities
+                </option>
+
+                <option value="community">
+                    🧑‍🤝‍🧑 Community Service
+                </option>
+
+                <option value="other">
+                    📌 Other
+                </option>
+
+            </select>
+        </div>
+
+
+        <!-- LOCATION -->
+        <div class="filter-box">
+            <label>📍 Select Location</label>
+
+            <select id="locationFilter" onchange="filterOpportunities()">
+
+                <option value="all">All Locations</option>
+
+                <option value="mumbai">Mumbai</option>
+
+                <option value="thane">Thane</option>
+
+                <option value="navi-mumbai">Navi Mumbai</option>
+
+                <option value="pune">Pune</option>
+
+                <option value="maharashtra">Maharashtra</option>
+
+                <option value="other">Other</option>
+
+            </select>
+        </div>
+
+
+        <!-- ORGANIZER -->
+        <div class="filter-box">
+            <label>🏛️ Organized By</label>
+
+            <select id="organizerFilter" onchange="filterOpportunities()">
+
+                <option value="all">All Organizations</option>
+
+                <option value="government">
+                    Government Organization
+                </option>
+
+                <option value="ngo">
+                    NGO
+                </option>
+
+                <option value="college">
+                    College / NSS Club
+                </option>
+
+            </select>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- OPPORTUNITIES -->
+<section class="opportunities">
+
+    <div class="section-title">
+
+        <h2>🌟 Volunteer Opportunities</h2>
+
+        <p>
+            Choose an activity that matches your interest and join the cause.
+        </p>
+
+    </div>
+
+
+    <div class="cards" id="opportunityContainer">
+
+
+        <!-- 1 -->
+        <div class="card"
+             data-interests="environment beach ngo community"
+             data-location="mumbai"
+             data-organizer="ngo">
+
+            <span class="category">🏖️ Environment & Nature</span>
+
+            <h3>Beach Cleaning Drive</h3>
+
+            <div class="organizer">
+                🤝 NGO Activity
+            </div>
+
+            <p class="description">
+                Participate in a community beach cleaning activity
+                and help keep public spaces clean.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Mumbai</p>
+                <p>👥 Volunteers Needed: 40</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Beach Cleaning Drive')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 2 -->
+        <div class="card"
+             data-interests="environment ngo"
+             data-location="mumbai"
+             data-organizer="ngo">
+
+            <span class="category">🌳 Environment</span>
+
+            <h3>Tree Plantation Drive</h3>
+
+            <div class="organizer">
+                🤝 NGO Activity
+            </div>
+
+            <p class="description">
+                Take part in a tree plantation initiative and
+                contribute towards a greener environment.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Mumbai</p>
+                <p>👥 Volunteers Needed: 50</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Tree Plantation Drive')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 3 -->
+        <div class="card"
+             data-interests="walkathon healthcare government community"
+             data-location="mumbai"
+             data-organizer="government">
+
+            <span class="category">🚶 Health & Community</span>
+
+            <h3>Community Walkathon</h3>
+
+            <div class="organizer">
+                🏛️ Government Campaign
+            </div>
+
+            <p class="description">
+                Support a community walkathon promoting healthy
+                living and public participation.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Mumbai</p>
+                <p>👥 Volunteers Needed: 60</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Community Walkathon')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 4 -->
+        <div class="card"
+             data-interests="education child college ngo"
+             data-location="mumbai"
+             data-organizer="college">
+
+            <span class="category">📚 Education</span>
+
+            <h3>Teaching Support Drive</h3>
+
+            <div class="organizer">
+                🎓 College / NSS Activity
+            </div>
+
+            <p class="description">
+                Help students with basic learning activities,
+                reading and educational support.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Mumbai</p>
+                <p>👥 Volunteers Needed: 25</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Teaching Support Drive')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 5 -->
+        <div class="card"
+             data-interests="food community ngo"
+             data-location="thane"
+             data-organizer="ngo">
+
+            <span class="category">🍱 Community Support</span>
+
+            <h3>Community Food Distribution</h3>
+
+            <div class="organizer">
+                🤝 NGO Activity
+            </div>
+
+            <p class="description">
+                Assist in organising and distributing food
+                to people in the community.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Thane</p>
+                <p>👥 Volunteers Needed: 30</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Community Food Distribution')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 6 -->
+        <div class="card"
+             data-interests="blood healthcare government"
+             data-location="mumbai"
+             data-organizer="government">
+
+            <span class="category">🩸 Healthcare</span>
+
+            <h3>Blood Donation Camp Support</h3>
+
+            <div class="organizer">
+                🏛️ Government Organization
+            </div>
+
+            <p class="description">
+                Support the organisation of a blood donation
+                awareness and registration camp.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Mumbai</p>
+                <p>👥 Volunteers Needed: 20</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Blood Donation Camp Support')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 7 -->
+        <div class="card"
+             data-interests="disaster community government"
+             data-location="maharashtra"
+             data-organizer="government">
+
+            <span class="category">🚨 Disaster Relief</span>
+
+            <h3>Disaster Relief Support</h3>
+
+            <div class="organizer">
+                🏛️ Government Campaign
+            </div>
+
+            <p class="description">
+                Support community relief activities and
+                assistance during emergency situations.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Maharashtra</p>
+                <p>👥 Volunteers Needed: 35</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Disaster Relief Support')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 8 -->
+        <div class="card"
+             data-interests="college ngo community"
+             data-location="mumbai"
+             data-organizer="college">
+
+            <span class="category">🎓 College / NSS</span>
+
+            <h3>College Donation Drive</h3>
+
+            <div class="organizer">
+                🎓 College / NSS Activity
+            </div>
+
+            <p class="description">
+                Help organise a college donation drive for
+                collecting useful reusable items.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Mumbai</p>
+                <p>👥 Volunteers Needed: 30</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('College Donation Drive')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 9 -->
+        <div class="card"
+             data-interests="awareness women community government"
+             data-location="pune"
+             data-organizer="government">
+
+            <span class="category">📢 Awareness</span>
+
+            <h3>Community Awareness Campaign</h3>
+
+            <div class="organizer">
+                🏛️ Government Campaign
+            </div>
+
+            <p class="description">
+                Participate in awareness activities focused on
+                important community and social issues.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Pune</p>
+                <p>👥 Volunteers Needed: 25</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Community Awareness Campaign')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 10 -->
+        <div class="card"
+             data-interests="animal community ngo"
+             data-location="navi-mumbai"
+             data-organizer="ngo">
+
+            <span class="category">🐾 Animal Welfare</span>
+
+            <h3>Animal Welfare Support</h3>
+
+            <div class="organizer">
+                🤝 NGO Activity
+            </div>
+
+            <p class="description">
+                Support community activities related to animal
+                welfare and responsible care.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Navi Mumbai</p>
+                <p>👥 Volunteers Needed: 20</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Animal Welfare Support')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 11 -->
+        <div class="card"
+             data-interests="recycling environment ngo"
+             data-location="thane"
+             data-organizer="ngo">
+
+            <span class="category">♻️ Recycling</span>
+
+            <h3>Recycling & Collection Drive</h3>
+
+            <div class="organizer">
+                🤝 NGO Activity
+            </div>
+
+            <p class="description">
+                Help collect reusable and recyclable materials
+                and encourage responsible waste management.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Thane</p>
+                <p>👥 Volunteers Needed: 35</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Recycling & Collection Drive')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- 12 -->
+        <div class="card"
+             data-interests="child awareness ngo community"
+             data-location="mumbai"
+             data-organizer="ngo">
+
+            <span class="category">👶 Child Welfare</span>
+
+            <h3>Child Rights Awareness</h3>
+
+            <div class="organizer">
+                🤝 NGO Activity
+            </div>
+
+            <p class="description">
+                Participate in awareness activities promoting
+                child welfare and education.
+            </p>
+
+            <div class="details">
+                <p>📅 Date: To be announced</p>
+                <p>⏰ Time: To be announced</p>
+                <p>📍 Location: Mumbai</p>
+                <p>👥 Volunteers Needed: 25</p>
+                <p>🗓️ Registration: Open</p>
+            </div>
+
+            <button class="join-btn"
+                    onclick="openModal('Child Rights Awareness')">
+                Join Activity →
+            </button>
+
+        </div>
+
+
+        <!-- NO RESULTS -->
+        <div class="no-results" id="noResults">
+
+            <h3>😔 No opportunities found</h3>
+
+            <p>
+                Try selecting another interest, location or organization type.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<div class="container">
+<!-- HOW IT WORKS -->
+<section class="how">
 
+    <h2>💚 How Volunteering Works</h2>
 
-    <!-- ================= FILTER ================= -->
+    <div class="steps">
 
-    <div class="filter-box">
+        <div class="step">
+            <div class="step-icon">🌱</div>
+            <h3>Choose Your Interest</h3>
+            <p>
+                Select the field you are interested in volunteering for.
+            </p>
+        </div>
 
-        <h2>🔎 Find a Volunteer Opportunity</h2>
+        <div class="step">
+            <div class="step-icon">🔎</div>
+            <h3>Find an Opportunity</h3>
+            <p>
+                Explore activities that match your interests and location.
+            </p>
+        </div>
 
-        <p>
-            Select a category or search for a specific opportunity.
-        </p>
+        <div class="step">
+            <div class="step-icon">🤝</div>
+            <h3>Join</h3>
+            <p>
+                Submit your details and register for the activity.
+            </p>
+        </div>
 
-        <div class="filter-row">
-
-            <div class="filter-group">
-
-                <label>
-                    Opportunity Category
-                </label>
-
-                <select
-                    id="categorySelect"
-                    onchange="filterOpportunities()"
-                >
-
-                    <option value="all">
-                        🌟 All Opportunities
-                    </option>
-
-                    <option value="government">
-                        🏛️ Government Campaigns
-                    </option>
-
-                    <option value="ngo">
-                        🤝 NGO Activities
-                    </option>
-
-                    <option value="college">
-                        🎓 College / NSS Activities
-                    </option>
-
-                    <option value="environment">
-                        🌱 Environmental Drives
-                    </option>
-
-                    <option value="health">
-                        🏥 Health & Blood Donation
-                    </option>
-
-                    <option value="education">
-                        📚 Education & Teaching
-                    </option>
-
-                    <option value="relief">
-                        🚨 Disaster & Relief
-                    </option>
-
-                    <option value="community">
-                        🧑‍🤝‍🧑 Community Service
-                    </option>
-
-                    <option value="animal">
-                        🐾 Animal Welfare
-                    </option>
-
-                    <option value="awareness">
-                        📢 Awareness Campaigns
-                    </option>
-
-                    <option value="reuse">
-                        ♻️ Reuse & Recycling
-                    </option>
-
-                    <option value="other">
-                        📌 Other
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="filter-group">
-
-                <label>
-                    Search Opportunity
-                </label>
-
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Example: beach, walkathon, teaching..."
-                    onkeyup="filterOpportunities()"
-                >
-
-            </div>
-
+        <div class="step">
+            <div class="step-icon">❤️</div>
+            <h3>Make an Impact</h3>
+            <p>
+                Participate and contribute your time to a meaningful cause.
+            </p>
         </div>
 
     </div>
 
+</section>
 
-    <!-- ================= TITLE ================= -->
 
-    <div class="section-title">
+<!-- ORGANIZATION -->
+<section class="organization">
 
-        <h2>🌟 Available Opportunities</h2>
+    <h2>🏢 Are You an Organization?</h2>
 
-        <p>
-            Choose an opportunity that interests you and register.
-        </p>
+    <p>
+        NGOs and organizations can register with ReConnect and
+        eventually list volunteering opportunities for volunteers.
+    </p>
 
-    </div>
+    <a href="ngo-register.html" class="register-btn">
+        Register Your NGO →
+    </a>
 
+</section>
 
-    <!-- ================= ACTIVITY CARDS ================= -->
 
-    <div
-        class="activity-grid"
-        id="activityGrid"
-    >
-
-
-        <!-- 1 WALKATHON -->
-
-        <div
-            class="activity-card"
-            data-category="government"
-            data-search="walkathon marathon government health fitness awareness"
-        >
-
-            <div class="activity-icon">
-                🚶
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    🏛️ Government Campaign
-                </span>
-
-                <h3>
-                    Community Walkathon
-                </h3>
-
-                <div class="organizer">
-                    🏛️ Government / Community Organization
-                </div>
-
-                <p class="description">
-                    Participate in a community walkathon promoting
-                    health, fitness and social awareness.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: Morning
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 50+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Community Walkathon')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 2 BEACH CLEANING -->
-
-        <div
-            class="activity-card"
-            data-category="environment"
-            data-search="beach cleaning environment ocean plastic waste government ngo"
-        >
-
-            <div class="activity-icon">
-                🏖️
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    🌱 Environmental Drive
-                </span>
-
-                <h3>
-                    Beach Cleaning Drive
-                </h3>
-
-                <div class="organizer">
-                    🤝 NGO / Community Organization
-                </div>
-
-                <p class="description">
-                    Join a community beach-cleaning activity
-                    and help reduce waste along the coastline.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: Morning
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai Coast
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 40+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Beach Cleaning Drive')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 3 TREE PLANTATION -->
-
-        <div
-            class="activity-card"
-            data-category="environment"
-            data-search="tree plantation environment trees green nature government ngo"
-        >
-
-            <div class="activity-icon">
-                🌳
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    🌱 Environmental Drive
-                </span>
-
-                <h3>
-                    Tree Plantation Drive
-                </h3>
-
-                <div class="organizer">
-                    🤝 NGO / College Club
-                </div>
-
-                <p class="description">
-                    Participate in a plantation activity and
-                    contribute towards a greener environment.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: Morning
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 25+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Tree Plantation Drive')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 4 TEACHING -->
-
-        <div
-            class="activity-card"
-            data-category="education"
-            data-search="teaching education children school students ngo"
-        >
-
-            <div class="activity-icon">
-                📚
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    📚 Education & Teaching
-                </span>
-
-                <h3>
-                    Teaching Support Drive
-                </h3>
-
-                <div class="organizer">
-                    🤝 NGO / College Club
-                </div>
-
-                <p class="description">
-                    Support children with basic education,
-                    reading and learning activities.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: To be announced
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 10+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Teaching Support Drive')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 5 FOOD -->
-
-        <div
-            class="activity-card"
-            data-category="community"
-            data-search="food distribution community food donation ngo"
-        >
-
-            <div class="activity-icon">
-                🍱
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    🧑‍🤝‍🧑 Community Service
-                </span>
-
-                <h3>
-                    Community Food Distribution
-                </h3>
-
-                <div class="organizer">
-                    🤝 NGO / Community Group
-                </div>
-
-                <p class="description">
-                    Help organise and distribute food to
-                    communities that need support.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: To be announced
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 15+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Community Food Distribution')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 6 BLOOD -->
-
-        <div
-            class="activity-card"
-            data-category="health"
-            data-search="blood donation health medical hospital camp"
-        >
-
-            <div class="activity-icon">
-                🩸
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    🏥 Health & Blood Donation
-                </span>
-
-                <h3>
-                    Blood Donation Camp Support
-                </h3>
-
-                <div class="organizer">
-                    🏥 Health Organization / NGO
-                </div>
-
-                <p class="description">
-                    Help with registration, coordination and
-                    general support during a blood donation camp.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: To be announced
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 20+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Blood Donation Camp Support')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 7 DISASTER RELIEF -->
-
-        <div
-            class="activity-card"
-            data-category="relief"
-            data-search="flood disaster relief emergency food supplies distribution"
-        >
-
-            <div class="activity-icon">
-                🚨
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    🚨 Disaster & Relief
-                </span>
-
-                <h3>
-                    Disaster Relief Support
-                </h3>
-
-                <div class="organizer">
-                    🤝 NGO / Relief Organization
-                </div>
-
-                <p class="description">
-                    Assist with organising essential supplies
-                    and supporting affected communities.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: Based on requirement
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: To be announced
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Maharashtra
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 20+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Disaster Relief Support')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 8 COLLEGE -->
-
-        <div
-            class="activity-card"
-            data-category="college"
-            data-search="college nss student donation drive awareness campus"
-        >
-
-            <div class="activity-icon">
-                🎓
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    🎓 College / NSS Activity
-                </span>
-
-                <h3>
-                    College Donation Drive
-                </h3>
-
-                <div class="organizer">
-                    🎓 College / NSS Club
-                </div>
-
-                <p class="description">
-                    Participate in a student-led donation drive
-                    collecting useful items for communities in need.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: To be announced
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 30+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('College Donation Drive')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 9 AWARENESS -->
-
-        <div
-            class="activity-card"
-            data-category="awareness"
-            data-search="awareness campaign child rights women road safety social"
-        >
-
-            <div class="activity-icon">
-                📢
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    📢 Awareness Campaign
-                </span>
-
-                <h3>
-                    Community Awareness Campaign
-                </h3>
-
-                <div class="organizer">
-                    🤝 NGO / Community Organization
-                </div>
-
-                <p class="description">
-                    Participate in awareness activities that
-                    educate communities about important social issues.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: To be announced
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 15+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Community Awareness Campaign')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 10 ANIMAL -->
-
-        <div
-            class="activity-card"
-            data-category="animal"
-            data-search="animal welfare dogs cats animals shelter rescue ngo"
-        >
-
-            <div class="activity-icon">
-                🐾
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    🐾 Animal Welfare
-                </span>
-
-                <h3>
-                    Animal Welfare Support
-                </h3>
-
-                <div class="organizer">
-                    🤝 Animal Welfare Organization
-                </div>
-
-                <p class="description">
-                    Support animal welfare activities organised
-                    by participating organisations.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: To be announced
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 10+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Animal Welfare Support')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 11 RECYCLING -->
-
-        <div
-            class="activity-card"
-            data-category="reuse"
-            data-search="recycling reuse waste clothes plastic collection donation"
-        >
-
-            <div class="activity-icon">
-                ♻️
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    ♻️ Reuse & Recycling
-                </span>
-
-                <h3>
-                    Recycling & Collection Drive
-                </h3>
-
-                <div class="organizer">
-                    🤝 NGO / Recycling Partner
-                </div>
-
-                <p class="description">
-                    Help collect and sort reusable materials
-                    and recyclable items.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: To be announced
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 15+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Recycling & Collection Drive')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- 12 CHILD RIGHTS -->
-
-        <div
-            class="activity-card"
-            data-category="ngo"
-            data-search="child rights children welfare education ngo social"
-        >
-
-            <div class="activity-icon">
-                🧒
-            </div>
-
-            <div class="activity-content">
-
-                <span class="category">
-                    🤝 NGO Activity
-                </span>
-
-                <h3>
-                    Child Rights Awareness
-                </h3>
-
-                <div class="organizer">
-                    🤝 NGO / Social Organization
-                </div>
-
-                <p class="description">
-                    Participate in activities focused on
-                    children's rights, education and awareness.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        📅 Date: To be announced
-                    </div>
-
-                    <div class="detail">
-                        ⏰ Time: To be announced
-                    </div>
-
-                    <div class="detail">
-                        📍 Location: Mumbai
-                    </div>
-
-                    <div class="detail">
-                        👥 Volunteers Needed: 8+
-                    </div>
-
-                    <div class="detail">
-                        📌 Registration Deadline: To be announced
-                    </div>
-
-                </div>
-
-                <button
-                    class="volunteer-btn"
-                    onclick="openVolunteerForm('Child Rights Awareness')"
-                >
-                    Join Activity →
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- NO RESULTS -->
-
-    <div id="noResults">
-
-        <h3>
-            😕 No opportunities found
-        </h3>
-
-        <p>
-            Try selecting another category or using a different search term.
-        </p>
-
-    </div>
-
-
-    <!-- ================= ORGANIZER SECTION ================= -->
-
-    <div class="organizer-section">
-
-        <h2>
-            🏢 Are You an Organization?
-        </h2>
-
-        <p>
-            NGOs, government organizations and college clubs can
-            publish volunteer opportunities on ReConnect so that
-            people can discover and participate in meaningful activities.
-        </p>
-
-        <a
-            href="ngo-register.html"
-            class="add-opportunity-btn"
-        >
-            Register Your NGO →
-        </a>
-
-    </div>
-
-
-    <!-- ================= HOW IT WORKS ================= -->
-
-    <div class="info-section">
-
-        <h2>
-            💚 How Volunteering Works
-        </h2>
-
-        <p>
-            Find an opportunity, register and contribute your time
-            to make a positive difference.
-        </p>
-
-
-        <div class="steps">
-
-            <div class="step">
-
-                <div class="step-icon">
-                    🔎
-                </div>
-
-                <h3>
-                    1. Explore
-                </h3>
-
-                <p>
-                    Browse different volunteer opportunities.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-icon">
-                    🎯
-                </div>
-
-                <h3>
-                    2. Choose
-                </h3>
-
-                <p>
-                    Select an activity that interests you.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-icon">
-                    📝
-                </div>
-
-                <h3>
-                    3. Register
-                </h3>
-
-                <p>
-                    Enter your details and register.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-icon">
-                    🌱
-                </div>
-
-                <h3>
-                    4. Make Impact
-                </h3>
-
-                <p>
-                    Participate and contribute to the community.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ================= VOLUNTEER MODAL ================= -->
-
-<div
-    class="modal"
-    id="volunteerModal"
->
+<!-- JOIN MODAL -->
+<div class="modal" id="joinModal">
 
     <div class="modal-content">
 
-        <span
-            class="close"
-            onclick="closeVolunteerForm()"
-        >
-            &times;
-        </span>
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2>🤝 Join Activity</h2>
+
+        <p class="subtitle" id="selectedActivity">
+            Activity Name
+        </p>
+
+        <form onsubmit="submitVolunteer(event)">
+
+            <div class="form-group">
+                <label>Full Name *</label>
+
+                <input
+                    type="text"
+                    id="volunteerName"
+                    required
+                    placeholder="Enter your full name">
+            </div>
 
 
-        <h2>
-            🤝 Volunteer Registration
-        </h2>
+            <div class="form-group">
+                <label>Email Address *</label>
+
+                <input
+                    type="email"
+                    id="volunteerEmail"
+                    required
+                    placeholder="Enter your email">
+            </div>
 
 
-        <div class="selected-activity">
+            <div class="form-group">
+                <label>Contact Number *</label>
 
-            Opportunity:
-            <span id="selectedActivity"></span>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>
-                Your Name *
-            </label>
-
-            <input
-                type="text"
-                id="volunteerName"
-                placeholder="Enter your full name"
-            >
-
-        </div>
+                <input
+                    type="tel"
+                    id="volunteerContact"
+                    required
+                    placeholder="Enter your contact number">
+            </div>
 
 
-        <div class="form-group">
+            <div class="form-group">
+                <label>Message / Note</label>
 
-            <label>
-                Email *
-            </label>
-
-            <input
-                type="email"
-                id="volunteerEmail"
-                placeholder="Enter your email"
-            >
-
-        </div>
+                <textarea
+                    id="volunteerMessage"
+                    placeholder="Anything you would like to mention?"></textarea>
+            </div>
 
 
-        <div class="form-group">
+            <button type="submit" class="submit-btn">
+                Register for Activity
+            </button>
 
-            <label>
-                Contact Number *
-            </label>
-
-            <input
-                type="tel"
-                id="volunteerContact"
-                placeholder="Enter your contact number"
-            >
-
-        </div>
+        </form>
 
 
-        <div class="form-group">
-
-            <label>
-                Message / Note
-            </label>
-
-            <textarea
-                id="volunteerReason"
-                placeholder="Anything you would like to tell the organizer..."
-            ></textarea>
-
-        </div>
-
-
-        <button
-            class="submit-btn"
-            onclick="submitVolunteer()"
-        >
-            ✅ Register as Volunteer
-        </button>
-
-
-        <div
-            class="success"
-            id="volunteerSuccess"
-        >
-
-            <strong>
-                🎉 Registration Successful!
-            </strong>
-
-            <p>
-                Your volunteer registration has been saved.
-            </p>
-
-            <p id="volunteerId"></p>
-
-        </div>
+        <div class="success" id="successMessage"></div>
 
     </div>
 
 </div>
 
 
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
 
-    <h3>
-        🌱 ReConnect
-    </h3>
-
     <p>
-        Connect. Donate. Create Real Impact.
+        🌱 ReConnect — Connecting People, Causes & Communities
     </p>
 
-    <p>
-        Transparent donations • Volunteer engagement • Item reuse
+    <p style="margin-top:8px;">
+        © 2026 ReConnect. Academic Project.
     </p>
 
 </footer>
@@ -1782,291 +1248,237 @@
 
 <script>
 
-/* ============================================
-   FILTER OPPORTUNITIES
-============================================ */
+    /* =========================
+       FILTER OPPORTUNITIES
+    ========================= */
 
-function filterOpportunities() {
+    function filterOpportunities() {
 
-    const category =
-        document.getElementById("categorySelect").value
-        .toLowerCase();
+        const interest =
+            document.getElementById("interestFilter").value;
 
-    const search =
-        document.getElementById("searchInput").value
-        .toLowerCase()
-        .trim();
+        const location =
+            document.getElementById("locationFilter").value;
 
-    const cards =
-        document.querySelectorAll(".activity-card");
+        const organizer =
+            document.getElementById("organizerFilter").value;
 
-    let visibleCount = 0;
+        const cards =
+            document.querySelectorAll(".card");
+
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+
+            const interests =
+                card.dataset.interests.split(" ");
+
+            const cardLocation =
+                card.dataset.location;
+
+            const cardOrganizer =
+                card.dataset.organizer;
+
+            const interestMatch =
+                interest === "all" ||
+                interests.includes(interest);
+
+            const locationMatch =
+                location === "all" ||
+                cardLocation === location;
+
+            const organizerMatch =
+                organizer === "all" ||
+                cardOrganizer === organizer;
+
+            if (
+                interestMatch &&
+                locationMatch &&
+                organizerMatch
+            ) {
+
+                card.style.display = "block";
+
+                visibleCount++;
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
 
 
-    cards.forEach(function(card) {
+        const noResults =
+            document.getElementById("noResults");
 
-        const cardCategory =
-            card.getAttribute("data-category")
-            .toLowerCase();
+        if (visibleCount === 0) {
 
-        const cardSearch =
-            card.getAttribute("data-search")
-            .toLowerCase();
-
-
-        const categoryMatch =
-            category === "all" ||
-            cardCategory === category;
-
-
-        const searchMatch =
-            search === "" ||
-            cardSearch.includes(search);
-
-
-        if (categoryMatch && searchMatch) {
-
-            card.style.display = "block";
-
-            visibleCount++;
+            noResults.style.display = "block";
 
         } else {
 
-            card.style.display = "none";
+            noResults.style.display = "none";
 
         }
 
-    });
-
-
-    const noResults =
-        document.getElementById("noResults");
-
-
-    if (visibleCount === 0) {
-
-        noResults.style.display = "block";
-
-    } else {
-
-        noResults.style.display = "none";
-
     }
 
-}
 
+    /* =========================
+       OPEN MODAL
+    ========================= */
 
-/* ============================================
-   OPEN VOLUNTEER FORM
-============================================ */
+    function openModal(activityName) {
 
-let selectedActivityName = "";
+        document.getElementById("joinModal").style.display = "flex";
 
+        document.getElementById("selectedActivity").innerText =
+            "You are registering for: " + activityName;
 
-function openVolunteerForm(activityName) {
+        document.getElementById("joinModal")
+            .dataset.activity = activityName;
 
-    selectedActivityName = activityName;
+        document.getElementById("successMessage").style.display = "none";
 
-
-    document.getElementById(
-        "selectedActivity"
-    ).textContent = activityName;
-
-
-    document.getElementById(
-        "volunteerModal"
-    ).style.display = "block";
-
-
-    document.getElementById(
-        "volunteerSuccess"
-    ).style.display = "none";
-
-}
-
-
-/* ============================================
-   CLOSE VOLUNTEER FORM
-============================================ */
-
-function closeVolunteerForm() {
-
-    document.getElementById(
-        "volunteerModal"
-    ).style.display = "none";
-
-}
-
-
-/* ============================================
-   SUBMIT VOLUNTEER REGISTRATION
-============================================ */
-
-function submitVolunteer() {
-
-    const name =
-        document.getElementById(
-            "volunteerName"
-        ).value.trim();
-
-
-    const email =
-        document.getElementById(
-            "volunteerEmail"
-        ).value.trim();
-
-
-    const contact =
-        document.getElementById(
-            "volunteerContact"
-        ).value.trim();
-
-
-    const reason =
-        document.getElementById(
-            "volunteerReason"
-        ).value.trim();
-
-
-    /* Check required fields */
-
-    if (
-        name === "" ||
-        email === "" ||
-        contact === ""
-    ) {
-
-        alert(
-            "Please fill all required fields."
-        );
-
-        return;
+        document.querySelector("#joinModal form").style.display = "block";
 
     }
 
 
-    /* Create Volunteer ID */
+    /* =========================
+       CLOSE MODAL
+    ========================= */
 
-    const volunteerId =
-        "VOL-" +
-        new Date()
-        .getTime()
-        .toString()
-        .slice(-8);
+    function closeModal() {
+
+        document.getElementById("joinModal").style.display = "none";
+
+    }
 
 
-    /* Create registration */
+    /* CLOSE WHEN CLICKING OUTSIDE */
+    window.onclick = function(event) {
 
-    const registration = {
+        const modal =
+            document.getElementById("joinModal");
 
-        volunteerId: volunteerId,
+        if (event.target === modal) {
 
-        opportunity:
-            selectedActivityName,
+            closeModal();
 
-        name: name,
-
-        email: email,
-
-        contact: contact,
-
-        message: reason,
-
-        registrationDate:
-            new Date().toLocaleString(),
-
-        status:
-            "Registered"
+        }
 
     };
 
 
-    /* Get previous registrations */
+    /* =========================
+       SUBMIT VOLUNTEER
+    ========================= */
 
-    let registrations =
-        JSON.parse(
-            localStorage.getItem(
-                "reconnectVolunteerRegistrations"
-            )
-        ) || [];
+    function submitVolunteer(event) {
 
-
-    /* Add registration */
-
-    registrations.push(registration);
+        event.preventDefault();
 
 
-    /* Save registration */
+        const activity =
+            document.getElementById("joinModal")
+                .dataset.activity;
 
-    localStorage.setItem(
-        "reconnectVolunteerRegistrations",
-        JSON.stringify(registrations)
-    );
+        const name =
+            document.getElementById("volunteerName").value;
 
+        const email =
+            document.getElementById("volunteerEmail").value;
 
-    /* Show success message */
+        const contact =
+            document.getElementById("volunteerContact").value;
 
-    document.getElementById(
-        "volunteerSuccess"
-    ).style.display = "block";
-
-
-    document.getElementById(
-        "volunteerId"
-    ).innerHTML =
-        "<strong>Volunteer ID:</strong> " +
-        volunteerId;
+        const message =
+            document.getElementById("volunteerMessage").value;
 
 
-    /* Clear form */
+        /* CREATE VOLUNTEER ID */
 
-    document.getElementById(
-        "volunteerName"
-    ).value = "";
-
-
-    document.getElementById(
-        "volunteerEmail"
-    ).value = "";
+        const volunteerID =
+            "VOL-" +
+            Date.now().toString().slice(-8);
 
 
-    document.getElementById(
-        "volunteerContact"
-    ).value = "";
+        /* CREATE REGISTRATION OBJECT */
+
+        const registration = {
+
+            volunteerID: volunteerID,
+
+            activity: activity,
+
+            name: name,
+
+            email: email,
+
+            contact: contact,
+
+            message: message,
+
+            registrationDate:
+                new Date().toLocaleString(),
+
+            status: "Registered"
+
+        };
 
 
-    document.getElementById(
-        "volunteerReason"
-    ).value = "";
+        /* GET OLD REGISTRATIONS */
+
+        let registrations =
+            JSON.parse(
+                localStorage.getItem(
+                    "reconnectVolunteerRegistrations"
+                )
+            ) || [];
 
 
-    console.log(
-        "Volunteer Registration Saved:",
-        registration
-    );
+        /* ADD NEW REGISTRATION */
 
-}
+        registrations.push(registration);
 
 
-/* ============================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
-============================================ */
+        /* SAVE */
 
-window.onclick = function(event) {
-
-    const modal =
-        document.getElementById(
-            "volunteerModal"
+        localStorage.setItem(
+            "reconnectVolunteerRegistrations",
+            JSON.stringify(registrations)
         );
 
 
-    if (event.target === modal) {
+        /* HIDE FORM */
 
-        closeVolunteerForm();
+        document.querySelector("#joinModal form")
+            .style.display = "none";
+
+
+        /* SHOW SUCCESS */
+
+        const success =
+            document.getElementById("successMessage");
+
+        success.innerHTML = `
+            <strong>🎉 Registration Successful!</strong><br><br>
+
+            You have successfully registered for:
+            <strong>${activity}</strong><br><br>
+
+            Your Volunteer ID is:
+            <strong>${volunteerID}</strong><br><br>
+
+            Please keep this ID for your records.
+        `;
+
+        success.style.display = "block";
 
     }
-
-};
 
 </script>
 
