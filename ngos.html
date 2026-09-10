@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -47,6 +49,7 @@
             list-style: none;
             display: flex;
             gap: 28px;
+            align-items: center;
         }
 
         nav ul li a {
@@ -58,6 +61,20 @@
         nav ul li a:hover {
             color: #159957;
         }
+
+        /* LOGIN BUTTON */
+
+        .login-btn {
+            background: #159957;
+            color: white !important;
+            padding: 11px 20px;
+            border-radius: 25px;
+        }
+
+        .login-btn:hover {
+            background: #0b7a53;
+        }
+
 
         /* HERO */
 
@@ -91,6 +108,7 @@
             font-size: 18px;
             line-height: 1.6;
         }
+
 
         /* SEARCH */
 
@@ -127,6 +145,7 @@
             font-weight: bold;
         }
 
+
         /* NGO GRID */
 
         .ngo-container {
@@ -139,6 +158,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
+
 
         /* NGO CARD */
 
@@ -165,6 +185,9 @@
                 0 14px 30px rgba(0,0,0,0.12);
         }
 
+
+        /* NGO ICON */
+
         .ngo-icon {
             width: 65px;
             height: 65px;
@@ -187,12 +210,16 @@
             margin-bottom: 18px;
         }
 
+
         .ngo-card h3 {
             font-size: 20px;
             line-height: 1.4;
 
             margin-bottom: 10px;
         }
+
+
+        /* VERIFIED */
 
         .verified {
             display: inline-block;
@@ -211,12 +238,16 @@
             margin-bottom: 13px;
         }
 
+
         .ngo-card p {
             color: #607d75;
             line-height: 1.5;
 
             margin-bottom: 8px;
         }
+
+
+        /* TAGS */
 
         .tags {
             display: flex;
@@ -237,6 +268,7 @@
             font-size: 12px;
             font-weight: bold;
         }
+
 
         /* BUTTON */
 
@@ -266,6 +298,7 @@
             transform: translateY(-2px);
         }
 
+
         /* LOADING */
 
         #loading {
@@ -279,6 +312,7 @@
 
             color: #159957;
         }
+
 
         /* NO RESULTS */
 
@@ -296,6 +330,7 @@
             font-size: 20px;
         }
 
+
         /* FOOTER */
 
         footer {
@@ -308,6 +343,7 @@
             padding: 30px;
         }
 
+
         /* MOBILE */
 
         @media (max-width: 1000px) {
@@ -317,6 +353,7 @@
             }
 
         }
+
 
         @media (max-width: 700px) {
 
@@ -349,16 +386,18 @@
 
 </head>
 
+
 <body>
 
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
 <nav>
 
     <a href="index.html" class="logo">
         🌱 ReConnect
     </a>
+
 
     <ul>
 
@@ -368,11 +407,13 @@
             </a>
         </li>
 
+
         <li>
             <a href="ngos.html">
                 Find NGOs
             </a>
         </li>
+
 
         <li>
             <a href="donate.html">
@@ -380,9 +421,24 @@
             </a>
         </li>
 
+
         <li>
-            <a href="volunteer.html">
-                Volunteer
+            <a href="college.html">
+                College/NSS
+            </a>
+        </li>
+
+
+        <li>
+            <a href="reuse.html">
+                Reuse & Recycle
+            </a>
+        </li>
+
+
+        <li>
+            <a href="login.html" class="login-btn">
+                Login
             </a>
         </li>
 
@@ -391,13 +447,15 @@
 </nav>
 
 
-<!-- HERO -->
+
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
     <h1>
         Find <span>NGOs</span>
     </h1>
+
 
     <p>
         Explore organizations, discover their work,
@@ -407,7 +465,8 @@
 </section>
 
 
-<!-- SEARCH -->
+
+<!-- ================= SEARCH ================= -->
 
 <section class="search-section">
 
@@ -415,11 +474,13 @@
         🔎 Explore NGO Directory
     </h2>
 
+
     <input
         type="text"
         id="searchInput"
         placeholder="Search by NGO name, location, cause or contact person..."
     >
+
 
     <p id="resultCount">
         Loading NGOs...
@@ -428,7 +489,8 @@
 </section>
 
 
-<!-- NGO CONTAINER -->
+
+<!-- ================= NGO CONTAINER ================= -->
 
 <section
     class="ngo-container"
@@ -436,8 +498,11 @@
 >
 
     <div id="loading">
+
         🌱 Loading 311 NGOs...
+
     </div>
+
 
     <div id="noResults">
 
@@ -452,7 +517,8 @@
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -464,12 +530,14 @@
 </footer>
 
 
+
 <script>
+
 
     let ngos = [];
 
 
-    /* LOAD JSON */
+    /* ================= LOAD JSON ================= */
 
     fetch("ngos.json")
 
@@ -499,54 +567,84 @@
 
             console.error(error);
 
-            document.getElementById("loading").innerHTML =
+
+            document.getElementById(
+                "loading"
+            ).innerHTML =
                 "⚠️ NGO data could not be loaded.";
 
-            document.getElementById("resultCount").innerText =
+
+            document.getElementById(
+                "resultCount"
+            ).innerText =
                 "Please make sure ngos.json is in the same folder as ngos.html.";
 
         });
 
 
-    /* DISPLAY NGOs */
+
+    /* ================= DISPLAY NGOs ================= */
 
     function displayNGOs(data) {
 
+
         const container =
-            document.getElementById("ngoContainer");
+            document.getElementById(
+                "ngoContainer"
+            );
+
 
         const loading =
-            document.getElementById("loading");
+            document.getElementById(
+                "loading"
+            );
+
 
         const noResults =
-            document.getElementById("noResults");
+            document.getElementById(
+                "noResults"
+            );
 
 
-        loading.style.display = "none";
+        loading.style.display =
+            "none";
 
 
         document
             .querySelectorAll(".ngo-card")
-            .forEach(card => card.remove());
+            .forEach(
+                card => card.remove()
+            );
 
 
         if (data.length === 0) {
 
-            noResults.style.display = "block";
+            noResults.style.display =
+                "block";
 
-        } else {
+        }
 
-            noResults.style.display = "none";
+        else {
+
+            noResults.style.display =
+                "none";
 
         }
 
 
+
         data.forEach(ngo => {
 
-            const card =
-                document.createElement("div");
 
-            card.className = "ngo-card";
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "ngo-card";
+
 
 
             const name =
@@ -569,14 +667,16 @@
                 "Area of work not specified";
 
 
+
             /*
-                IMPORTANT:
-                Find the original position of this NGO
-                in the complete dataset.
+                Find the NGO's original
+                position in the complete
+                311 NGO dataset.
             */
 
             const originalIndex =
                 ngos.indexOf(ngo);
+
 
 
             card.innerHTML = `
@@ -585,21 +685,26 @@
                     🌱
                 </div>
 
+
                 <h3>
                     ${escapeHTML(name)}
                 </h3>
+
 
                 <span class="verified">
                     ✓ LISTED NGO
                 </span>
 
+
                 <p>
                     📍 ${escapeHTML(address)}
                 </p>
 
+
                 <p>
                     📞 ${escapeHTML(contact)}
                 </p>
+
 
                 <div class="tags">
 
@@ -613,15 +718,18 @@
 
                 </div>
 
+
                 <p>
                     <strong>
                         Area of Work
                     </strong>
                 </p>
 
+
                 <p>
                     ${escapeHTML(work)}
                 </p>
+
 
                 <a
                     href="ngo-profile.html?ngo=${originalIndex}"
@@ -633,24 +741,33 @@
             `;
 
 
-            container.appendChild(card);
+            container.appendChild(
+                card
+            );
 
         });
 
 
-        document.getElementById("resultCount").innerText =
+
+        document.getElementById(
+            "resultCount"
+        ).innerText =
             `Showing ${data.length} of ${ngos.length} NGOs`;
 
     }
 
 
-    /* SEARCH */
+
+    /* ================= SEARCH ================= */
 
     document
-        .getElementById("searchInput")
+        .getElementById(
+            "searchInput"
+        )
         .addEventListener(
             "input",
             function() {
+
 
                 const searchText =
                     this.value
@@ -658,48 +775,77 @@
                         .trim();
 
 
-                if (searchText === "") {
 
-                    displayNGOs(ngos);
+                if (
+                    searchText === ""
+                ) {
+
+                    displayNGOs(
+                        ngos
+                    );
 
                     return;
 
                 }
 
 
+
                 const filtered =
-                    ngos.filter(ngo => {
+                    ngos.filter(
+                        ngo => {
 
-                        return Object
-                            .values(ngo)
-                            .join(" ")
-                            .toLowerCase()
-                            .includes(searchText);
+                            return Object
+                                .values(ngo)
+                                .join(" ")
+                                .toLowerCase()
+                                .includes(
+                                    searchText
+                                );
 
-                    });
+                        }
+                    );
 
 
-                displayNGOs(filtered);
+
+                displayNGOs(
+                    filtered
+                );
 
             }
         );
 
 
-    /* SECURITY */
+
+    /* ================= SECURITY ================= */
 
     function escapeHTML(text) {
 
         return String(text)
 
-            .replace(/&/g, "&amp;")
+            .replace(
+                /&/g,
+                "&amp;"
+            )
 
-            .replace(/</g, "&lt;")
+            .replace(
+                /</g,
+                "&lt;"
+            )
 
-            .replace(/>/g, "&gt;")
+            .replace(
+                />/g,
+                "&gt;"
+            )
 
-            .replace(/"/g, "&quot;")
+            .replace(
+                /"/g,
+                "&quot;"
+            )
 
-            .replace(/'/g, "&#039;");
+            .replace(
+                /'/g,
+                "&#039;"
+            );
 
     }
 
@@ -707,4 +853,5 @@
 
 
 </body>
+
 </html>
