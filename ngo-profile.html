@@ -2,797 +2,933 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Donate | ReConnect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>NGO Profile | ReConnect</title>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+    <style>
 
-body {
-    background: #f5fff9;
-    color: #173b32;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-/* NAVBAR */
+        body {
+            background: #f5fff9;
+            color: #173b32;
+        }
 
-nav {
-    background: white;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        /* ================= NAVBAR ================= */
 
-.logo {
-    font-size: 27px;
-    font-weight: bold;
-    color: #159957;
-    text-decoration: none;
-}
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 28px;
-}
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #159957;
+            text-decoration: none;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #173b32;
-    font-weight: bold;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
 
-nav a:hover {
-    color: #159957;
-}
+        nav a {
+            text-decoration: none;
+            color: #173b32;
+            font-weight: bold;
+        }
 
-/* HERO */
+        nav a:hover {
+            color: #159957;
+        }
 
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(
-        135deg,
-        #d9fff0,
-        #e4f4ff,
-        #fff4d9
-    );
-}
+        /* ================= BACK ================= */
 
-.hero h1 {
-    font-size: 42px;
-    color: #159957;
-    margin-bottom: 12px;
-}
+        .back {
+            max-width: 1150px;
+            margin: 30px auto 0;
+            padding: 0 20px;
+        }
 
-.hero p {
-    color: #607d75;
-    font-size: 18px;
-}
+        .back a {
+            color: #159957;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
 
-/* CONTAINER */
+        /* ================= PROFILE HERO ================= */
 
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
+        .profile-hero {
+            max-width: 1150px;
+            margin: 25px auto;
+            padding: 45px;
+            border-radius: 28px;
 
-/* CARD */
+            background:
+                linear-gradient(
+                    135deg,
+                    #d9fff0,
+                    #e4f4ff,
+                    #fff4d9
+                );
 
-.card {
-    background: white;
-    padding: 35px;
-    border-radius: 24px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    margin-bottom: 25px;
-}
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
-.card h2 {
-    color: #159957;
-    margin-bottom: 20px;
-}
+        .ngo-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
 
-/* STEPS */
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.steps {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
+            background: white;
+            font-size: 60px;
 
-.step {
-    padding: 10px 18px;
-    border-radius: 20px;
-    background: #e4ece7;
-    color: #607d75;
-    font-size: 14px;
-}
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            flex-shrink: 0;
+        }
 
-.step.active {
-    background: #159957;
-    color: white;
-}
+        .profile-hero h1 {
+            font-size: 38px;
+            color: #159957;
+            margin-bottom: 12px;
+        }
 
-/* FORM */
+        .profile-hero p {
+            color: #607d75;
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 7px;
+        }
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
+        .badge {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: #dff8e9;
+            color: #159957;
+            font-weight: bold;
+            font-size: 13px;
+        }
 
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #d6e4dc;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    font-size: 15px;
-}
+        /* ================= MAIN ================= */
 
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: #159957;
-}
+        .main-container {
+            max-width: 1150px;
+            margin: 30px auto 70px;
+            padding: 0 20px;
 
-/* DONATION OPTIONS */
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
 
-.options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 25px;
-}
+        /* ================= CARD ================= */
 
-.option {
-    padding: 30px 20px;
-    border: 2px solid #dcebe3;
-    border-radius: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            margin-bottom: 25px;
+        }
 
-.option:hover {
-    border-color: #159957;
-    transform: translateY(-3px);
-}
+        .card h2 {
+            color: #159957;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
 
-.option.selected {
-    background: #eefaf5;
-    border-color: #159957;
-}
+        .card p {
+            color: #607d75;
+            line-height: 1.7;
+            font-size: 16px;
+        }
 
-.option .icon {
-    font-size: 45px;
-    margin-bottom: 10px;
-}
+        /* ================= INFO GRID ================= */
 
-.option h3 {
-    margin-bottom: 8px;
-}
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
 
-.option p {
-    color: #607d75;
-    font-size: 14px;
-}
+        .info-box {
+            background: #f5fff9;
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid #e0eee7;
+        }
 
-/* BUTTON */
+        .info-box strong {
+            display: block;
+            color: #173b32;
+            margin-bottom: 7px;
+        }
 
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 28px;
-    background: #159957;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
+        .info-box span {
+            color: #607d75;
+            line-height: 1.5;
+        }
 
-button:hover {
-    background: #107a45;
-}
+        /* ================= REQUIREMENTS ================= */
 
-/* HIDDEN */
+        .requirement-box {
+            background: #fff8e8;
+            border-left: 5px solid #f2a900;
+            padding: 20px;
+            border-radius: 14px;
+        }
 
-.hidden {
-    display: none;
-}
+        .requirement-box p {
+            color: #6b5a2b;
+        }
 
-/* SUCCESS */
+        /* ================= ACTION CARD ================= */
 
-.success {
-    display: none;
-    text-align: center;
-    padding: 50px 30px;
-}
+        .action-card {
+            background: white;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            position: sticky;
+            top: 100px;
+        }
 
-.success-icon {
-    font-size: 65px;
-    margin-bottom: 15px;
-}
+        .action-card h2 {
+            color: #159957;
+            margin-bottom: 12px;
+        }
 
-.success h2 {
-    color: #159957;
-    margin-bottom: 15px;
-}
+        .action-card p {
+            color: #607d75;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
 
-.success p {
-    color: #607d75;
-    line-height: 1.7;
-}
+        .action-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 12px;
 
-/* BACK */
+            border-radius: 28px;
+            text-align: center;
 
-.back {
-    max-width: 900px;
-    margin: 25px auto 0;
-    padding: 0 20px;
-}
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
 
-.back a {
-    text-decoration: none;
-    color: #159957;
-    font-weight: bold;
-}
+            transition: 0.3s;
+        }
 
-/* FOOTER */
+        .action-button:hover {
+            transform: translateY(-3px);
+        }
 
-footer {
-    background: #102d26;
-    color: white;
-    text-align: center;
-    padding: 30px;
-    margin-top: 60px;
-}
+        .donate {
+            background: #159957;
+        }
 
-/* MOBILE */
+        .item {
+            background: #f2a900;
+        }
 
-@media(max-width: 650px) {
+        .volunteer {
+            background: #4285f4;
+        }
 
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
+        /* ================= CONTACT ================= */
 
-    nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        .contact-box {
+            background: #eefaf5;
+            padding: 18px;
+            border-radius: 16px;
+            margin-top: 15px;
+        }
 
-    .hero h1 {
-        font-size: 32px;
-    }
+        .contact-box p {
+            margin-bottom: 8px;
+        }
 
-    .options {
-        grid-template-columns: 1fr;
-    }
+        .contact-box a {
+            color: #159957;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-}
+        /* ================= LOADING ================= */
 
-</style>
+        #loading {
+            text-align: center;
+            padding: 80px 20px;
+            font-size: 22px;
+            color: #159957;
+        }
+
+        #error {
+            display: none;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            color: #b33a3a;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #102d26;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .profile-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 35px 20px;
+            }
+
+            .profile-hero h1 {
+                font-size: 30px;
+            }
+
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .action-card {
+                position: static;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
 <body>
 
+    <!-- ================= NAVBAR ================= -->
 
-<!-- NAVBAR -->
+    <nav>
 
-<nav>
+        <a href="index.html" class="logo">
+            🌱 ReConnect
+        </a>
 
-<a href="index.html" class="logo">
-🌱 ReConnect
-</a>
+        <ul>
 
-<ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
 
-<li>
-<a href="index.html">Home</a>
-</li>
+            <li>
+                <a href="ngos.html">Find NGOs</a>
+            </li>
 
-<li>
-<a href="ngos.html">Find NGOs</a>
-</li>
+            <li>
+                <a href="index.html#about">About</a>
+            </li>
 
-<li>
-<a href="index.html#about">About</a>
-</li>
+            <li>
+                <a href="volunteer.html">Volunteer</a>
+            </li>
 
-<li>
-<a href="volunteer.html">Volunteer</a>
-</li>
+        </ul>
 
-</ul>
+    </nav>
 
-</nav>
 
+    <!-- ================= BACK ================= -->
 
-<!-- HERO -->
+    <div class="back">
 
-<section class="hero">
+        <a href="ngos.html">
+            ← Back to NGO Directory
+        </a>
 
-<h1>
-Make a Difference 💚
-</h1>
+    </div>
 
-<p>
-Your contribution can help support meaningful work.
-</p>
 
-</section>
+    <!-- ================= LOADING ================= -->
 
+    <div id="loading">
+        🌱 Loading NGO profile...
+    </div>
 
-<div class="back">
 
-<a href="ngos.html">
-← Back to NGO Directory
-</a>
+    <!-- ================= ERROR ================= -->
 
-</div>
+    <div id="error">
 
+        <h2>⚠️ NGO Profile Not Found</h2>
 
-<div class="container">
+        <p>
+            We could not find the requested NGO.
+        </p>
 
+        <br>
 
-<!-- STEPS -->
+        <a href="ngos.html">
+            ← Return to NGO Directory
+        </a>
 
-<div class="steps">
+    </div>
 
-<div class="step active" id="step1">
-1. Select NGO
-</div>
 
-<div class="step" id="step2">
-2. Donation
-</div>
+    <!-- ================= PROFILE ================= -->
 
-<div class="step" id="step3">
-3. Details
-</div>
+    <section class="profile-hero" id="profileHero" style="display:none;">
 
-</div>
+        <div class="ngo-logo">
+            🌱
+        </div>
 
+        <div>
 
-<!-- NGO -->
+            <h1 id="ngoName">
+                NGO Name
+            </h1>
 
-<div class="card" id="ngoCard">
+            <p id="ngoAddress">
+                📍 Address
+            </p>
 
-<h2>
-🏢 Select an NGO
-</h2>
+            <p id="ngoWork">
+                ❤️ Area of Work
+            </p>
 
-<label>
-Choose the organization you want to support
-</label>
+            <span class="badge">
+                ✓ LISTED NGO
+            </span>
 
-<select id="ngoSelect">
+        </div>
 
-<option value="">
-Loading NGOs...
-</option>
+    </section>
 
-</select>
 
-<button onclick="nextStep()">
-Continue →
-</button>
+    <!-- ================= MAIN ================= -->
 
-</div>
+    <div class="main-container" id="mainContent" style="display:none;">
 
+        <!-- LEFT SIDE -->
 
-<!-- DONATION TYPE -->
+        <div>
 
-<div class="card hidden" id="typeCard">
+            <!-- ABOUT -->
 
-<h2>
-💚 Choose Donation Type
-</h2>
+            <div class="card">
 
-<div class="options">
+                <h2>
+                    🌱 About This NGO
+                </h2>
 
-<div
-class="option"
-onclick="chooseType('money', this)"
->
+                <p id="aboutText">
+                    This organization is listed in the ReConnect NGO directory.
+                    Please refer to the information below for available details.
+                </p>
 
-<div class="icon">
-💰
-</div>
+            </div>
 
-<h3>
-Money Donation
-</h3>
 
-<p>
-Provide financial support to the NGO.
-</p>
+            <!-- REQUIREMENTS -->
 
-</div>
+            <div class="card">
 
+                <h2>
+                    📦 Current Requirements
+                </h2>
 
-<div
-class="option"
-onclick="chooseType('item', this)"
->
+                <div class="requirement-box">
 
-<div class="icon">
-📦
-</div>
+                    <p>
+                        Current donation requirements are not available
+                        in the provided NGO dataset.
+                    </p>
 
-<h3>
-Item Donation
-</h3>
+                    <br>
 
-<p>
-Donate useful physical items.
-</p>
+                    <p>
+                        Please contact the NGO directly to ask what
+                        items, financial support, or volunteer help
+                        they currently require.
+                    </p>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-<button onclick="continueType()">
-Continue →
-</button>
 
-</div>
+            <!-- ORGANIZATION INFORMATION -->
 
+            <div class="card">
 
-<!-- DETAILS -->
+                <h2>
+                    🏢 Organization Information
+                </h2>
 
-<div class="card hidden" id="detailsCard">
+                <div class="info-grid">
 
-<h2>
-📝 Donation Details
-</h2>
+                    <div class="info-box">
 
-<form onsubmit="submitDonation(event)">
+                        <strong>👤 Chairman / CEO</strong>
 
+                        <span id="chairman">
+                            Not available
+                        </span>
 
-<label>
-Your Name
-</label>
+                    </div>
 
-<input
-type="text"
-id="name"
-placeholder="Enter your name"
-required
->
 
+                    <div class="info-box">
 
-<label>
-Email Address
-</label>
+                        <strong>👤 Local Contact Person</strong>
 
-<input
-type="email"
-id="email"
-placeholder="Enter your email"
-required
->
+                        <span id="contactPerson">
+                            Not available
+                        </span>
 
+                    </div>
 
-<!-- MONEY -->
 
-<div id="moneySection">
+                    <div class="info-box">
 
-<label>
-Donation Amount (₹)
-</label>
+                        <strong>📅 Working Since</strong>
 
-<input
-type="number"
-id="amount"
-placeholder="Example: 500"
-min="1"
->
+                        <span id="workingSince">
+                            Not available
+                        </span>
 
-</div>
+                    </div>
 
 
-<!-- ITEMS -->
+                    <div class="info-box">
 
-<div id="itemSection" class="hidden">
+                        <strong>🏢 Working with BMC</strong>
 
-<label>
-Item Name
-</label>
+                        <span id="bmc">
+                            Not available
+                        </span>
 
-<input
-type="text"
-id="itemName"
-placeholder="Example: Clothes, Books, Food"
->
+                    </div>
 
 
-<label>
-Condition
-</label>
+                    <div class="info-box">
 
-<select id="condition">
+                        <strong>📄 FCRA</strong>
 
-<option value="">
-Select condition
-</option>
+                        <span id="fcra">
+                            Not available
+                        </span>
 
-<option>
-New
-</option>
+                    </div>
 
-<option>
-Good
-</option>
 
-<option>
-Used
-</option>
+                    <div class="info-box">
 
-</select>
+                        <strong>🏷️ Ward / Department</strong>
 
+                        <span id="ward">
+                            Not available
+                        </span>
 
-<label>
-Item Description
-</label>
+                    </div>
 
-<textarea
-id="itemDescription"
-rows="5"
-placeholder="Describe the items you want to donate..."
-></textarea>
+                </div>
 
-</div>
+            </div>
 
 
-<button type="submit">
-❤️ Submit Donation
-</button>
+            <!-- CONTACT -->
 
-</form>
+            <div class="card">
 
-</div>
+                <h2>
+                    📞 Contact Information
+                </h2>
 
+                <div class="contact-box">
 
-<!-- SUCCESS -->
+                    <p>
+                        📞
+                        <strong>Phone:</strong>
+                        <a href="#" id="phone">
+                            Not available
+                        </a>
+                    </p>
 
-<div class="card success" id="successCard">
+                    <p>
+                        📧
+                        <strong>Email:</strong>
+                        <a href="#" id="email">
+                            Not available
+                        </a>
+                    </p>
 
-<div class="success-icon">
-🎉
-</div>
+                </div>
 
-<h2>
-Thank You for Your Contribution!
-</h2>
+            </div>
 
-<p>
 
-Your donation request has been recorded.
+            <!-- ADDRESS -->
 
-<br><br>
+            <div class="card">
 
-ReConnect connects donors with organizations
-that need support.
+                <h2>
+                    📍 Address
+                </h2>
 
-</p>
+                <p id="fullAddress">
+                    Address not available
+                </p>
 
-<br>
+            </div>
 
-<button onclick="window.location.href='ngos.html'">
-Explore More NGOs
-</button>
+        </div>
 
-</div>
 
+        <!-- RIGHT SIDE -->
 
-</div>
+        <div>
 
+            <div class="action-card">
 
-<footer>
+                <h2>
+                    💚 Make an Impact
+                </h2>
 
-<p>
-© 2026 ReConnect |
-Connect. Donate. Make a Difference. 🌱
-</p>
+                <p>
+                    Support this organization through donations,
+                    reusable items, or your valuable time.
+                </p>
 
-</footer>
 
+                <a
+                    href="donate.html"
+                    class="action-button donate"
+                >
+                    ❤️ Donate Money
+                </a>
 
-<script>
 
-let selectedType = "";
+                <a
+                    href="donate.html"
+                    class="action-button item"
+                >
+                    📦 Donate Items
+                </a>
 
 
-/* LOAD NGO DATA */
+                <a
+                    href="volunteer.html"
+                    class="action-button volunteer"
+                >
+                    🙋 Volunteer
+                </a>
 
-fetch("ngos.json")
+            </div>
 
-.then(response => {
+        </div>
 
-if (!response.ok) {
-throw new Error("NGO data not found");
-}
+    </div>
 
-return response.json();
 
-})
+    <!-- ================= FOOTER ================= -->
 
-.then(data => {
+    <footer>
 
-const select =
-document.getElementById("ngoSelect");
+        <p>
+            © 2026 ReConnect |
+            Connect. Donate. Make a Difference. 🌱
+        </p>
 
-select.innerHTML =
-'<option value="">Select an NGO</option>';
+    </footer>
 
-data.forEach((ngo, index) => {
 
-const option =
-document.createElement("option");
+    <!-- ================= JAVASCRIPT ================= -->
 
-option.value = index;
+    <script>
 
-option.textContent =
-ngo["Name of Institution"] ||
-"NGO " + (index + 1);
+        /* ================= GET NGO INDEX ================= */
 
-select.appendChild(option);
+        const params =
+            new URLSearchParams(window.location.search);
 
-});
+        const ngoIndex =
+            parseInt(params.get("ngo"));
 
-})
 
-.catch(error => {
+        /* ================= LOAD NGO DATA ================= */
 
-console.error(error);
+        fetch("ngos.json")
 
-document.getElementById("ngoSelect").innerHTML =
-'<option value="">NGO data unavailable</option>';
+            .then(response => {
 
-});
+                if (!response.ok) {
 
+                    throw new Error(
+                        "Could not load ngos.json"
+                    );
 
-/* STEP 1 */
+                }
 
-function nextStep() {
+                return response.json();
 
-const ngo =
-document.getElementById("ngoSelect").value;
+            })
 
-if (ngo === "") {
 
-alert("Please select an NGO.");
+            .then(ngos => {
 
-return;
+                if (
+                    isNaN(ngoIndex) ||
+                    !ngos[ngoIndex]
+                ) {
 
-}
+                    throw new Error(
+                        "NGO not found"
+                    );
 
-document.getElementById("ngoCard")
-.classList.add("hidden");
+                }
 
-document.getElementById("typeCard")
-.classList.remove("hidden");
 
-document.getElementById("step1")
-.classList.remove("active");
+                const ngo =
+                    ngos[ngoIndex];
 
-document.getElementById("step2")
-.classList.add("active");
 
-}
+                /* ================= GET DATA ================= */
 
+                const name =
+                    ngo["Name of Institution"] ||
+                    "NGO Name Not Available";
 
-/* CHOOSE TYPE */
 
-function chooseType(type, element) {
+                const address =
+                    ngo["Address"] ||
+                    "Address not available";
 
-selectedType = type;
 
-document.querySelectorAll(".option")
-.forEach(option => {
+                const chairman =
+                    ngo["Chairman/CEO"] ||
+                    "Not available";
 
-option.classList.remove("selected");
 
-});
+                const contactPerson =
+                    ngo["Local Contact Person"] ||
+                    "Not available";
 
-element.classList.add("selected");
 
-}
+                const contact =
+                    ngo["Contact No."] ||
+                    "Not available";
 
 
-/* STEP 2 */
+                const email =
+                    ngo["Email ID"] ||
+                    "Not available";
 
-function continueType() {
 
-if (selectedType === "") {
+                const work =
+                    ngo["Area of Work"] ||
+                    "Area of work not specified";
 
-alert("Please choose a donation type.");
 
-return;
+                const workingSince =
+                    ngo["Working Since"] ||
+                    "Not available";
 
-}
 
-document.getElementById("typeCard")
-.classList.add("hidden");
+                const bmc =
+                    ngo["Working with BMC"] ||
+                    "Not available";
 
-document.getElementById("detailsCard")
-.classList.remove("hidden");
 
-document.getElementById("step2")
-.classList.remove("active");
+                const fcra =
+                    ngo["FCRA"] ||
+                    "Not available";
 
-document.getElementById("step3")
-.classList.add("active");
 
+                const ward =
+                    ngo["Ward/Department"] ||
+                    "Not available";
 
-if (selectedType === "money") {
 
-document.getElementById("moneySection")
-.classList.remove("hidden");
+                /* ================= DISPLAY ================= */
 
-document.getElementById("itemSection")
-.classList.add("hidden");
+                document.getElementById("ngoName")
+                    .innerText = name;
 
-document.getElementById("amount").required = true;
 
-document.getElementById("itemName").required = false;
+                document.getElementById("ngoAddress")
+                    .innerText =
+                    "📍 " + address;
 
-}
-else {
 
-document.getElementById("moneySection")
-.classList.add("hidden");
+                document.getElementById("ngoWork")
+                    .innerText =
+                    "❤️ " + work;
 
-document.getElementById("itemSection")
-.classList.remove("hidden");
 
-document.getElementById("amount").required = false;
+                document.getElementById("aboutText")
+                    .innerText =
+                    name +
+                    " is an organization listed in the ReConnect NGO directory. " +
+                    "Its listed area of work is " +
+                    work +
+                    ".";
 
-document.getElementById("itemName").required = true;
 
-}
+                document.getElementById("chairman")
+                    .innerText = chairman;
 
-}
 
+                document.getElementById("contactPerson")
+                    .innerText = contactPerson;
 
-/* SUBMIT */
 
-function submitDonation(event) {
+                document.getElementById("workingSince")
+                    .innerText = workingSince;
 
-event.preventDefault();
 
-document.getElementById("detailsCard")
-.classList.add("hidden");
+                document.getElementById("bmc")
+                    .innerText = bmc;
 
-document.getElementById("successCard")
-.style.display = "block";
 
-}
+                document.getElementById("fcra")
+                    .innerText = fcra;
 
-</script>
+
+                document.getElementById("ward")
+                    .innerText = ward;
+
+
+                document.getElementById("fullAddress")
+                    .innerText = address;
+
+
+                /* ================= PHONE ================= */
+
+                const phoneElement =
+                    document.getElementById("phone");
+
+
+                phoneElement.innerText =
+                    contact;
+
+
+                if (
+                    contact &&
+                    contact !== "Not available"
+                ) {
+
+                    phoneElement.href =
+                        "tel:" +
+                        contact
+                            .replace(/[^\d+]/g, "");
+
+                }
+
+
+                /* ================= EMAIL ================= */
+
+                const emailElement =
+                    document.getElementById("email");
+
+
+                emailElement.innerText =
+                    email;
+
+
+                if (
+                    email &&
+                    email !== "Not available"
+                ) {
+
+                    emailElement.href =
+                        "mailto:" + email;
+
+                }
+
+
+                /* ================= SHOW PAGE ================= */
+
+                document.getElementById("loading")
+                    .style.display = "none";
+
+
+                document.getElementById("profileHero")
+                    .style.display = "flex";
+
+
+                document.getElementById("mainContent")
+                    .style.display = "grid";
+
+            })
+
+
+            .catch(error => {
+
+                console.error(error);
+
+
+                document.getElementById("loading")
+                    .style.display = "none";
+
+
+                document.getElementById("error")
+                    .style.display = "block";
+
+            });
+
+    </script>
+
 
 </body>
 
