@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NGO Registration | ReConnect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5faf7;
+            color: #263c34;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: white;
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 45px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: bold;
+            color: #176b4d;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #30463e;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: #176b4d;
+        }
+
+        .login-btn {
+            background: #176b4d;
+            color: white !important;
+            padding: 11px 22px;
+            border-radius: 25px;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 35px;
+        }
+
+        .hero h1 {
+            color: #176b4d;
+            font-size: 44px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #60756d;
+            font-size: 19px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* MAIN */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px 20px 70px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(31,79,62,0.08);
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            color: #176b4d;
+            font-size: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e1ebe6;
+        }
+
+        /* FORM */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #31483f;
+        }
+
+        .required {
+            color: #d9534f;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #c8dcd3;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            background: white;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: 2px solid #8acbb0;
+            border-color: #70b998;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* REQUIREMENTS */
+        .requirement-box {
+            background: #f5faf7;
+            border: 1px solid #d9e9e1;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 18px;
+        }
+
+        .requirement-box h3 {
+            color: #176b4d;
+            margin-bottom: 15px;
+        }
+
+        .requirement-box p {
+            color: #687c74;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* CHECKBOXES */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            background: white;
+            border: 1px solid #d5e5de;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .checkbox-item label {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .checkbox-item input {
+            width: auto;
+        }
+
+        /* BUTTON */
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: #176b4d;
+            color: white;
+            padding: 17px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #10563d;
+        }
+
+        /* NOTE */
+        .info-box {
+            background: #edf8f3;
+            border-left: 5px solid #176b4d;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            color: #405b50;
+        }
+
+        /* SUCCESS */
+        .success {
+            display: none;
+            background: #e7f7ef;
+            border: 1px solid #b7dfcb;
+            color: #176b4d;
+            padding: 20px;
+            border-radius: 14px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #176b4d;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 6px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 750px) {
+
+            nav {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .form-card {
+                padding: 25px;
+            }
+
+            .two-column,
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <a href="index.html" class="logo">
+        🌱 ReConnect
+    </a>
+
+    <ul>
+
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="ngos.html">Find NGOs</a>
+        </li>
+
+        <li>
+            <a href="donate.html">Donate</a>
+        </li>
+
+        <li>
+            <a href="volunteer.html">Volunteer</a>
+        </li>
+
+        <li>
+            <a href="reuse.html">Reuse & Recycle</a>
+        </li>
+
+        <li>
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>🏢 NGO Registration</h1>
+
+    <p>
+        Register your NGO with ReConnect and share your
+        current requirements so donors and volunteers can
+        support your organization.
+    </p>
+
+</section>
+
+
+<div class="container">
+
+    <div class="info-box">
+
+        <strong>🔐 Verification Notice</strong><br>
+
+        NGO information submitted through ReConnect will be
+        subject to verification before being displayed as a
+        verified NGO on the platform.
+
+    </div>
+
+
+    <!-- BASIC INFORMATION -->
+
+    <div class="form-card">
+
+        <h2 class="section-title">
+            🏢 NGO Information
+        </h2>
+
+        <div class="form-group">
+
+            <label>
+                NGO Name <span class="required">*</span>
+            </label>
+
+            <input
+                type="text"
+                id="ngoName"
+                placeholder="Enter registered NGO name"
+                required
+            >
+
+        </div>
+
+
+        <div class="two-column">
+
+            <div class="form-group">
+
+                <label>
+                    Chairman / CEO
+                </label>
+
+                <input
+                    type="text"
+                    id="chairman"
+                    placeholder="Enter name"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Contact Person
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="contactPerson"
+                    placeholder="Enter contact person"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="two-column">
+
+            <div class="form-group">
+
+                <label>
+                    Contact Number
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter contact number"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email ID
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter email address"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Address <span class="required">*</span>
+            </label>
+
+            <textarea
+                id="address"
+                placeholder="Enter complete NGO address"
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="two-column">
+
+            <div class="form-group">
+
+                <label>
+                    Area of Work
+                </label>
+
+                <input
+                    type="text"
+                    id="area"
+                    placeholder="Example: Education, Health, Women Welfare"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Working Since
+                </label>
+
+                <input
+                    type="text"
+                    id="workingSince"
+                    placeholder="Example: 2015"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- REQUIREMENTS -->
+
+    <div class="form-card">
+
+        <h2 class="section-title">
+            📦 Current Requirements
+        </h2>
+
+        <div class="requirement-box">
+
+            <h3>What does your NGO currently need?</h3>
+
+            <p>
+                Select the types of support your NGO is currently
+                looking for.
+            </p>
+
+            <div class="checkbox-group">
+
+                <div class="checkbox-item">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Money"
+                            class="requirement"
+                        >
+                        💰 Funds / Money
+                    </label>
+
+                </div>
+
+
+                <div class="checkbox-item">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Clothes"
+                            class="requirement"
+                        >
+                        👕 Clothes
+                    </label>
+
+                </div>
+
+
+                <div class="checkbox-item">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Books"
+                            class="requirement"
+                        >
+                        📚 Books
+                    </label>
+
+                </div>
+
+
+                <div class="checkbox-item">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Food"
+                            class="requirement"
+                        >
+                        🍱 Food
+                    </label>
+
+                </div>
+
+
+                <div class="checkbox-item">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Medical Supplies"
+                            class="requirement"
+                        >
+                        🏥 Medical Supplies
+                    </label>
+
+                </div>
+
+
+                <div class="checkbox-item">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Books and Stationery"
+                            class="requirement"
+                        >
+                        ✏️ Stationery
+                    </label>
+
+                </div>
+
+
+                <div class="checkbox-item">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Volunteers"
+                            class="requirement"
+                        >
+                        🙋 Volunteers
+                    </label>
+
+                </div>
+
+
+                <div class="checkbox-item">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Other Items"
+                            class="requirement"
+                        >
+                        📦 Other Items
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Describe Your Current Requirements
+            </label>
+
+            <textarea
+                id="requirements"
+                placeholder="Example: We currently need 50 blankets, 100 books and 5 volunteers for our education program."
+            ></textarea>
+
+        </div>
+
+
+        <div class="two-column">
+
+            <div class="form-group">
+
+                <label>
+                    Funds Required (₹)
+                </label>
+
+                <input
+                    type="number"
+                    id="funds"
+                    placeholder="Example: 25000"
+                    min="0"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Volunteers Required
+                </label>
+
+                <input
+                    type="number"
+                    id="volunteers"
+                    placeholder="Example: 5"
+                    min="0"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUBMIT -->
+
+    <div class="form-card">
+
+        <h2 class="section-title">
+            📋 Submit Registration
+        </h2>
+
+        <p style="line-height:1.6; color:#687c74; margin-bottom:20px;">
+
+            By submitting this form, the NGO confirms that the
+            information provided is accurate. ReConnect will
+            verify the NGO before displaying it as verified.
+
+        </p>
+
+
+        <button
+            class="submit-btn"
+            onclick="submitRegistration()"
+        >
+            Submit NGO Registration →
+        </button>
+
+
+        <div
+            class="success"
+            id="successMessage"
+        >
+
+            <strong>✅ Registration Submitted!</strong>
+
+            <br><br>
+
+            Thank you for registering with ReConnect.
+
+            <br>
+
+            Your NGO information and current requirements
+            have been recorded for verification.
+
+            <br><br>
+
+            <strong>
+                Note:
+            </strong>
+
+            This is currently a demonstration of the
+            ReConnect registration workflow.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        <strong>🌱 ReConnect</strong>
+    </p>
+
+    <p>
+        Connecting NGOs, donors, volunteers and communities.
+    </p>
+
+    <p>
+        © 2026 ReConnect
+    </p>
+
+</footer>
+
+
+<script>
+
+function submitRegistration() {
+
+    const ngoName =
+        document.getElementById("ngoName").value.trim();
+
+    const contactPerson =
+        document.getElementById("contactPerson").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const address =
+        document.getElementById("address").value.trim();
+
+
+    if (
+        !ngoName ||
+        !contactPerson ||
+        !phone ||
+        !email ||
+        !address
+    ) {
+
+        alert(
+            "Please fill in all required NGO information."
+        );
+
+        return;
+
+    }
+
+
+    const selectedRequirements =
+        Array.from(
+            document.querySelectorAll(".requirement:checked")
+        ).map(
+            checkbox => checkbox.value
+        );
+
+
+    console.log("NGO Registration:", {
+
+        ngoName: ngoName,
+
+        chairman:
+            document.getElementById("chairman").value,
+
+        contactPerson: contactPerson,
+
+        phone: phone,
+
+        email: email,
+
+        address: address,
+
+        area:
+            document.getElementById("area").value,
+
+        workingSince:
+            document.getElementById("workingSince").value,
+
+        requirementTypes:
+            selectedRequirements,
+
+        requirements:
+            document.getElementById("requirements").value,
+
+        fundsRequired:
+            document.getElementById("funds").value,
+
+        volunteersRequired:
+            document.getElementById("volunteers").value
+
+    });
+
+
+    document.getElementById("successMessage")
+        .style.display = "block";
+
+
+    document.getElementById("successMessage")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+}
+
+</script>
+
+</body>
+</html>
