@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reuse & Recycle | ReConnect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f6fbf8;
+            color: #26382f;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #176b4d;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #176b4d;
+        }
+
+        .login-btn {
+            background: #176b4d;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 20px;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #176b4d, #48a878);
+            color: white;
+            text-align: center;
+            padding: 75px 8%;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* INTRO */
+        .intro {
+            text-align: center;
+            padding: 55px 8% 30px;
+        }
+
+        .intro h2 {
+            color: #176b4d;
+            font-size: 31px;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            max-width: 800px;
+            margin: auto;
+            color: #626d66;
+            line-height: 1.7;
+        }
+
+        /* PROCESS */
+        .process {
+            padding: 30px 8% 60px;
+        }
+
+        .process h2 {
+            text-align: center;
+            color: #176b4d;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .process-card {
+            background: white;
+            padding: 28px 20px;
+            text-align: center;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+        }
+
+        .process-number {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #176b4d;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .process-card h3 {
+            color: #176b4d;
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: #68736d;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ROUTING */
+        .routing {
+            background: #eaf6f0;
+            padding: 60px 8%;
+        }
+
+        .routing h2 {
+            text-align: center;
+            color: #176b4d;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .route-grid {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .route-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .route-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .route-card h3 {
+            color: #176b4d;
+            margin-bottom: 10px;
+        }
+
+        .route-card p {
+            color: #626d66;
+            line-height: 1.6;
+        }
+
+        /* FORM SECTION */
+        .form-section {
+            padding: 65px 8%;
+        }
+
+        .form-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+        }
+
+        .form-box h2 {
+            text-align: center;
+            color: #176b4d;
+            margin-bottom: 10px;
+        }
+
+        .form-description {
+            text-align: center;
+            color: #68736d;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #34463d;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 13px;
+            border: 1px solid #cbd8d1;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #176b4d;
+        }
+
+        textarea {
+            min-height: 105px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            background: #176b4d;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #0f5139;
+        }
+
+        /* SUCCESS */
+        #successMessage {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            background: #e1f5e9;
+            border-left: 5px solid #176b4d;
+            border-radius: 8px;
+            line-height: 1.7;
+            color: #24543e;
+        }
+
+        /* NOTE */
+        .note {
+            max-width: 900px;
+            margin: 25px auto 0;
+            padding: 18px;
+            background: #fff8df;
+            border-left: 5px solid #d5a500;
+            border-radius: 8px;
+            color: #665522;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #123f30;
+            color: white;
+            text-align: center;
+            padding: 35px 8%;
+        }
+
+        footer p {
+            margin: 7px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .route-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            .form-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        🌱 ReConnect
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="ngos.html">Find NGOs</a>
+        </li>
+
+        <li>
+            <a href="donate.html">Donate</a>
+        </li>
+
+        <li>
+            <a href="college.html">College/NSS</a>
+        </li>
+
+        <li>
+            <a href="reuse.html">Reuse & Recycle</a>
+        </li>
+
+        <li>
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>♻️ Reuse & Recycle</h1>
+
+    <p>
+        Give your unused items a second life.
+        ReConnect helps route usable items towards
+        social organizations and unsuitable items
+        towards responsible reuse, recycling or upcycling.
+    </p>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+    <h2>Don't Throw It Away — ReConnect It</h2>
+
+    <p>
+        Many items that are no longer useful to one person
+        can still be valuable to someone else. Through ReConnect,
+        donors can submit information about their items and
+        choose an appropriate next step.
+    </p>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section class="process">
+
+    <h2>🔄 How Reuse & Recycling Works</h2>
+
+    <div class="process-grid">
+
+        <div class="process-card">
+
+            <div class="process-number">1</div>
+
+            <h3>Submit Item</h3>
+
+            <p>
+                Tell us what item you want to donate,
+                reuse or recycle.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-number">2</div>
+
+            <h3>Condition Check</h3>
+
+            <p>
+                Provide the condition of the item so
+                the appropriate route can be considered.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-number">3</div>
+
+            <h3>Smart Routing</h3>
+
+            <p>
+                Usable items can be directed towards NGOs,
+                while unsuitable items can be considered
+                for recycling or upcycling.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-number">4</div>
+
+            <h3>Track the Journey</h3>
+
+            <p>
+                Keep the donation journey transparent
+                through status updates.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ROUTING -->
+
+<section class="routing">
+
+    <h2>🌱 Where Can Your Item Go?</h2>
+
+    <div class="route-grid">
+
+        <div class="route-card">
+
+            <div class="route-icon">
+                🤝
+            </div>
+
+            <h3>Usable Item → NGO</h3>
+
+            <p>
+                If an item is usable and matches an NGO's
+                requirements, it can be considered for
+                donation to that organization.
+            </p>
+
+        </div>
+
+
+        <div class="route-card">
+
+            <div class="route-icon">
+                ♻️
+            </div>
+
+            <h3>Damaged / Unsuitable → Recycle</h3>
+
+            <p>
+                If an item is not suitable for direct donation,
+                it can be considered for responsible recycling,
+                reuse or upcycling through appropriate partners.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FORM -->
+
+<section class="form-section">
+
+    <div class="form-box">
+
+        <h2>📦 Submit an Item</h2>
+
+        <p class="form-description">
+            Enter your item details below. This is a prototype
+            submission and does not automatically arrange pickup.
+        </p>
+
+
+        <form id="reuseForm">
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Item Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="itemName"
+                        placeholder="e.g. Clothes, Books, Furniture"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Quantity *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        min="1"
+                        placeholder="e.g. 5"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Item Condition *
+                    </label>
+
+                    <select id="condition" required>
+
+                        <option value="">
+                            Select condition
+                        </option>
+
+                        <option value="Like New">
+                            Like New
+                        </option>
+
+                        <option value="Good">
+                            Good
+                        </option>
+
+                        <option value="Used">
+                            Used
+                        </option>
+
+                        <option value="Damaged">
+                            Damaged
+                        </option>
+
+                        <option value="Not Usable">
+                            Not Usable
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Preferred Route *
+                    </label>
+
+                    <select id="route" required>
+
+                        <option value="">
+                            Select route
+                        </option>
+
+                        <option value="Donate to NGO">
+                            Donate to NGO
+                        </option>
+
+                        <option value="Reuse / Upcycle">
+                            Reuse / Upcycle
+                        </option>
+
+                        <option value="Recycle">
+                            Recycle
+                        </option>
+
+                        <option value="Not Sure">
+                            Not Sure
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Your Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="donorName"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Contact Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="contact"
+                        placeholder="Enter contact number"
+                        required>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Item Details
+                    </label>
+
+                    <textarea
+                        id="details"
+                        placeholder="Describe the item, approximate size, quantity details, etc."></textarea>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Additional Notes
+                    </label>
+
+                    <textarea
+                        id="notes"
+                        placeholder="Any other information you would like to provide..."></textarea>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn">
+
+                ♻️ Submit Item for Reuse / Recycling
+
+            </button>
+
+        </form>
+
+
+        <div id="successMessage"></div>
+
+    </div>
+
+
+    <div class="note">
+
+        <strong>ℹ️ Important:</strong>
+        ReConnect does not currently have a live recycling-partner
+        database. The routing shown here represents the proposed
+        workflow of the project. Actual partner verification,
+        pickup and processing would be handled through the future
+        backend system.
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        <strong>🌱 ReConnect</strong>
+    </p>
+
+    <p>
+        Connecting people, NGOs and communities
+        for meaningful social impact.
+    </p>
+
+    <p>
+        © 2026 ReConnect
+    </p>
+
+</footer>
+
+
+<script>
+
+    document
+        .getElementById("reuseForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const itemName =
+                document.getElementById("itemName").value;
+
+            const quantity =
+                document.getElementById("quantity").value;
+
+            const condition =
+                document.getElementById("condition").value;
+
+            const route =
+                document.getElementById("route").value;
+
+            const donorName =
+                document.getElementById("donorName").value;
+
+            const contact =
+                document.getElementById("contact").value;
+
+            const details =
+                document.getElementById("details").value;
+
+            const notes =
+                document.getElementById("notes").value;
+
+
+            const submissionId =
+                "RC-REUSE-" +
+                Math.floor(
+                    100000 +
+                    Math.random() * 900000
+                );
+
+
+            const submission = {
+
+                submissionId: submissionId,
+
+                itemName: itemName,
+
+                quantity: quantity,
+
+                condition: condition,
+
+                preferredRoute: route,
+
+                donorName: donorName,
+
+                contact: contact,
+
+                itemDetails: details,
+
+                additionalNotes: notes,
+
+                status: "Item Submitted",
+
+                submittedAt:
+                    new Date().toISOString()
+
+            };
+
+
+            let submissions =
+                JSON.parse(
+                    localStorage.getItem(
+                        "reconnectReuseSubmissions"
+                    )
+                ) || [];
+
+
+            submissions.push(submission);
+
+
+            localStorage.setItem(
+                "reconnectReuseSubmissions",
+                JSON.stringify(submissions)
+            );
+
+
+            const success =
+                document.getElementById(
+                    "successMessage"
+                );
+
+
+            success.style.display = "block";
+
+
+            success.innerHTML =
+
+                "🎉 <strong>Item Submitted Successfully!</strong><br><br>" +
+
+                "Your Reuse/Recycle ID is: " +
+
+                "<strong>" +
+                submissionId +
+                "</strong><br><br>" +
+
+                "Current Status: " +
+
+                "<strong>Item Submitted</strong><br><br>" +
+
+                "Your item details have been saved successfully. " +
+
+                "The next step would be condition checking and routing.";
+
+            
+            document
+                .getElementById("reuseForm")
+                .reset();
+
+
+            success.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        });
+
+</script>
+
+</body>
+</html>
