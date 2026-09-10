@@ -73,6 +73,14 @@
             color: #159957;
         }
 
+        .register-btn {
+            color: #159957 !important;
+        }
+
+        .register-btn:hover {
+            color: #087f5b !important;
+        }
+
         .login-btn {
             background: #159957;
 
@@ -425,6 +433,137 @@
 
 
         /* =========================
+           NGO REGISTRATION
+        ========================= */
+
+        .ngo-register-section {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #edf9f3,
+                    #f7fffb
+                );
+        }
+
+        .ngo-register-box {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            background: white;
+
+            border-radius: 28px;
+
+            padding: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 35px;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.07);
+        }
+
+        .ngo-register-content {
+
+            flex: 1;
+        }
+
+        .ngo-register-icon {
+
+            width: 80px;
+            height: 80px;
+
+            background: #e2f8ec;
+
+            border-radius: 22px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 42px;
+
+            margin-bottom: 20px;
+        }
+
+        .ngo-register-content h2 {
+
+            font-size: 34px;
+
+            color: #173b32;
+
+            margin-bottom: 15px;
+        }
+
+        .ngo-register-content p {
+
+            color: #71867f;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+        }
+
+        .register-main-btn {
+
+            background: #159957;
+
+            color: white;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            padding: 14px 26px;
+
+            border-radius: 28px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .register-main-btn:hover {
+
+            background: #087f5b;
+
+            transform: translateY(-3px);
+        }
+
+        .ngo-register-visual {
+
+            width: 260px;
+            height: 220px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dffff0,
+                    #e7f5ff
+                );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 100px;
+        }
+
+
+        /* =========================
            HOW IT WORKS
         ========================= */
 
@@ -560,7 +699,7 @@
            MOBILE
         ========================= */
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
 
             nav {
                 flex-direction: column;
@@ -618,6 +757,24 @@
                     repeat(2, 1fr);
             }
 
+            .ngo-register-box {
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .ngo-register-icon {
+
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .ngo-register-visual {
+
+                width: 100%;
+            }
+
         }
 
 
@@ -655,6 +812,16 @@
             .cta h2 {
 
                 font-size: 30px;
+            }
+
+            .ngo-register-box {
+
+                padding: 30px 20px;
+            }
+
+            .ngo-register-content h2 {
+
+                font-size: 28px;
             }
 
         }
@@ -714,6 +881,18 @@
         <li>
             <a href="reuse.html">
                 Reuse & Recycle
+            </a>
+        </li>
+
+
+        <!-- NEW NGO REGISTRATION LINK -->
+
+        <li>
+            <a
+                href="ngo-register.html"
+                class="register-btn"
+            >
+                Register NGO
             </a>
         </li>
 
@@ -995,6 +1174,76 @@
             >
                 Explore Clubs →
             </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     NGO REGISTRATION SECTION
+========================= -->
+
+<section class="ngo-register-section">
+
+
+    <div class="section-title">
+
+        <h2>
+            Are You an NGO?
+        </h2>
+
+        <p>
+            Join ReConnect and connect with donors,
+            volunteers and college communities.
+        </p>
+
+    </div>
+
+
+    <div class="ngo-register-box">
+
+
+        <div class="ngo-register-content">
+
+
+            <div class="ngo-register-icon">
+                🏢
+            </div>
+
+
+            <h2>
+                Register Your NGO
+            </h2>
+
+
+            <p>
+
+                Share your organization's information,
+                current requirements and areas of work.
+                After verification, your NGO can become
+                part of the ReConnect community.
+
+            </p>
+
+
+            <a
+                href="ngo-register.html"
+                class="register-main-btn"
+            >
+                Register Your NGO →
+            </a>
+
+
+        </div>
+
+
+        <div class="ngo-register-visual">
+
+            🤝
 
         </div>
 
