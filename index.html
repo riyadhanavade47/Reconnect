@@ -2,704 +2,291 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ReConnect | Connect. Donate. Make a Difference.</title>
+    <title>Login | ReConnect</title>
 
     <style>
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
         body {
-            background: #f5fff9;
-            color: #173b32;
+            background: linear-gradient(135deg, #eaf6f0, #f7fbf8);
+            color: #26382f;
+            min-height: 100vh;
         }
 
-        /* =========================
-           NAVBAR
-        ========================= */
+        /* NAVBAR */
 
         nav {
             background: white;
             padding: 18px 7%;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
         }
 
         .logo {
-            text-decoration: none;
-            color: #159957;
-
-            font-size: 28px;
+            font-size: 25px;
             font-weight: bold;
+            color: #176b4d;
         }
 
         nav ul {
             list-style: none;
-
             display: flex;
             align-items: center;
-
-            gap: 26px;
+            gap: 25px;
         }
 
-        nav ul li a {
+        nav a {
             text-decoration: none;
-
-            color: #173b32;
-
-            font-weight: bold;
-            font-size: 16px;
-
-            transition: 0.3s;
+            color: #333;
+            font-weight: 600;
         }
 
-        nav ul li a:hover {
-            color: #159957;
+        nav a:hover {
+            color: #176b4d;
         }
 
-        .register-btn {
-            color: #159957 !important;
-        }
-
-        .register-btn:hover {
-            color: #087f5b !important;
-        }
-
-        .login-btn {
-            background: #159957;
-
+        .home-btn {
+            background: #176b4d;
             color: white !important;
-
-            padding: 11px 22px;
-
-            border-radius: 25px;
+            padding: 10px 18px;
+            border-radius: 20px;
         }
 
-        .login-btn:hover {
-            background: #087f5b;
-        }
+        /* MAIN */
 
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-
-            min-height: 600px;
-
+        .main {
+            min-height: calc(100vh - 75px);
             display: flex;
-
+            justify-content: center;
             align-items: center;
-
-            padding: 70px 8%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #dffff0,
-                    #e7f5ff,
-                    #fff5d8
-                );
+            padding: 50px 20px;
         }
 
-        .hero-content {
-            max-width: 650px;
-        }
-
-        .tag {
-
-            display: inline-block;
-
+        .login-container {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             background: white;
-
-            color: #159957;
-
-            padding: 9px 17px;
-
             border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
 
-            font-size: 14px;
+        /* LEFT SIDE */
 
-            font-weight: bold;
+        .welcome-section {
+            background: linear-gradient(135deg, #176b4d, #48a878);
+            color: white;
+            padding: 55px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
+        .welcome-icon {
+            font-size: 65px;
             margin-bottom: 20px;
         }
 
-        .hero h1 {
-
-            font-size: 58px;
-
-            line-height: 1.1;
-
-            margin-bottom: 22px;
-
-            color: #123c31;
+        .welcome-section h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
         }
 
-        .hero h1 span {
-            color: #159957;
-        }
-
-        .hero p {
-
-            font-size: 19px;
-
+        .welcome-section p {
             line-height: 1.7;
-
-            color: #58736b;
-
+            font-size: 16px;
             margin-bottom: 30px;
         }
 
-        .hero-buttons {
-
-            display: flex;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
+        .role-list {
+            list-style: none;
         }
 
-        .btn {
-
-            text-decoration: none;
-
-            padding: 15px 28px;
-
-            border-radius: 30px;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-
-            display: inline-block;
+        .role-list li {
+            margin: 14px 0;
+            font-size: 16px;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
+        /* LOGIN SIDE */
+
+        .login-section {
+            padding: 50px 45px;
         }
 
-        .primary {
-
-            background: #159957;
-
-            color: white;
+        .login-section h2 {
+            color: #176b4d;
+            font-size: 30px;
+            margin-bottom: 8px;
         }
 
-        .primary:hover {
-            background: #087f5b;
-        }
-
-        .secondary {
-
-            background: white;
-
-            color: #159957;
-
-            border: 2px solid #159957;
-        }
-
-        .secondary:hover {
-            background: #159957;
-            color: white;
-        }
-
-
-        /* =========================
-           HERO VISUAL
-        ========================= */
-
-        .hero-visual {
-
-            margin-left: auto;
-
-            width: 400px;
-            height: 400px;
-
-            background: white;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            font-size: 150px;
-
-            box-shadow:
-                0 20px 50px rgba(0,0,0,0.10);
-        }
-
-
-        /* =========================
-           STATS
-        ========================= */
-
-        .stats {
-
-            max-width: 1100px;
-
-            margin: -45px auto 60px;
-
-            background: white;
-
-            border-radius: 25px;
-
-            padding: 30px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            box-shadow:
-                0 10px 35px rgba(0,0,0,0.08);
-        }
-
-        .stat {
-
-            text-align: center;
-
-            border-right:
-                1px solid #e5eee9;
-        }
-
-        .stat:last-child {
-            border-right: none;
-        }
-
-        .stat h2 {
-
-            color: #159957;
-
-            font-size: 32px;
-
-            margin-bottom: 6px;
-        }
-
-        .stat p {
-            color: #6a8179;
-        }
-
-
-        /* =========================
-           SECTION
-        ========================= */
-
-        section {
-            padding: 70px 8%;
-        }
-
-        .section-title {
-
-            text-align: center;
-
-            margin-bottom: 45px;
-        }
-
-        .section-title h2 {
-
-            font-size: 38px;
-
-            color: #173b32;
-
-            margin-bottom: 12px;
-        }
-
-        .section-title p {
-
-            color: #71867f;
-
-            font-size: 17px;
-        }
-
-
-        /* =========================
-           FEATURES
-        ========================= */
-
-        .features {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 22px;
-
-            max-width: 1200px;
-
-            margin: auto;
-        }
-
-        .feature {
-
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 22px;
-
-            text-align: center;
-
-            box-shadow:
-                0 6px 22px rgba(0,0,0,0.06);
-
-            transition: 0.3s;
-        }
-
-        .feature:hover {
-
-            transform:
-                translateY(-7px);
-
-            box-shadow:
-                0 12px 30px rgba(0,0,0,0.10);
-        }
-
-        .feature-icon {
-
-            width: 70px;
-            height: 70px;
-
-            margin:
-                0 auto 18px;
-
-            border-radius: 20px;
-
-            background: #e2f8ec;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            font-size: 35px;
-        }
-
-        .feature h3 {
-
-            margin-bottom: 12px;
-
-            color: #173b32;
-        }
-
-        .feature p {
-
-            color: #70847d;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================
-           FEATURE LINKS
-        ========================= */
-
-        .feature-link {
-
-            display: inline-block;
-
-            margin-top: 18px;
-
-            color: #159957;
-
-            text-decoration: none;
-
-            font-weight: bold;
-        }
-
-        .feature-link:hover {
-            text-decoration: underline;
-        }
-
-
-        /* =========================
-           NGO REGISTRATION
-        ========================= */
-
-        .ngo-register-section {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #edf9f3,
-                    #f7fffb
-                );
-        }
-
-        .ngo-register-box {
-
-            max-width: 1000px;
-
-            margin: auto;
-
-            background: white;
-
-            border-radius: 28px;
-
-            padding: 45px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 35px;
-
-            box-shadow:
-                0 10px 35px rgba(0,0,0,0.07);
-        }
-
-        .ngo-register-content {
-
-            flex: 1;
-        }
-
-        .ngo-register-icon {
-
-            width: 80px;
-            height: 80px;
-
-            background: #e2f8ec;
-
-            border-radius: 22px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            font-size: 42px;
-
-            margin-bottom: 20px;
-        }
-
-        .ngo-register-content h2 {
-
-            font-size: 34px;
-
-            color: #173b32;
-
-            margin-bottom: 15px;
-        }
-
-        .ngo-register-content p {
-
-            color: #71867f;
-
-            font-size: 17px;
-
-            line-height: 1.7;
-
-            margin-bottom: 25px;
-        }
-
-        .register-main-btn {
-
-            background: #159957;
-
-            color: white;
-
-            text-decoration: none;
-
-            display: inline-block;
-
-            padding: 14px 26px;
-
-            border-radius: 28px;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .register-main-btn:hover {
-
-            background: #087f5b;
-
-            transform: translateY(-3px);
-        }
-
-        .ngo-register-visual {
-
-            width: 260px;
-            height: 220px;
-
-            border-radius: 25px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #dffff0,
-                    #e7f5ff
-                );
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            font-size: 100px;
-        }
-
-
-        /* =========================
-           HOW IT WORKS
-        ========================= */
-
-        .steps {
-
-            max-width: 1100px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-        .step {
-
-            text-align: center;
-
-            position: relative;
-        }
-
-        .number {
-
-            width: 60px;
-            height: 60px;
-
-            background: #159957;
-
-            color: white;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            margin:
-                auto auto 18px;
-
-            font-size: 22px;
-
-            font-weight: bold;
-        }
-
-        .step h3 {
-
-            margin-bottom: 10px;
-        }
-
-        .step p {
-
-            color: #71867f;
-
+        .subtitle {
+            color: #68736d;
+            margin-bottom: 30px;
             line-height: 1.5;
         }
 
+        /* TABS */
 
-        /* =========================
-           CTA
-        ========================= */
-
-        .cta {
-
-            margin:
-                30px 8% 70px;
-
-            padding: 55px;
-
-            border-radius: 30px;
-
-            text-align: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #159957,
-                    #087f5b
-                );
-
-            color: white;
-        }
-
-        .cta h2 {
-
-            font-size: 38px;
-
-            margin-bottom: 15px;
-        }
-
-        .cta p {
-
+        .tabs {
+            display: flex;
             margin-bottom: 25px;
-
-            font-size: 17px;
+            border-bottom: 1px solid #d9e2dd;
         }
 
-        .cta .btn {
-
-            background: white;
-
-            color: #159957;
+        .tab {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-weight: bold;
+            color: #6b746f;
+            font-size: 15px;
         }
 
+        .tab.active {
+            color: #176b4d;
+            border-bottom: 3px solid #176b4d;
+        }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FORM */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #34463d;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd8d1;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #176b4d;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            background: #176b4d;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .login-button:hover {
+            background: #0f5139;
+        }
+
+        /* REGISTER */
+
+        .register-text {
+            text-align: center;
+            margin-top: 25px;
+            color: #68736d;
+        }
+
+        .register-link {
+            color: #176b4d;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* CREATE ACCOUNT */
+
+        #registerForm {
+            display: none;
+        }
+
+        .back-login {
+            margin-top: 18px;
+            text-align: center;
+        }
+
+        .back-login button {
+            border: none;
+            background: none;
+            color: #176b4d;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* SUCCESS / ERROR */
+
+        .message {
+            display: none;
+            margin-top: 18px;
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.5;
+        }
+
+        .success {
+            background: #e1f5e9;
+            border-left: 5px solid #176b4d;
+            color: #24543e;
+        }
+
+        .error {
+            background: #ffeaea;
+            border-left: 5px solid #c0392b;
+            color: #8b2e26;
+        }
+
+        /* DEMO NOTE */
+
+        .demo-note {
+            margin-top: 22px;
+            padding: 13px;
+            background: #fff8df;
+            border-radius: 9px;
+            color: #665522;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
 
         footer {
-
-            background: #102d26;
-
+            background: #123f30;
             color: white;
-
-            padding: 35px 8%;
-
             text-align: center;
+            padding: 25px;
         }
 
-        footer p {
+        /* MOBILE */
 
-            color: #c5d5d0;
-
-            margin-top: 8px;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 1100px) {
+        @media (max-width: 800px) {
 
             nav {
                 flex-direction: column;
@@ -709,119 +296,19 @@
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 15px;
             }
 
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 45px;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-visual {
-
-                margin:
-                    40px auto 0;
-
-                width: 280px;
-                height: 280px;
-
-                font-size: 100px;
-            }
-
-            .stats {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                margin: 20px;
-            }
-
-            .stat {
-
-                border-right: none;
-
-                margin-bottom: 20px;
-            }
-
-            .features,
-            .steps {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .ngo-register-box {
-
-                flex-direction: column;
-
-                text-align: center;
-            }
-
-            .ngo-register-icon {
-
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .ngo-register-visual {
-
-                width: 100%;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .hero {
-
-                padding:
-                    50px 6%;
-            }
-
-            .hero h1 {
-
-                font-size: 38px;
-            }
-
-            .features,
-            .steps {
-
+            .login-container {
                 grid-template-columns: 1fr;
             }
 
-            .stats {
-
-                grid-template-columns: 1fr;
+            .welcome-section {
+                padding: 40px 30px;
             }
 
-            .cta {
-
-                margin: 20px;
-
-                padding: 40px 20px;
-            }
-
-            .cta h2 {
-
-                font-size: 30px;
-            }
-
-            .ngo-register-box {
-
-                padding: 30px 20px;
-            }
-
-            .ngo-register-content h2 {
-
-                font-size: 28px;
+            .login-section {
+                padding: 40px 30px;
             }
 
         }
@@ -834,76 +321,34 @@
 <body>
 
 
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- NAVBAR -->
 
 <nav>
 
-    <a
-        href="index.html"
-        class="logo"
-    >
+    <div class="logo">
         🌱 ReConnect
-    </a>
-
+    </div>
 
     <ul>
 
         <li>
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
         </li>
 
-
         <li>
-            <a href="ngos.html">
-                Find NGOs
-            </a>
+            <a href="ngos.html">Find NGOs</a>
         </li>
 
-
         <li>
-            <a href="donate.html">
-                Donate
-            </a>
+            <a href="donate.html">Donate</a>
         </li>
 
-
         <li>
-            <a href="volunteer.html">
-                Volunteer
-            </a>
+            <a href="college.html">College/NSS</a>
         </li>
 
-
         <li>
-            <a href="reuse.html">
-                Reuse & Recycle
-            </a>
-        </li>
-
-
-        <!-- NEW NGO REGISTRATION LINK -->
-
-        <li>
-            <a
-                href="ngo-register.html"
-                class="register-btn"
-            >
-                Register NGO
-            </a>
-        </li>
-
-
-        <li>
-            <a
-                href="login.html"
-                class="login-btn"
-            >
-                Login
-            </a>
+            <a href="reuse.html">Reuse & Recycle</a>
         </li>
 
     </ul>
@@ -911,498 +356,689 @@
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- MAIN -->
 
-<section class="hero">
+<section class="main">
 
+    <div class="login-container">
 
-    <div class="hero-content">
 
+        <!-- LEFT -->
 
-        <span class="tag">
-            🌱 One platform. Multiple ways to help.
-        </span>
+        <div class="welcome-section">
 
-
-        <h1>
-
-            Connect.
-
-            <span>
-                Donate.
-            </span>
-
-            Create Real Impact.
-
-        </h1>
-
-
-        <p>
-
-            ReConnect brings donors, volunteers,
-            NGOs and college clubs together to make
-            giving more transparent, meaningful
-            and impactful.
-
-        </p>
-
-
-        <div class="hero-buttons">
-
-
-            <a
-                href="ngos.html"
-                class="btn primary"
-            >
-                🔎 Find an NGO
-            </a>
-
-
-            <a
-                href="donate.html"
-                class="btn secondary"
-            >
-                ❤️ Start Donating
-            </a>
-
-
-        </div>
-
-
-    </div>
-
-
-    <div class="hero-visual">
-
-        🌱
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================
-     STATS
-========================= -->
-
-<div class="stats">
-
-
-    <div class="stat">
-
-        <h2>
-            311+
-        </h2>
-
-        <p>
-            NGOs Listed
-        </p>
-
-    </div>
-
-
-    <div class="stat">
-
-        <h2>
-            100%
-        </h2>
-
-        <p>
-            Transparency Focus
-        </p>
-
-    </div>
-
-
-    <div class="stat">
-
-        <h2>
-            4+
-        </h2>
-
-        <p>
-            Ways to Contribute
-        </p>
-
-    </div>
-
-
-    <div class="stat">
-
-        <h2>
-            1
-        </h2>
-
-        <p>
-            Community Platform
-        </p>
-
-    </div>
-
-
-</div>
-
-
-<!-- =========================
-     WHAT YOU CAN DO
-========================= -->
-
-<section>
-
-
-    <div class="section-title">
-
-        <h2>
-            Make a Difference Your Way
-        </h2>
-
-        <p>
-            Choose how you want to contribute
-            to your community.
-        </p>
-
-    </div>
-
-
-    <div class="features">
-
-
-        <!-- DONATE -->
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                ❤️
+            <div class="welcome-icon">
+                🌱
             </div>
 
-            <h3>
-                Donate
-            </h3>
+            <h1>
+                Welcome to ReConnect
+            </h1>
 
             <p>
-                Support NGOs with money or useful
-                reusable items.
-            </p>
-
-            <a
-                href="donate.html"
-                class="feature-link"
-            >
-                Start Donating →
-            </a>
-
-        </div>
-
-
-        <!-- VOLUNTEER -->
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                🙋
-            </div>
-
-            <h3>
-                Volunteer
-            </h3>
-
-            <p>
-                Find meaningful volunteer opportunities
-                and contribute your time.
-            </p>
-
-            <a
-                href="volunteer.html"
-                class="feature-link"
-            >
-                Find Opportunities →
-            </a>
-
-        </div>
-
-
-        <!-- REUSE -->
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                ♻️
-            </div>
-
-            <h3>
-                Reuse & Recycle
-            </h3>
-
-            <p>
-                Give old items a second life instead
-                of sending them to waste.
-            </p>
-
-            <a
-                href="reuse.html"
-                class="feature-link"
-            >
-                Explore Reuse →
-            </a>
-
-        </div>
-
-
-        <!-- COLLEGE CLUBS -->
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                🎓
-            </div>
-
-            <h3>
-                College Clubs
-            </h3>
-
-            <p>
-                Connect student clubs with NGOs and
-                organize meaningful drives.
-            </p>
-
-            <a
-                href="college-clubs.html"
-                class="feature-link"
-            >
-                Explore Clubs →
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     NGO REGISTRATION SECTION
-========================= -->
-
-<section class="ngo-register-section">
-
-
-    <div class="section-title">
-
-        <h2>
-            Are You an NGO?
-        </h2>
-
-        <p>
-            Join ReConnect and connect with donors,
-            volunteers and college communities.
-        </p>
-
-    </div>
-
-
-    <div class="ngo-register-box">
-
-
-        <div class="ngo-register-content">
-
-
-            <div class="ngo-register-icon">
-                🏢
-            </div>
-
-
-            <h2>
-                Register Your NGO
-            </h2>
-
-
-            <p>
-
-                Share your organization's information,
-                current requirements and areas of work.
-                After verification, your NGO can become
-                part of the ReConnect community.
-
+                One platform connecting people,
+                NGOs and student communities
+                to create meaningful social impact.
             </p>
 
 
-            <a
-                href="ngo-register.html"
-                class="register-main-btn"
-            >
-                Register Your NGO →
-            </a>
+            <ul class="role-list">
 
+                <li>
+                    👤 <strong>Donor</strong> — Donate money or useful items
+                </li>
+
+                <li>
+                    🏢 <strong>NGO</strong> — Manage needs and donations
+                </li>
+
+                <li>
+                    🎓 <strong>College/NSS</strong> — Organize community activities
+                </li>
+
+                <li>
+                    🛠️ <strong>Admin</strong> — Manage and verify the platform
+                </li>
+
+            </ul>
 
         </div>
 
 
-        <div class="ngo-register-visual">
+        <!-- RIGHT -->
 
-            🤝
-
-        </div>
+        <div class="login-section">
 
 
-    </div>
+            <!-- LOGIN -->
 
-</section>
+            <div id="loginForm">
 
+                <h2>
+                    Login
+                </h2>
 
-<!-- =========================
-     HOW IT WORKS
-========================= -->
-
-<section>
-
-
-    <div class="section-title">
-
-        <h2>
-            How ReConnect Works
-        </h2>
-
-        <p>
-            Making social contribution simple
-            and transparent.
-        </p>
-
-    </div>
+                <p class="subtitle">
+                    Sign in to continue to your ReConnect account.
+                </p>
 
 
-    <div class="steps">
+                <div class="tabs">
+
+                    <button
+                        class="tab active"
+                        onclick="selectRole('Donor', this)">
+                        👤 Donor
+                    </button>
+
+                    <button
+                        class="tab"
+                        onclick="selectRole('NGO', this)">
+                        🏢 NGO
+                    </button>
+
+                    <button
+                        class="tab"
+                        onclick="selectRole('College/NSS', this)">
+                        🎓 College
+                    </button>
+
+                    <button
+                        class="tab"
+                        onclick="selectRole('Admin', this)">
+                        🛠️ Admin
+                    </button>
+
+                </div>
 
 
-        <div class="step">
+                <form id="loginFormElement">
 
-            <div class="number">
-                1
+                    <div class="form-group">
+
+                        <label>
+                            Login As
+                        </label>
+
+                        <select id="loginRole">
+
+                            <option value="Donor">
+                                👤 Donor
+                            </option>
+
+                            <option value="NGO">
+                                🏢 NGO
+                            </option>
+
+                            <option value="College/NSS">
+                                🎓 College/NSS
+                            </option>
+
+                            <option value="Admin">
+                                🛠️ Admin
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-button">
+
+                        Login
+
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="loginMessage"
+                    class="message">
+                </div>
+
+
+                <p class="register-text">
+
+                    Don't have an account?
+
+                    <a
+                        class="register-link"
+                        onclick="showRegister()">
+
+                        Create Account
+
+                    </a>
+
+                </p>
+
+
+                <div class="demo-note">
+
+                    <strong>ℹ️ Prototype Note:</strong>
+                    This login system is currently a frontend
+                    demonstration using browser storage.
+                    A real project would use secure authentication
+                    and a backend database.
+
+                </div>
+
             </div>
 
-            <h3>
-                Find
-            </h3>
 
-            <p>
-                Explore NGOs and their areas of work.
-            </p>
+            <!-- REGISTER -->
 
-        </div>
+            <div id="registerForm">
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <p class="subtitle">
+                    Create your ReConnect account and select your role.
+                </p>
 
 
-        <div class="step">
+                <form id="registerFormElement">
 
-            <div class="number">
-                2
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            placeholder="Enter your full name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Contact Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="registerContact"
+                            placeholder="Enter contact number"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Account Type
+                        </label>
+
+                        <select id="registerRole" required>
+
+                            <option value="">
+                                Select role
+                            </option>
+
+                            <option value="Donor">
+                                👤 Donor
+                            </option>
+
+                            <option value="NGO">
+                                🏢 NGO
+                            </option>
+
+                            <option value="College/NSS">
+                                🎓 College/NSS
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Create password"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-button">
+
+                        Create Account
+
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="registerMessage"
+                    class="message">
+                </div>
+
+
+                <div class="back-login">
+
+                    <button onclick="showLogin()">
+
+                        ← Back to Login
+
+                    </button>
+
+                </div>
+
             </div>
 
-            <h3>
-                Contribute
-            </h3>
-
-            <p>
-                Donate money, items or your time.
-            </p>
 
         </div>
-
-
-        <div class="step">
-
-            <div class="number">
-                3
-            </div>
-
-            <h3>
-                Track
-            </h3>
-
-            <p>
-                Keep track of your contribution
-                and updates.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <div class="number">
-                4
-            </div>
-
-            <h3>
-                Impact
-            </h3>
-
-            <p>
-                See how your contribution creates change.
-            </p>
-
-        </div>
-
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     CTA
-========================= -->
-
-<div class="cta">
-
-
-    <h2>
-        Ready to Make an Impact?
-    </h2>
-
-
-    <p>
-        Your time, items and support can make
-        a real difference.
-    </p>
-
-
-    <a
-        href="ngos.html"
-        class="btn"
-    >
-        Explore NGOs →
-    </a>
-
-
-</div>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
-
-    <h3>
-        🌱 ReConnect
-    </h3>
-
-
     <p>
-        Connect. Donate. Create Real Impact.
+        🌱 <strong>ReConnect</strong>
     </p>
 
-
     <p>
-        © 2026 ReConnect
+        Connecting people, NGOs and student communities.
     </p>
-
 
 </footer>
+
+
+<script>
+
+
+/* SELECT ROLE */
+
+function selectRole(role, button) {
+
+    document.getElementById("loginRole").value = role;
+
+
+    const tabs =
+        document.querySelectorAll(".tab");
+
+
+    tabs.forEach(function(tab) {
+
+        tab.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+}
+
+
+/* SHOW REGISTER */
+
+function showRegister() {
+
+    document.getElementById("loginForm").style.display =
+        "none";
+
+    document.getElementById("registerForm").style.display =
+        "block";
+
+}
+
+
+/* SHOW LOGIN */
+
+function showLogin() {
+
+    document.getElementById("registerForm").style.display =
+        "none";
+
+    document.getElementById("loginForm").style.display =
+        "block";
+
+}
+
+
+/* CREATE ACCOUNT */
+
+document
+    .getElementById("registerFormElement")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("registerName").value;
+
+        const email =
+            document.getElementById("registerEmail").value;
+
+        const contact =
+            document.getElementById("registerContact").value;
+
+        const role =
+            document.getElementById("registerRole").value;
+
+        const password =
+            document.getElementById("registerPassword").value;
+
+
+        let users =
+            JSON.parse(
+                localStorage.getItem(
+                    "reconnectUsers"
+                )
+            ) || [];
+
+
+        const existingUser =
+            users.find(function(user) {
+
+                return user.email.toLowerCase() ===
+                    email.toLowerCase();
+
+            });
+
+
+        if (existingUser) {
+
+            showMessage(
+                "registerMessage",
+                "An account with this email already exists.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const user = {
+
+            userId:
+                "RC-USER-" +
+                Math.floor(
+                    100000 +
+                    Math.random() * 900000
+                ),
+
+            name: name,
+
+            email: email,
+
+            contact: contact,
+
+            role: role,
+
+            password: password,
+
+            createdAt:
+                new Date().toISOString()
+
+        };
+
+
+        users.push(user);
+
+
+        localStorage.setItem(
+            "reconnectUsers",
+            JSON.stringify(users)
+        );
+
+
+        showMessage(
+            "registerMessage",
+
+            "🎉 Account created successfully! " +
+            "You can now return to Login and sign in.",
+
+            "success"
+        );
+
+
+        document
+            .getElementById("registerFormElement")
+            .reset();
+
+    });
+
+
+/* LOGIN */
+
+document
+    .getElementById("loginFormElement")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("loginEmail").value;
+
+        const password =
+            document.getElementById("loginPassword").value;
+
+        const role =
+            document.getElementById("loginRole").value;
+
+
+        let users =
+            JSON.parse(
+                localStorage.getItem(
+                    "reconnectUsers"
+                )
+            ) || [];
+
+
+        /*
+            DEMO ADMIN ACCOUNT
+        */
+
+        if (
+            role === "Admin" &&
+            email === "admin@reconnect.com" &&
+            password === "admin123"
+        ) {
+
+            localStorage.setItem(
+                "reconnectLoggedInUser",
+                JSON.stringify({
+                    name: "ReConnect Admin",
+                    email: email,
+                    role: "Admin"
+                })
+            );
+
+
+            showMessage(
+                "loginMessage",
+                "✅ Admin login successful! Redirecting...",
+                "success"
+            );
+
+
+            setTimeout(function() {
+
+                window.location.href =
+                    "ngo-donations.html";
+
+            }, 1000);
+
+
+            return;
+
+        }
+
+
+        const user =
+            users.find(function(account) {
+
+                return (
+                    account.email.toLowerCase() ===
+                    email.toLowerCase() &&
+
+                    account.password ===
+                    password &&
+
+                    account.role ===
+                    role
+                );
+
+            });
+
+
+        if (!user) {
+
+            showMessage(
+                "loginMessage",
+                "❌ Invalid email, password or account type.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        localStorage.setItem(
+            "reconnectLoggedInUser",
+            JSON.stringify(user)
+        );
+
+
+        showMessage(
+            "loginMessage",
+            "✅ Login successful! Welcome " +
+            user.name +
+            ".",
+            "success"
+        );
+
+
+        /*
+            CURRENT PROTOTYPE ROUTING
+        */
+
+        setTimeout(function() {
+
+            if (user.role === "NGO") {
+
+                window.location.href =
+                    "ngo-donations.html";
+
+            }
+
+            else if (user.role === "College/NSS") {
+
+                window.location.href =
+                    "college.html";
+
+            }
+
+            else {
+
+                window.location.href =
+                    "index.html";
+
+            }
+
+        }, 1000);
+
+    });
+
+
+/* MESSAGE FUNCTION */
+
+function showMessage(id, text, type) {
+
+    const message =
+        document.getElementById(id);
+
+
+    message.style.display =
+        "block";
+
+
+    message.className =
+        "message " + type;
+
+
+    message.innerHTML =
+        text;
+
+}
+
+</script>
 
 
 </body>
