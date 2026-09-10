@@ -440,7 +440,8 @@
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
+
 <nav>
 
     <a href="index.html" class="logo">
@@ -448,21 +449,56 @@
     </a>
 
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="ngos.html">Find NGOs</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="reuse.html">Reuse & Recycle</a></li>
-        <li><a href="login.html" class="login-btn">Login</a></li>
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="ngos.html">
+                Find NGOs
+            </a>
+        </li>
+
+        <li>
+            <a href="donate.html">
+                Donate
+            </a>
+        </li>
+
+        <!-- VOLUNTEER REMOVED -->
+        <li>
+            <a href="college.html">
+                College/NSS
+            </a>
+        </li>
+
+        <li>
+            <a href="reuse.html">
+                Reuse & Recycle
+            </a>
+        </li>
+
+        <li>
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+        </li>
+
     </ul>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
+
 <section class="hero">
 
-    <h1>❤️ Start Your Donation</h1>
+    <h1>
+        ❤️ Start Your Donation
+    </h1>
 
     <p>
         Choose an NGO, learn about their work and location,
@@ -474,10 +510,13 @@
 
 <div class="container">
 
-    <!-- SELECT NGO -->
+    <!-- ================= SELECT NGO ================= -->
+
     <div class="card">
 
-        <h2>Select an NGO</h2>
+        <h2>
+            Select an NGO
+        </h2>
 
         <select id="ngoSelect">
 
@@ -490,19 +529,25 @@
     </div>
 
 
-    <!-- NGO INFORMATION -->
+    <!-- ================= NGO INFORMATION ================= -->
+
     <div class="card ngo-section" id="ngoSection">
 
         <div class="ngo-layout">
 
             <!-- NGO IMAGE -->
+
             <div class="ngo-image" id="ngoImage">
 
                 <div class="image-placeholder">
 
-                    <div class="icon">🌱</div>
+                    <div class="icon">
+                        🌱
+                    </div>
 
-                    <h3>NGO Image</h3>
+                    <h3>
+                        NGO Image
+                    </h3>
 
                     <p>
                         Official NGO image will appear here
@@ -515,6 +560,7 @@
 
 
             <!-- NGO DETAILS -->
+
             <div class="ngo-details">
 
                 <span class="badge">
@@ -526,28 +572,53 @@
                 </h2>
 
                 <div class="detail">
-                    <strong>🎯 Area of Work:</strong>
+
+                    <strong>
+                        🎯 Area of Work:
+                    </strong>
+
                     <span id="ngoWork"></span>
+
                 </div>
 
                 <div class="detail">
-                    <strong>📍 Address:</strong>
+
+                    <strong>
+                        📍 Address:
+                    </strong>
+
                     <span id="ngoAddress"></span>
+
                 </div>
 
                 <div class="detail">
-                    <strong>👤 Contact Person:</strong>
+
+                    <strong>
+                        👤 Contact Person:
+                    </strong>
+
                     <span id="ngoContactPerson"></span>
+
                 </div>
 
                 <div class="detail">
-                    <strong>📞 Contact:</strong>
+
+                    <strong>
+                        📞 Contact:
+                    </strong>
+
                     <span id="ngoPhone"></span>
+
                 </div>
 
                 <div class="detail">
-                    <strong>📧 Email:</strong>
+
+                    <strong>
+                        📧 Email:
+                    </strong>
+
                     <span id="ngoEmail"></span>
+
                 </div>
 
                 <a
@@ -565,12 +636,18 @@
     </div>
 
 
-    <!-- DONATION OPTIONS -->
+    <!-- ================= DONATION OPTIONS ================= -->
+
     <div class="card">
 
-        <h2>How Would You Like to Contribute?</h2>
+        <h2>
+            How Would You Like to Contribute?
+        </h2>
 
         <div class="donation-types">
+
+
+            <!-- MONEY -->
 
             <div
                 class="type-card"
@@ -578,9 +655,13 @@
                 onclick="showForm('money')"
             >
 
-                <div class="type-icon">💰</div>
+                <div class="type-icon">
+                    💰
+                </div>
 
-                <h3>Donate Money</h3>
+                <h3>
+                    Donate Money
+                </h3>
 
                 <p>
                     Support an NGO financially
@@ -590,15 +671,21 @@
             </div>
 
 
+            <!-- ITEMS -->
+
             <div
                 class="type-card"
                 id="itemCard"
                 onclick="showForm('item')"
             >
 
-                <div class="type-icon">📦</div>
+                <div class="type-icon">
+                    📦
+                </div>
 
-                <h3>Donate Items</h3>
+                <h3>
+                    Donate Items
+                </h3>
 
                 <p>
                     Donate useful items such as
@@ -610,15 +697,20 @@
         </div>
 
 
-        <!-- MONEY FORM -->
+        <!-- ================= MONEY FORM ================= -->
+
         <div
             class="donation-form"
             id="moneyForm"
         >
 
-            <h2>💰 Money Donation</h2>
+            <h2>
+                💰 Money Donation
+            </h2>
 
-            <label>Select Amount</label>
+            <label>
+                Select Amount
+            </label>
 
             <div class="amounts">
 
@@ -656,6 +748,7 @@
 
             </div>
 
+
             <label for="customAmount">
                 Or Enter Custom Amount
             </label>
@@ -667,6 +760,7 @@
                 min="1"
             >
 
+
             <label for="moneyName">
                 Your Name
             </label>
@@ -676,6 +770,7 @@
                 id="moneyName"
                 placeholder="Enter your name"
             >
+
 
             <label for="moneyEmail">
                 Email Address
@@ -687,6 +782,7 @@
                 placeholder="Enter your email"
             >
 
+
             <button
                 class="submit-btn"
                 onclick="submitMoneyDonation()"
@@ -694,25 +790,35 @@
                 Continue Donation →
             </button>
 
+
             <div
                 class="success"
                 id="moneySuccess"
             >
+
                 ❤️ Thank you for choosing to support this NGO.
+
                 <br><br>
-                This is a demo donation flow for the ReConnect project.
+
+                This is a demo donation flow for the
+                ReConnect project.
+
             </div>
 
         </div>
 
 
-        <!-- ITEM FORM -->
+        <!-- ================= ITEM FORM ================= -->
+
         <div
             class="donation-form"
             id="itemForm"
         >
 
-            <h2>📦 Item Donation</h2>
+            <h2>
+                📦 Item Donation
+            </h2>
+
 
             <label for="itemName">
                 What would you like to donate?
@@ -724,6 +830,7 @@
                 placeholder="Example: Clothes, Books, Food"
             >
 
+
             <label for="itemQuantity">
                 Quantity
             </label>
@@ -733,6 +840,7 @@
                 id="itemQuantity"
                 placeholder="Example: 10 clothes, 5 books"
             >
+
 
             <label for="itemCondition">
                 Condition
@@ -744,6 +852,7 @@
                 placeholder="Example: Good / Used / New"
             >
 
+
             <label for="donorName">
                 Your Name
             </label>
@@ -753,6 +862,7 @@
                 id="donorName"
                 placeholder="Enter your name"
             >
+
 
             <label for="donorContact">
                 Contact Number
@@ -764,6 +874,7 @@
                 placeholder="Enter your contact number"
             >
 
+
             <label for="itemDetails">
                 Additional Details
             </label>
@@ -773,6 +884,7 @@
                 placeholder="Tell us anything else about your donation..."
             ></textarea>
 
+
             <button
                 class="submit-btn"
                 onclick="submitItemDonation()"
@@ -781,33 +893,48 @@
             </button>
 
 
-            <!-- ITEM DONATION SUCCESS -->
+            <!-- SUCCESS -->
+
             <div
                 class="success"
                 id="itemSuccess"
             >
 
-                📦 <strong>Donation Submitted Successfully!</strong>
+                📦
+                <strong>
+                    Donation Submitted Successfully!
+                </strong>
+
 
                 <div class="donation-id">
+
                     Donation ID:
+
                     <span id="generatedDonationId"></span>
+
                 </div>
+
 
                 <div>
                     Your item donation has been recorded.
                 </div>
 
+
                 <div class="status-box">
                     Status: Donation Submitted
                 </div>
 
+
                 <br>
 
+
                 <div style="margin-top: 12px;">
+
                     Please keep your Donation ID safe.
                     You can use it later to track your item.
+
                 </div>
+
 
                 <a
                     href="track-donation.html"
@@ -825,10 +952,15 @@
 </div>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-    <p><strong>🌱 ReConnect</strong></p>
+    <p>
+        <strong>
+            🌱 ReConnect
+        </strong>
+    </p>
 
     <p>
         Connecting people, NGOs and communities
@@ -844,20 +976,25 @@
 
 <script>
 
-    /* GLOBAL VARIABLES */
+    /* ================= GLOBAL VARIABLES ================= */
 
     let ngos = [];
+
     let selectedNGOIndex = null;
 
 
-    /* LOAD NGO DATA */
+    /* ================= LOAD NGO DATA ================= */
 
     fetch("ngos.json")
 
         .then(response => {
 
             if (!response.ok) {
-                throw new Error("Could not load ngos.json");
+
+                throw new Error(
+                    "Could not load ngos.json"
+                );
+
             }
 
             return response.json();
@@ -871,15 +1008,20 @@
             const select =
                 document.getElementById("ngoSelect");
 
+
             ngos.forEach((ngo, index) => {
 
                 const option =
                     document.createElement("option");
 
+
                 option.value = index;
 
+
                 option.textContent =
-                    ngo["Name of Institution"] || "Unnamed NGO";
+                    ngo["Name of Institution"] ||
+                    "Unnamed NGO";
+
 
                 select.appendChild(option);
 
@@ -889,10 +1031,14 @@
             /* CHECK URL FOR NGO */
 
             const params =
-                new URLSearchParams(window.location.search);
+                new URLSearchParams(
+                    window.location.search
+                );
+
 
             const ngoParam =
                 params.get("ngo");
+
 
             if (
                 ngoParam !== null &&
@@ -901,7 +1047,9 @@
 
                 select.value = ngoParam;
 
-                showNGO(Number(ngoParam));
+                showNGO(
+                    Number(ngoParam)
+                );
 
             }
 
@@ -911,84 +1059,120 @@
 
             console.error(error);
 
-            document.getElementById("ngoSelect").innerHTML =
+
+            document.getElementById(
+                "ngoSelect"
+            ).innerHTML =
                 '<option value="">Unable to load NGOs</option>';
 
         });
 
 
-    /* NGO SELECTION */
+    /* ================= NGO SELECTION ================= */
 
     document.getElementById("ngoSelect")
-        .addEventListener("change", function() {
+        .addEventListener(
+            "change",
+            function() {
 
-            if (this.value === "") {
+                if (this.value === "") {
 
-                document.getElementById("ngoSection").style.display =
-                    "none";
+                    document.getElementById(
+                        "ngoSection"
+                    ).style.display = "none";
 
-                selectedNGOIndex = null;
 
-                return;
+                    selectedNGOIndex = null;
+
+                    return;
+
+                }
+
+
+                showNGO(
+                    Number(this.value)
+                );
 
             }
-
-            showNGO(Number(this.value));
-
-        });
+        );
 
 
-    /* SHOW NGO */
+    /* ================= SHOW NGO ================= */
 
     function showNGO(index) {
 
         const ngo = ngos[index];
 
+
         if (!ngo) return;
+
 
         selectedNGOIndex = index;
 
 
-        document.getElementById("ngoSection").style.display =
-            "block";
+        document.getElementById(
+            "ngoSection"
+        ).style.display = "block";
 
 
-        document.getElementById("ngoName").textContent =
-            ngo["Name of Institution"] || "NGO Name";
+        document.getElementById(
+            "ngoName"
+        ).textContent =
+            ngo["Name of Institution"] ||
+            "NGO Name";
 
 
-        document.getElementById("ngoWork").textContent =
-            ngo["Area of Work"] || "Not available";
+        document.getElementById(
+            "ngoWork"
+        ).textContent =
+            ngo["Area of Work"] ||
+            "Not available";
 
 
-        document.getElementById("ngoAddress").textContent =
-            ngo["Address"] || "Not available";
+        document.getElementById(
+            "ngoAddress"
+        ).textContent =
+            ngo["Address"] ||
+            "Not available";
 
 
-        document.getElementById("ngoContactPerson").textContent =
+        document.getElementById(
+            "ngoContactPerson"
+        ).textContent =
             ngo["Local Contact Person"] ||
             ngo["Chairman/CEO"] ||
             "Not available";
 
 
-        document.getElementById("ngoPhone").textContent =
-            ngo["Contact No."] || "Not available";
+        document.getElementById(
+            "ngoPhone"
+        ).textContent =
+            ngo["Contact No."] ||
+            "Not available";
 
 
-        document.getElementById("ngoEmail").textContent =
-            ngo["Email ID"] || "Not available";
+        document.getElementById(
+            "ngoEmail"
+        ).textContent =
+            ngo["Email ID"] ||
+            "Not available";
 
 
         /* PROFILE LINK */
 
-        document.getElementById("profileLink").href =
-            "ngo-profile.html?ngo=" + index;
+        document.getElementById(
+            "profileLink"
+        ).href =
+            "ngo-profile.html?ngo=" +
+            index;
 
 
         /* NGO IMAGE */
 
         const imageContainer =
-            document.getElementById("ngoImage");
+            document.getElementById(
+                "ngoImage"
+            );
 
 
         if (
@@ -998,38 +1182,50 @@
 
             imageContainer.innerHTML = "";
 
+
             const image =
                 document.createElement("img");
 
-            image.src = ngo["Image"];
+
+            image.src =
+                ngo["Image"];
+
 
             image.alt =
-                ngo["Name of Institution"] || "NGO Image";
+                ngo["Name of Institution"] ||
+                "NGO Image";
 
 
-            image.onerror = function() {
+            image.onerror =
+                function() {
 
-                imageContainer.innerHTML = `
+                    imageContainer.innerHTML = `
 
-                    <div class="image-placeholder">
+                        <div class="image-placeholder">
 
-                        <div class="icon">🌱</div>
+                            <div class="icon">
+                                🌱
+                            </div>
 
-                        <h3>NGO Image</h3>
+                            <h3>
+                                NGO Image
+                            </h3>
 
-                        <p>
-                            Official NGO image will appear here
-                            when available.
-                        </p>
+                            <p>
+                                Official NGO image will appear
+                                here when available.
+                            </p>
 
-                    </div>
+                        </div>
 
-                `;
+                    `;
 
-            };
+                };
 
 
-            imageContainer.appendChild(image);
+            imageContainer.appendChild(
+                image
+            );
 
         }
 
@@ -1039,13 +1235,17 @@
 
                 <div class="image-placeholder">
 
-                    <div class="icon">🌱</div>
+                    <div class="icon">
+                        🌱
+                    </div>
 
-                    <h3>NGO Image</h3>
+                    <h3>
+                        NGO Image
+                    </h3>
 
                     <p>
-                        Official NGO image will appear here
-                        when available.
+                        Official NGO image will appear
+                        here when available.
                     </p>
 
                 </div>
@@ -1057,141 +1257,224 @@
     }
 
 
-    /* DONATION TYPE */
+    /* ================= DONATION TYPE ================= */
 
     function showForm(type) {
 
         const moneyForm =
-            document.getElementById("moneyForm");
+            document.getElementById(
+                "moneyForm"
+            );
+
 
         const itemForm =
-            document.getElementById("itemForm");
+            document.getElementById(
+                "itemForm"
+            );
+
 
         const moneyCard =
-            document.getElementById("moneyCard");
+            document.getElementById(
+                "moneyCard"
+            );
+
 
         const itemCard =
-            document.getElementById("itemCard");
+            document.getElementById(
+                "itemCard"
+            );
 
 
-        moneyForm.classList.remove("active");
+        moneyForm.classList.remove(
+            "active"
+        );
 
-        itemForm.classList.remove("active");
 
-        moneyCard.classList.remove("active");
+        itemForm.classList.remove(
+            "active"
+        );
 
-        itemCard.classList.remove("active");
+
+        moneyCard.classList.remove(
+            "active"
+        );
+
+
+        itemCard.classList.remove(
+            "active"
+        );
 
 
         if (type === "money") {
 
-            moneyForm.classList.add("active");
+            moneyForm.classList.add(
+                "active"
+            );
 
-            moneyCard.classList.add("active");
+
+            moneyCard.classList.add(
+                "active"
+            );
 
         }
 
 
         if (type === "item") {
 
-            itemForm.classList.add("active");
+            itemForm.classList.add(
+                "active"
+            );
 
-            itemCard.classList.add("active");
+
+            itemCard.classList.add(
+                "active"
+            );
 
         }
 
     }
 
 
-    /* AMOUNT */
+    /* ================= AMOUNT ================= */
 
-    function selectAmount(amount, button) {
+    function selectAmount(
+        amount,
+        button
+    ) {
 
-        document.getElementById("customAmount").value =
+        document.getElementById(
+            "customAmount"
+        ).value =
             amount;
 
 
-        document.querySelectorAll(".amount-btn")
-            .forEach(btn => {
+        document.querySelectorAll(
+            ".amount-btn"
+        ).forEach(btn => {
 
-                btn.classList.remove("selected");
+            btn.classList.remove(
+                "selected"
+            );
 
-            });
+        });
 
 
-        button.classList.add("selected");
+        button.classList.add(
+            "selected"
+        );
 
     }
 
 
-    /* MONEY DONATION */
+    /* ================= MONEY DONATION ================= */
 
     function submitMoneyDonation() {
 
         const amount =
-            document.getElementById("customAmount").value;
+            document.getElementById(
+                "customAmount"
+            ).value;
+
 
         const name =
-            document.getElementById("moneyName").value;
+            document.getElementById(
+                "moneyName"
+            ).value;
+
 
         const email =
-            document.getElementById("moneyEmail").value;
+            document.getElementById(
+                "moneyEmail"
+            ).value;
 
 
-        if (!selectedNGOIndex && selectedNGOIndex !== 0) {
+        if (
+            selectedNGOIndex === null
+        ) {
 
-            alert("Please select an NGO first.");
-
-            return;
-
-        }
-
-
-        if (!amount || amount <= 0) {
-
-            alert("Please enter a donation amount.");
+            alert(
+                "Please select an NGO first."
+            );
 
             return;
 
         }
 
 
-        if (!name || !email) {
+        if (
+            !amount ||
+            amount <= 0
+        ) {
 
-            alert("Please enter your name and email.");
+            alert(
+                "Please enter a donation amount."
+            );
 
             return;
 
         }
 
 
-        document.getElementById("moneySuccess")
-            .style.display = "block";
+        if (
+            !name ||
+            !email
+        ) {
+
+            alert(
+                "Please enter your name and email."
+            );
+
+            return;
+
+        }
+
+
+        document.getElementById(
+            "moneySuccess"
+        ).style.display =
+            "block";
 
     }
 
 
-    /* ITEM DONATION */
+    /* ================= ITEM DONATION ================= */
 
     function submitItemDonation() {
 
         const item =
-            document.getElementById("itemName").value.trim();
+            document.getElementById(
+                "itemName"
+            ).value.trim();
+
 
         const quantity =
-            document.getElementById("itemQuantity").value.trim();
+            document.getElementById(
+                "itemQuantity"
+            ).value.trim();
+
 
         const condition =
-            document.getElementById("itemCondition").value.trim();
+            document.getElementById(
+                "itemCondition"
+            ).value.trim();
+
 
         const name =
-            document.getElementById("donorName").value.trim();
+            document.getElementById(
+                "donorName"
+            ).value.trim();
+
 
         const contact =
-            document.getElementById("donorContact").value.trim();
+            document.getElementById(
+                "donorContact"
+            ).value.trim();
+
 
         const details =
-            document.getElementById("itemDetails").value.trim();
+            document.getElementById(
+                "itemDetails"
+            ).value.trim();
 
 
         /* CHECK NGO */
@@ -1201,7 +1484,9 @@
             !ngos[selectedNGOIndex]
         ) {
 
-            alert("Please select an NGO first.");
+            alert(
+                "Please select an NGO first."
+            );
 
             return;
 
@@ -1227,34 +1512,40 @@
         }
 
 
-        /* GET SELECTED NGO */
+        /* SELECTED NGO */
 
         const selectedNGO =
             ngos[selectedNGOIndex];
 
 
-        /* CREATE UNIQUE DONATION ID */
+        /* CREATE DONATION ID */
 
         const donationId =
             "RC-DON-" +
             Math.floor(
                 100000 +
-                Math.random() * 900000
+                Math.random() *
+                900000
             );
 
 
-        /* CREATE DONATION OBJECT */
+        /* DONATION OBJECT */
 
         const donation = {
 
-            donationId: donationId,
+            donationId:
+                donationId,
 
-            donationType: "Item",
+            donationType:
+                "Item",
 
-            ngoIndex: selectedNGOIndex,
+            ngoIndex:
+                selectedNGOIndex,
 
             ngoName:
-                selectedNGO["Name of Institution"] ||
+                selectedNGO[
+                    "Name of Institution"
+                ] ||
                 "Unknown NGO",
 
             item:
@@ -1294,16 +1585,20 @@
             ) || [];
 
 
-        /* ADD NEW DONATION */
+        /* ADD DONATION */
 
-        donations.push(donation);
+        donations.push(
+            donation
+        );
 
 
         /* SAVE DONATION */
 
         localStorage.setItem(
             "reconnectItemDonations",
-            JSON.stringify(donations)
+            JSON.stringify(
+                donations
+            )
         );
 
 
@@ -1323,26 +1618,46 @@
 
         /* CLEAR FORM */
 
-        document.getElementById("itemName").value = "";
-
-        document.getElementById("itemQuantity").value = "";
-
-        document.getElementById("itemCondition").value = "";
-
-        document.getElementById("donorName").value = "";
-
-        document.getElementById("donorContact").value = "";
-
-        document.getElementById("itemDetails").value = "";
+        document.getElementById(
+            "itemName"
+        ).value = "";
 
 
-        /* SCROLL TO SUCCESS MESSAGE */
+        document.getElementById(
+            "itemQuantity"
+        ).value = "";
+
+
+        document.getElementById(
+            "itemCondition"
+        ).value = "";
+
+
+        document.getElementById(
+            "donorName"
+        ).value = "";
+
+
+        document.getElementById(
+            "donorContact"
+        ).value = "";
+
+
+        document.getElementById(
+            "itemDetails"
+        ).value = "";
+
+
+        /* SCROLL TO SUCCESS */
 
         document.getElementById(
             "itemSuccess"
         ).scrollIntoView({
+
             behavior: "smooth",
+
             block: "center"
+
         });
 
     }
