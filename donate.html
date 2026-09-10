@@ -1,545 +1,1622 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NGO Profile | ReConnect</title>
+    <meta charset="UTF-8">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f6faf7;
-    color: #26352d;
-}
+    <title>Donate | ReConnect</title>
 
-/* NAVBAR */
-nav {
-    background: white;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
+    <style>
 
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-    color: #1f7a4d;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #333;
-    margin-left: 25px;
-}
+        body {
+            background: #f5fff9;
+            color: #173b32;
+        }
 
-nav a:hover {
-    color: #1f7a4d;
-}
+        /* NAVBAR */
 
-/* BACK */
-.back {
-    max-width: 1100px;
-    margin: 25px auto 0;
-    padding: 0 20px;
-}
+        nav {
+            background: white;
+            padding: 18px 7%;
 
-.back a {
-    color: #1f7a4d;
-    text-decoration: none;
-    font-weight: bold;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-/* HERO */
-.profile-header {
-    max-width: 1100px;
-    margin: 25px auto;
-    padding: 40px;
-    background: linear-gradient(135deg, #e7f7ed, #fff1df);
-    border-radius: 25px;
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-.photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 20px;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 65px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
 
-.profile-header h1 {
-    font-size: 35px;
-    color: #1f7a4d;
-    margin-bottom: 12px;
-}
+        .logo {
+            color: #159957;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-.badge {
-    display: inline-block;
-    background: #1f7a4d;
-    color: white;
-    padding: 7px 13px;
-    border-radius: 20px;
-    font-size: 13px;
-    margin-bottom: 12px;
-}
+        nav ul {
+            list-style: none;
 
-.info {
-    color: #5c6b63;
-    line-height: 1.7;
-}
+            display: flex;
 
-/* LAYOUT */
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
-}
+            gap: 25px;
 
-.grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 25px;
-}
+            align-items: center;
+        }
 
-/* CARDS */
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.07);
-}
+        nav ul li a {
+            text-decoration: none;
 
-.card h2 {
-    color: #1f7a4d;
-    margin-bottom: 18px;
-}
+            color: #173b32;
 
-.card p {
-    line-height: 1.7;
-    color: #5d6962;
-}
+            font-weight: bold;
+        }
 
-/* REQUIREMENTS */
-.requirements {
-    padding: 20px;
-    background: #fff8ed;
-    border-radius: 15px;
-    border-left: 5px solid #e8953d;
-}
+        nav ul li a:hover {
+            color: #159957;
+        }
 
-/* DETAILS */
-.detail {
-    display: flex;
-    justify-content: space-between;
-    padding: 13px 0;
-    border-bottom: 1px solid #e8eee9;
-}
+        .login-btn {
+            background: #159957;
 
-.detail:last-child {
-    border-bottom: none;
-}
+            color: white !important;
 
-.detail strong {
-    color: #35443b;
-}
+            padding: 10px 20px;
 
-.detail span {
-    color: #66736b;
-    text-align: right;
-}
+            border-radius: 25px;
+        }
 
-/* BUTTONS */
-.action-btn {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    font-weight: bold;
-    color: white;
-    background: #1f7a4d;
-}
+        /* HERO */
 
-.action-btn:hover {
-    background: #17633e;
-}
+        .hero {
+            text-align: center;
 
-.action-btn.orange {
-    background: #e8953d;
-}
+            padding: 65px 20px 80px;
 
-.action-btn.orange:hover {
-    background: #ce7621;
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    #dffff0,
+                    #e7f5ff,
+                    #fff5d8
+                );
+        }
 
-/* CONTACT */
-.contact-box {
-    background: #f1f8f3;
-    padding: 18px;
-    border-radius: 12px;
-    margin-top: 15px;
-}
+        .hero-icon {
+            font-size: 55px;
 
-.contact-box p {
-    margin: 7px 0;
-}
+            margin-bottom: 15px;
+        }
 
-/* FOOTER */
-footer {
-    margin-top: 50px;
-    background: #183d2b;
-    color: white;
-    text-align: center;
-    padding: 30px;
-}
+        .hero h1 {
+            font-size: 45px;
 
-@media(max-width: 750px) {
+            color: #123c31;
 
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
+            margin-bottom: 15px;
+        }
 
-    .profile-header {
-        flex-direction: column;
-        text-align: center;
-    }
+        .hero h1 span {
+            color: #159957;
+        }
 
-    .grid {
-        grid-template-columns: 1fr;
-    }
+        .hero p {
+            max-width: 700px;
 
-    .profile-header h1 {
-        font-size: 28px;
-    }
-}
-</style>
+            margin: auto;
+
+            color: #607970;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+        /* MAIN */
+
+        .container {
+            max-width: 1050px;
+
+            margin: -40px auto 70px;
+
+            padding: 0 20px;
+        }
+
+        /* FORM CARD */
+
+        .card {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 8px 30px rgba(0,0,0,0.07);
+        }
+
+        .card h2 {
+            color: #159957;
+
+            margin-bottom: 25px;
+
+            font-size: 25px;
+        }
+
+        /* LABEL */
+
+        label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            color: #173b32;
+        }
+
+        /* INPUT */
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 14px 16px;
+
+            border: 1px solid #dce8e2;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            font-size: 15px;
+
+            background: #fbfefc;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            border-color: #159957;
+
+            box-shadow:
+                0 0 0 3px rgba(21,153,87,0.10);
+        }
+
+        textarea {
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        /* DONATION TYPE */
+
+        .type-options {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+
+            margin-bottom: 10px;
+        }
+
+        .type-option {
+
+            border: 2px solid #e2ece7;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            text-align: center;
+        }
+
+        .type-option:hover {
+
+            border-color: #159957;
+
+            transform: translateY(-3px);
+        }
+
+        .type-option.selected {
+
+            border-color: #159957;
+
+            background: #effbf5;
+        }
+
+        .type-option .icon {
+
+            font-size: 40px;
+
+            margin-bottom: 10px;
+        }
+
+        .type-option h3 {
+
+            margin-bottom: 7px;
+
+            color: #173b32;
+        }
+
+        .type-option p {
+
+            color: #71847d;
+
+            font-size: 14px;
+        }
+
+        /* HIDE RADIO */
+
+        .type-option input {
+
+            display: none;
+        }
+
+        /* MONEY */
+
+        #moneySection,
+        #itemSection {
+
+            display: none;
+        }
+
+        /* AMOUNTS */
+
+        .amounts {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 15px;
+        }
+
+        .amount {
+
+            padding: 14px;
+
+            background: #effaf4;
+
+            border: 2px solid #dcefe5;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            color: #159957;
+        }
+
+        .amount:hover {
+
+            border-color: #159957;
+        }
+
+        .amount.selected {
+
+            background: #159957;
+
+            color: white;
+
+            border-color: #159957;
+        }
+
+        /* ITEM OPTIONS */
+
+        .item-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 14px;
+        }
+
+        .item-option {
+
+            padding: 18px;
+
+            border: 2px solid #e2ece7;
+
+            border-radius: 14px;
+
+            cursor: pointer;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .item-option:hover {
+
+            border-color: #159957;
+        }
+
+        .item-option.selected {
+
+            border-color: #159957;
+
+            background: #effbf5;
+        }
+
+        .item-option input {
+
+            display: none;
+        }
+
+        .item-option span {
+
+            font-size: 28px;
+
+            display: block;
+
+            margin-bottom: 8px;
+        }
+
+        .item-option strong {
+
+            font-size: 14px;
+        }
+
+        /* SUBMIT */
+
+        .submit-btn {
+
+            width: 100%;
+
+            padding: 17px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #159957;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+
+            background: #087f5b;
+
+            transform: translateY(-2px);
+        }
+
+        /* INFO */
+
+        .info-box {
+
+            background: #eefaf5;
+
+            padding: 18px;
+
+            border-radius: 15px;
+
+            color: #55766a;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+        /* SUCCESS */
+
+        #success {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 45px 25px;
+        }
+
+        .success-icon {
+
+            font-size: 65px;
+
+            margin-bottom: 15px;
+        }
+
+        #success h2 {
+
+            color: #159957;
+
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+        #success p {
+
+            color: #607970;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+        .back-btn {
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: #159957;
+
+            color: white;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+
+            background: #102d26;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px;
+        }
+
+        footer p {
+
+            color: #c5d5d0;
+
+            margin-top: 8px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            nav {
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav ul {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+            }
+
+            .hero h1 {
+
+                font-size: 35px;
+            }
+
+            .type-options {
+
+                grid-template-columns: 1fr;
+            }
+
+            .amounts {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .item-grid {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .item-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
 <!-- NAVBAR -->
+
 <nav>
 
-    <div class="logo">🤝 ReConnect</div>
+    <a
+        href="index.html"
+        class="logo"
+    >
+        🌱 ReConnect
+    </a>
 
-    <div>
-        <a href="index.html">Home</a>
-        <a href="ngos.html">Find NGOs</a>
-        <a href="volunteer.html">Volunteer</a>
-    </div>
+
+    <ul>
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="ngos.html">
+                Find NGOs
+            </a>
+        </li>
+
+        <li>
+            <a href="volunteer.html">
+                Volunteer
+            </a>
+        </li>
+
+        <li>
+            <a href="reuse.html">
+                Reuse & Recycle
+            </a>
+        </li>
+
+        <li>
+            <a
+                href="login.html"
+                class="login-btn"
+            >
+                Login
+            </a>
+        </li>
+
+    </ul>
 
 </nav>
 
 
-<!-- BACK -->
-<div class="back">
-    <a href="ngos.html">← Back to NGOs</a>
-</div>
+<!-- HERO -->
 
+<section class="hero">
 
-<!-- PROFILE HEADER -->
-<section class="profile-header">
-
-    <div class="photo">
-        🌱
+    <div class="hero-icon">
+        ❤️
     </div>
 
-    <div>
+    <h1>
+        Make a <span>Difference</span>
+    </h1>
 
-        <div class="badge">
-            ✓ Listed NGO
-        </div>
-
-        <h1 id="ngoName">
-            Loading...
-        </h1>
-
-        <div class="info">
-            📍 <span id="ngoAddress">Loading...</span>
-            <br>
-            🎯 <span id="ngoWork">Loading...</span>
-        </div>
-
-    </div>
+    <p>
+        Your contribution can help organizations
+        create meaningful change. Choose an NGO
+        and decide how you would like to contribute.
+    </p>
 
 </section>
 
 
 <!-- MAIN -->
+
 <div class="container">
 
-<div class="grid">
 
-<!-- LEFT -->
-<div>
+    <!-- DONATION FORM -->
 
-    <!-- ABOUT -->
-    <div class="card">
+    <div
+        class="card"
+        id="donationCard"
+    >
 
-        <h2>💚 About This NGO</h2>
+        <h2>
+            💚 Start Your Donation
+        </h2>
 
-        <p id="about">
-            This organization is listed in the ReConnect NGO directory.
+
+        <div class="info-box">
+
+            🌱 <strong>ReConnect</strong> connects
+            people with NGOs so that contributions
+            can be made in a simple and transparent way.
+
+        </div>
+
+
+        <!-- NGO -->
+
+        <div class="form-group">
+
+            <label>
+                Select NGO
+            </label>
+
+            <select id="ngoSelect">
+
+                <option value="">
+                    Loading NGOs...
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- TYPE -->
+
+        <div class="form-group">
+
+            <label>
+                What would you like to donate?
+            </label>
+
+
+            <div class="type-options">
+
+
+                <label
+                    class="type-option"
+                    id="moneyOption"
+                >
+
+                    <input
+                        type="radio"
+                        name="donationType"
+                        value="money"
+                    >
+
+                    <div class="icon">
+                        💰
+                    </div>
+
+                    <h3>
+                        Donate Money
+                    </h3>
+
+                    <p>
+                        Provide financial support
+                        to an NGO.
+                    </p>
+
+                </label>
+
+
+                <label
+                    class="type-option"
+                    id="itemOption"
+                >
+
+                    <input
+                        type="radio"
+                        name="donationType"
+                        value="items"
+                    >
+
+                    <div class="icon">
+                        📦
+                    </div>
+
+                    <h3>
+                        Donate Items
+                    </h3>
+
+                    <p>
+                        Donate useful reusable
+                        items.
+                    </p>
+
+                </label>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- MONEY SECTION -->
+
+        <div
+            id="moneySection"
+            class="form-group"
+        >
+
+            <label>
+                Select Donation Amount
+            </label>
+
+
+            <div class="amounts">
+
+
+                <div
+                    class="amount"
+                    data-value="500"
+                >
+                    ₹500
+                </div>
+
+
+                <div
+                    class="amount"
+                    data-value="1000"
+                >
+                    ₹1,000
+                </div>
+
+
+                <div
+                    class="amount"
+                    data-value="2000"
+                >
+                    ₹2,000
+                </div>
+
+
+                <div
+                    class="amount"
+                    data-value="5000"
+                >
+                    ₹5,000
+                </div>
+
+
+            </div>
+
+
+            <input
+                type="number"
+                id="customAmount"
+                placeholder="Or enter a custom amount (₹)"
+                min="1"
+            >
+
+        </div>
+
+
+        <!-- ITEM SECTION -->
+
+        <div
+            id="itemSection"
+            class="form-group"
+        >
+
+            <label>
+                Select Item Category
+            </label>
+
+
+            <div class="item-grid">
+
+
+                <label class="item-option">
+
+                    <input
+                        type="radio"
+                        name="itemType"
+                        value="Clothes"
+                    >
+
+                    <span>
+                        👕
+                    </span>
+
+                    <strong>
+                        Clothes
+                    </strong>
+
+                </label>
+
+
+                <label class="item-option">
+
+                    <input
+                        type="radio"
+                        name="itemType"
+                        value="Books"
+                    >
+
+                    <span>
+                        📚
+                    </span>
+
+                    <strong>
+                        Books
+                    </strong>
+
+                </label>
+
+
+                <label class="item-option">
+
+                    <input
+                        type="radio"
+                        name="itemType"
+                        value="Food"
+                    >
+
+                    <span>
+                        🍱
+                    </span>
+
+                    <strong>
+                        Food
+                    </strong>
+
+                </label>
+
+
+                <label class="item-option">
+
+                    <input
+                        type="radio"
+                        name="itemType"
+                        value="Furniture"
+                    >
+
+                    <span>
+                        🪑
+                    </span>
+
+                    <strong>
+                        Furniture
+                    </strong>
+
+                </label>
+
+
+                <label class="item-option">
+
+                    <input
+                        type="radio"
+                        name="itemType"
+                        value="Stationery"
+                    >
+
+                    <span>
+                        ✏️
+                    </span>
+
+                    <strong>
+                        Stationery
+                    </strong>
+
+                </label>
+
+
+                <label class="item-option">
+
+                    <input
+                        type="radio"
+                        name="itemType"
+                        value="Other"
+                    >
+
+                    <span>
+                        📦
+                    </span>
+
+                    <strong>
+                        Other
+                    </strong>
+
+                </label>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- ITEM DETAILS -->
+
+        <div
+            id="itemDetails"
+            class="form-group"
+            style="display:none;"
+        >
+
+            <label>
+                Describe the items
+            </label>
+
+            <textarea
+                id="itemDescription"
+                placeholder="Example: 10 cotton shirts in good condition..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- DONOR -->
+
+        <h2>
+            👤 Your Details
+        </h2>
+
+
+        <div class="form-group">
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="donorName"
+                placeholder="Enter your full name"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="donorEmail"
+                placeholder="Enter your email"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="donorPhone"
+                placeholder="Enter your phone number"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Message / Note
+            </label>
+
+            <textarea
+                id="message"
+                placeholder="Any additional information..."
+            ></textarea>
+
+        </div>
+
+
+        <button
+            class="submit-btn"
+            onclick="submitDonation()"
+        >
+            ❤️ Submit Donation
+        </button>
+
+
+    </div>
+
+
+    <!-- SUCCESS -->
+
+    <div
+        class="card"
+        id="success"
+    >
+
+        <div class="success-icon">
+            🎉
+        </div>
+
+        <h2>
+            Thank You for Contributing!
+        </h2>
+
+        <p id="successMessage">
+            Your contribution has been recorded.
         </p>
 
-    </div>
-
-
-    <!-- REQUIREMENTS -->
-    <div class="card">
-
-        <h2>📦 Current Requirements</h2>
-
-        <div class="requirements">
-
-            <p>
-                Current donation requirements are not available
-                in the provided NGO directory.
-                NGOs can update their requirements when the
-                ReConnect backend is connected.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- INFORMATION -->
-    <div class="card">
-
-        <h2>🏢 Organization Information</h2>
-
-        <div class="detail">
-            <strong>Chairman / CEO</strong>
-            <span id="ceo">Not provided</span>
-        </div>
-
-        <div class="detail">
-            <strong>Local Contact</strong>
-            <span id="contact">Not provided</span>
-        </div>
-
-        <div class="detail">
-            <strong>Working Since</strong>
-            <span id="since">Not provided</span>
-        </div>
-
-        <div class="detail">
-            <strong>Working with BMC</strong>
-            <span id="bmc">Not provided</span>
-        </div>
-
-        <div class="detail">
-            <strong>FCRA</strong>
-            <span id="fcra">Not provided</span>
-        </div>
-
-        <div class="detail">
-            <strong>Ward / Department</strong>
-            <span id="ward">Not provided</span>
-        </div>
-
-    </div>
-
-
-    <!-- ADDRESS -->
-    <div class="card">
-
-        <h2>📍 Address</h2>
-
-        <p id="fullAddress">
-            Loading...
-        </p>
-
-    </div>
-
-</div>
-
-
-<!-- RIGHT -->
-<div>
-
-    <div class="card">
-
-        <h2>Take Action 💚</h2>
-
-        <!-- IMPORTANT -->
         <a
-            href="donate.html"
-            class="action-btn"
+            href="ngos.html"
+            class="back-btn"
         >
-            💰 Donate Now
-        </a>
-
-        <a
-            href="donate.html"
-            class="action-btn orange"
-        >
-            📦 Donate Items
-        </a>
-
-        <a
-            href="volunteer.html"
-            class="action-btn"
-        >
-            🙋 Volunteer
+            Explore More NGOs
         </a>
 
     </div>
 
 
-    <!-- CONTACT -->
-    <div class="card">
-
-        <h2>📞 Contact</h2>
-
-        <div class="contact-box">
-
-            <p>
-                📱 <strong id="phone">
-                    Not provided
-                </strong>
-            </p>
-
-            <p>
-                ✉️ <strong id="email">
-                    Not provided
-                </strong>
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- WORK -->
-    <div class="card">
-
-        <h2>🎯 Areas of Work</h2>
-
-        <p id="workSide">
-            Not provided
-        </p>
-
-    </div>
-
 </div>
 
-</div>
-</div>
 
+<!-- FOOTER -->
 
 <footer>
-    🤝 ReConnect — Connect. Donate. Make a Difference.
+
+    <h3>
+        🌱 ReConnect
+    </h3>
+
+    <p>
+        Connect. Donate. Create Real Impact.
+    </p>
+
+    <p>
+        © 2026 ReConnect
+    </p>
+
 </footer>
 
 
 <script>
 
-const params = new URLSearchParams(window.location.search);
 
-const ngoIndex = parseInt(params.get("ngo"));
+    /* NGO DATA */
 
-fetch("ngos.json")
-.then(response => response.json())
-.then(data => {
+    let ngos = [];
 
-    if (
-        isNaN(ngoIndex) ||
-        ngoIndex < 0 ||
-        ngoIndex >= data.length
-    ) {
-        document.getElementById("ngoName").textContent =
-            "NGO not found";
-        return;
+
+    /* LOAD NGOS */
+
+    fetch("ngos.json")
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to load NGO data"
+                );
+
+            }
+
+            return response.json();
+
+        })
+
+        .then(data => {
+
+            ngos = data;
+
+            const select =
+                document.getElementById(
+                    "ngoSelect"
+                );
+
+
+            select.innerHTML =
+                '<option value="">-- Select an NGO --</option>';
+
+
+            ngos.forEach(
+                (ngo, index) => {
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+                    option.value =
+                        index;
+
+                    option.textContent =
+                        ngo["Name of Institution"]
+                        || "Unnamed NGO";
+
+                    select.appendChild(
+                        option
+                    );
+
+                }
+            );
+
+
+            /* CHECK URL FOR NGO */
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+
+            const ngoIndex =
+                params.get("ngo");
+
+
+            if (
+                ngoIndex !== null &&
+                ngos[ngoIndex]
+            ) {
+
+                select.value =
+                    ngoIndex;
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(error);
+
+            document.getElementById(
+                "ngoSelect"
+            ).innerHTML =
+                '<option value="">Unable to load NGOs</option>';
+
+        });
+
+
+    /* DONATION TYPE */
+
+    const moneyOption =
+        document.getElementById(
+            "moneyOption"
+        );
+
+
+    const itemOption =
+        document.getElementById(
+            "itemOption"
+        );
+
+
+    const moneySection =
+        document.getElementById(
+            "moneySection"
+        );
+
+
+    const itemSection =
+        document.getElementById(
+            "itemSection"
+        );
+
+
+    const itemDetails =
+        document.getElementById(
+            "itemDetails"
+        );
+
+
+    document.querySelectorAll(
+        'input[name="donationType"]'
+    ).forEach(radio => {
+
+        radio.addEventListener(
+            "change",
+            function() {
+
+                if (
+                    this.value === "money"
+                ) {
+
+                    moneySection.style.display =
+                        "block";
+
+                    itemSection.style.display =
+                        "none";
+
+                    itemDetails.style.display =
+                        "none";
+
+                    moneyOption.classList.add(
+                        "selected"
+                    );
+
+                    itemOption.classList.remove(
+                        "selected"
+                    );
+
+                }
+
+
+                if (
+                    this.value === "items"
+                ) {
+
+                    moneySection.style.display =
+                        "none";
+
+                    itemSection.style.display =
+                        "block";
+
+                    itemDetails.style.display =
+                        "block";
+
+                    itemOption.classList.add(
+                        "selected"
+                    );
+
+                    moneyOption.classList.remove(
+                        "selected"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+    /* MONEY AMOUNT */
+
+    document.querySelectorAll(
+        ".amount"
+    ).forEach(amount => {
+
+        amount.addEventListener(
+            "click",
+            function() {
+
+                document.querySelectorAll(
+                    ".amount"
+                ).forEach(a => {
+
+                    a.classList.remove(
+                        "selected"
+                    );
+
+                });
+
+
+                this.classList.add(
+                    "selected"
+                );
+
+
+                document.getElementById(
+                    "customAmount"
+                ).value =
+                    this.dataset.value;
+
+            }
+        );
+
+    });
+
+
+    /* CUSTOM AMOUNT */
+
+    document.getElementById(
+        "customAmount"
+    ).addEventListener(
+        "input",
+        function() {
+
+            document.querySelectorAll(
+                ".amount"
+            ).forEach(a => {
+
+                a.classList.remove(
+                    "selected"
+                );
+
+            });
+
+        }
+    );
+
+
+    /* ITEM SELECTION */
+
+    document.querySelectorAll(
+        ".item-option"
+    ).forEach(option => {
+
+        option.addEventListener(
+            "click",
+            function() {
+
+                document.querySelectorAll(
+                    ".item-option"
+                ).forEach(
+                    o => o.classList.remove(
+                        "selected"
+                    )
+                );
+
+
+                this.classList.add(
+                    "selected"
+                );
+
+            }
+        );
+
+    });
+
+
+    /* SUBMIT */
+
+    function submitDonation() {
+
+
+        const ngoSelect =
+            document.getElementById(
+                "ngoSelect"
+            );
+
+
+        const ngoIndex =
+            ngoSelect.value;
+
+
+        const donationType =
+            document.querySelector(
+                'input[name="donationType"]:checked'
+            );
+
+
+        const donorName =
+            document.getElementById(
+                "donorName"
+            ).value.trim();
+
+
+        const donorEmail =
+            document.getElementById(
+                "donorEmail"
+            ).value.trim();
+
+
+        const donorPhone =
+            document.getElementById(
+                "donorPhone"
+            ).value.trim();
+
+
+        /* VALIDATION */
+
+        if (ngoIndex === "") {
+
+            alert(
+                "Please select an NGO."
+            );
+
+            return;
+
+        }
+
+
+        if (!donationType) {
+
+            alert(
+                "Please select a donation type."
+            );
+
+            return;
+
+        }
+
+
+        if (donorName === "") {
+
+            alert(
+                "Please enter your name."
+            );
+
+            return;
+
+        }
+
+
+        if (donorEmail === "") {
+
+            alert(
+                "Please enter your email."
+            );
+
+            return;
+
+        }
+
+
+        if (donorPhone === "") {
+
+            alert(
+                "Please enter your phone number."
+            );
+
+            return;
+
+        }
+
+
+        const ngo =
+            ngos[ngoIndex];
+
+
+        const ngoName =
+            ngo["Name of Institution"]
+            || "Selected NGO";
+
+
+        let contribution = "";
+
+
+        /* MONEY */
+
+        if (
+            donationType.value ===
+            "money"
+        ) {
+
+            const amount =
+                document.getElementById(
+                    "customAmount"
+                ).value;
+
+
+            if (
+                amount === "" ||
+                Number(amount) <= 0
+            ) {
+
+                alert(
+                    "Please select or enter a valid donation amount."
+                );
+
+                return;
+
+            }
+
+
+            contribution =
+                "₹" + Number(amount).toLocaleString(
+                    "en-IN"
+                );
+
+        }
+
+
+        /* ITEMS */
+
+        if (
+            donationType.value ===
+            "items"
+        ) {
+
+            const item =
+                document.querySelector(
+                    'input[name="itemType"]:checked'
+                );
+
+
+            if (!item) {
+
+                alert(
+                    "Please select an item category."
+                );
+
+                return;
+
+            }
+
+
+            contribution =
+                item.value;
+
+
+            const description =
+                document.getElementById(
+                    "itemDescription"
+                ).value.trim();
+
+
+            if (
+                description === ""
+            ) {
+
+                alert(
+                    "Please describe the items you want to donate."
+                );
+
+                return;
+
+            }
+
+        }
+
+
+        /* SUCCESS */
+
+        document.getElementById(
+            "donationCard"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "success"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "successMessage"
+        ).innerText =
+
+            "Thank you, " +
+            donorName +
+            "! Your " +
+            donationType.value +
+            " contribution of " +
+            contribution +
+            " has been recorded for " +
+            ngoName +
+            ".";
+
     }
 
-    const ngo = data[ngoIndex];
-
-    const name =
-        ngo["Name of Institution"] || "NGO";
-
-    const address =
-        ngo["Address"] || "Address not provided";
-
-    const work =
-        ngo["Area of Work"] || "Area of work not provided";
-
-    document.getElementById("ngoName").textContent = name;
-
-    document.getElementById("ngoAddress").textContent = address;
-
-    document.getElementById("ngoWork").textContent = work;
-
-    document.getElementById("about").textContent =
-        name +
-        " is an organization listed in the ReConnect NGO directory. " +
-        "The organization works in the area of " +
-        work +
-        ".";
-
-    document.getElementById("ceo").textContent =
-        ngo["Chairman/CEO"] || "Not provided";
-
-    document.getElementById("contact").textContent =
-        ngo["Local Contact Person"] || "Not provided";
-
-    document.getElementById("since").textContent =
-        ngo["Working Since"] || "Not provided";
-
-    document.getElementById("bmc").textContent =
-        ngo["Working with BMC"] || "Not provided";
-
-    document.getElementById("fcra").textContent =
-        ngo["FCRA"] || "Not provided";
-
-    document.getElementById("ward").textContent =
-        ngo["Ward/Department"] || "Not provided";
-
-    document.getElementById("fullAddress").textContent =
-        address;
-
-    document.getElementById("phone").textContent =
-        ngo["Contact No."] || "Not provided";
-
-    document.getElementById("email").textContent =
-        ngo["Email ID"] || "Not provided";
-
-    document.getElementById("workSide").textContent =
-        work;
-
-})
-.catch(error => {
-
-    console.error(error);
-
-    document.getElementById("ngoName").textContent =
-        "Unable to load NGO";
-
-});
 
 </script>
 
+
 </body>
+
 </html>
