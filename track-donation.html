@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Track Donation | ReConnect</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5faf7;
+            color: #263c34;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            background: white;
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 45px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: bold;
+            color: #176b4d;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #30463e;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: #16805a;
+        }
+
+        .login-btn {
+            background: #176b4d;
+            color: white !important;
+            padding: 11px 22px;
+            border-radius: 25px;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 45px;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            color: #176b4d;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #60756d;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+            padding: 0 20px 70px;
+        }
+
+
+        /* SEARCH CARD */
+
+        .search-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(31,79,62,0.08);
+            margin-bottom: 30px;
+        }
+
+        .search-card h2 {
+            color: #263c34;
+            margin-bottom: 15px;
+        }
+
+        .search-card p {
+            color: #667b73;
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 12px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 16px;
+            border: 1px solid #c8dcd3;
+            border-radius: 13px;
+            font-size: 17px;
+        }
+
+        .search-box button {
+            padding: 16px 25px;
+            border: none;
+            border-radius: 13px;
+            background: #176b4d;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background: #10563d;
+        }
+
+
+        /* DONATION DETAILS */
+
+        .donation-card {
+            display: none;
+            background: white;
+            border-radius: 28px;
+            padding: 38px;
+            box-shadow: 0 8px 30px rgba(31,79,62,0.08);
+        }
+
+        .donation-card h2 {
+            color: #176b4d;
+            margin-bottom: 8px;
+            font-size: 30px;
+        }
+
+        .donation-id {
+            color: #667b73;
+            margin-bottom: 30px;
+        }
+
+        .donation-id strong {
+            color: #176b4d;
+        }
+
+
+        /* INFORMATION GRID */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        .info-box {
+            background: #f5faf7;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .info-box strong {
+            display: block;
+            color: #176b4d;
+            margin-bottom: 7px;
+        }
+
+        .info-box span {
+            color: #425850;
+            line-height: 1.5;
+        }
+
+
+        /* CURRENT STATUS */
+
+        .current-status {
+            background: #e7f7ef;
+            border: 1px solid #b7dfcb;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+
+        .current-status h3 {
+            color: #176b4d;
+            margin-bottom: 8px;
+        }
+
+        .status-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #10563d;
+        }
+
+
+        /* TRACKING */
+
+        .tracking-title {
+            font-size: 24px;
+            color: #263c34;
+            margin-bottom: 30px;
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 15px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 16px;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            background: #dcebe4;
+        }
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .timeline-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #dcebe4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            margin-right: 20px;
+            font-size: 16px;
+        }
+
+        .timeline-item.completed .timeline-icon {
+            background: #176b4d;
+            color: white;
+        }
+
+        .timeline-item.current .timeline-icon {
+            background: #8acbb0;
+            color: #176b4d;
+        }
+
+        .timeline-content h4 {
+            color: #263c34;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .timeline-content p {
+            color: #71827c;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+
+        /* ERROR */
+
+        .error {
+            display: none;
+            background: #fff1f1;
+            border: 1px solid #e4baba;
+            color: #a33a3a;
+            padding: 18px;
+            border-radius: 14px;
+            margin-top: 20px;
+        }
+
+
+        /* BACK BUTTON */
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 22px;
+            border-radius: 12px;
+            background: #176b4d;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #10563d;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #176b4d;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 6px 0;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 20px;
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .search-card,
+            .donation-card {
+                padding: 25px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <a href="index.html" class="logo">
+        🌱 ReConnect
+    </a>
+
+    <ul>
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="ngos.html">
+                Find NGOs
+            </a>
+        </li>
+
+        <li>
+            <a href="donate.html">
+                Donate
+            </a>
+        </li>
+
+        <li>
+            <a href="volunteer.html">
+                Volunteer
+            </a>
+        </li>
+
+        <li>
+            <a href="reuse.html">
+                Reuse & Recycle
+            </a>
+        </li>
+
+        <li>
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>
+        📦 Track Your Donation
+    </h1>
+
+    <p>
+        Enter your Donation ID to see the current status
+        of your item donation.
+    </p>
+
+</section>
+
+
+
+<div class="container">
+
+
+    <!-- SEARCH -->
+
+    <div class="search-card">
+
+        <h2>
+            🔎 Find Your Donation
+        </h2>
+
+        <p>
+            Enter the Donation ID you received after
+            submitting your item donation.
+        </p>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="donationIdInput"
+                placeholder="Example: RC-DON-583421"
+            >
+
+            <button
+                onclick="trackDonation()"
+            >
+                Track Donation
+            </button>
+
+        </div>
+
+
+        <div
+            class="error"
+            id="errorMessage"
+        >
+            Donation not found.
+            Please check your Donation ID and try again.
+        </div>
+
+    </div>
+
+
+
+    <!-- DONATION DETAILS -->
+
+    <div
+        class="donation-card"
+        id="donationCard"
+    >
+
+        <h2>
+            📦 Donation Details
+        </h2>
+
+        <p class="donation-id">
+            Donation ID:
+            <strong id="displayDonationId"></strong>
+        </p>
+
+
+
+        <!-- INFORMATION -->
+
+        <div class="info-grid">
+
+
+            <div class="info-box">
+
+                <strong>
+                    🏢 NGO
+                </strong>
+
+                <span id="displayNGO">
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    📦 Item
+                </strong>
+
+                <span id="displayItem">
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    🔢 Quantity
+                </strong>
+
+                <span id="displayQuantity">
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    ✨ Condition
+                </strong>
+
+                <span id="displayCondition">
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    👤 Donor
+                </strong>
+
+                <span id="displayDonor">
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    📞 Contact
+                </strong>
+
+                <span id="displayContact">
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- CURRENT STATUS -->
+
+        <div class="current-status">
+
+            <h3>
+                Current Status
+            </h3>
+
+            <div
+                class="status-text"
+                id="currentStatus"
+            >
+                Donation Submitted
+            </div>
+
+        </div>
+
+
+
+        <!-- TRACKING TIMELINE -->
+
+        <h3 class="tracking-title">
+            📍 Donation Journey
+        </h3>
+
+
+        <div class="timeline">
+
+
+            <!-- STEP 1 -->
+
+            <div
+                class="timeline-item completed"
+                id="step1"
+            >
+
+                <div class="timeline-icon">
+                    ✓
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>
+                        Donation Submitted
+                    </h4>
+
+                    <p>
+                        Your item donation has been successfully
+                        submitted to ReConnect.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 2 -->
+
+            <div
+                class="timeline-item"
+                id="step2"
+            >
+
+                <div class="timeline-icon">
+                    2
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>
+                        NGO Accepted
+                    </h4>
+
+                    <p>
+                        The selected NGO will review your
+                        donation and accept or decline it.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 3 -->
+
+            <div
+                class="timeline-item"
+                id="step3"
+            >
+
+                <div class="timeline-icon">
+                    3
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>
+                        Pickup / Drop-off Arranged
+                    </h4>
+
+                    <p>
+                        The NGO and donor decide how the item
+                        will be transferred.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 4 -->
+
+            <div
+                class="timeline-item"
+                id="step4"
+            >
+
+                <div class="timeline-icon">
+                    4
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>
+                        Item Dispatched
+                    </h4>
+
+                    <p>
+                        The donated item has been sent towards
+                        the NGO.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 5 -->
+
+            <div
+                class="timeline-item"
+                id="step5"
+            >
+
+                <div class="timeline-icon">
+                    5
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>
+                        Received by NGO
+                    </h4>
+
+                    <p>
+                        The NGO has received the donated item.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 6 -->
+
+            <div
+                class="timeline-item"
+                id="step6"
+            >
+
+                <div class="timeline-icon">
+                    6
+                </div>
+
+                <div class="timeline-content">
+
+                    <h4>
+                        Donation Acknowledged
+                    </h4>
+
+                    <p>
+                        The NGO has confirmed and acknowledged
+                        your contribution.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <a
+            href="donate.html"
+            class="back-btn"
+        >
+            ← Back to Donate
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        <strong>🌱 ReConnect</strong>
+    </p>
+
+    <p>
+        Connecting people, NGOs and communities
+        to create real impact.
+    </p>
+
+    <p>
+        © 2026 ReConnect
+    </p>
+
+</footer>
+
+
+
+<script>
+
+
+    /* TRACK DONATION */
+
+    function trackDonation() {
+
+
+        const input =
+            document.getElementById(
+                "donationIdInput"
+            );
+
+
+        const donationId =
+            input.value.trim();
+
+
+        const error =
+            document.getElementById(
+                "errorMessage"
+            );
+
+
+        const card =
+            document.getElementById(
+                "donationCard"
+            );
+
+
+        /* RESET */
+
+        error.style.display = "none";
+
+        card.style.display = "none";
+
+
+        /* CHECK INPUT */
+
+        if (!donationId) {
+
+            error.textContent =
+                "Please enter your Donation ID.";
+
+            error.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        /* GET SAVED DONATIONS */
+
+        const donations =
+            JSON.parse(
+                localStorage.getItem(
+                    "reconnectItemDonations"
+                )
+            ) || [];
+
+
+        /* FIND DONATION */
+
+        const donation =
+            donations.find(
+                item =>
+                    item.donationId.toLowerCase() ===
+                    donationId.toLowerCase()
+            );
+
+
+        /* NOT FOUND */
+
+        if (!donation) {
+
+            error.textContent =
+                "Donation not found. Please check your Donation ID.";
+
+            error.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        /* DISPLAY DONATION */
+
+        document.getElementById(
+            "displayDonationId"
+        ).textContent =
+            donation.donationId;
+
+
+        document.getElementById(
+            "displayNGO"
+        ).textContent =
+            donation.ngoName;
+
+
+        document.getElementById(
+            "displayItem"
+        ).textContent =
+            donation.item;
+
+
+        document.getElementById(
+            "displayQuantity"
+        ).textContent =
+            donation.quantity;
+
+
+        document.getElementById(
+            "displayCondition"
+        ).textContent =
+            donation.condition;
+
+
+        document.getElementById(
+            "displayDonor"
+        ).textContent =
+            donation.donorName;
+
+
+        document.getElementById(
+            "displayContact"
+        ).textContent =
+            donation.donorContact;
+
+
+        /* STATUS */
+
+        const status =
+            donation.status ||
+            "Donation Submitted";
+
+
+        document.getElementById(
+            "currentStatus"
+        ).textContent =
+            status;
+
+
+        /* UPDATE TIMELINE */
+
+        updateTimeline(status);
+
+
+        /* SHOW CARD */
+
+        card.style.display =
+            "block";
+
+
+        /* SCROLL */
+
+        card.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+
+
+    /* UPDATE TIMELINE */
+
+    function updateTimeline(status) {
+
+
+        const steps = [
+            {
+                id: "step1",
+                status: "Donation Submitted"
+            },
+            {
+                id: "step2",
+                status: "NGO Accepted"
+            },
+            {
+                id: "step3",
+                status: "Pickup / Drop-off Arranged"
+            },
+            {
+                id: "step4",
+                status: "Item Dispatched"
+            },
+            {
+                id: "step5",
+                status: "Received by NGO"
+            },
+            {
+                id: "step6",
+                status: "Donation Acknowledged"
+            }
+        ];
+
+
+        const currentIndex =
+            steps.findIndex(
+                step => step.status === status
+            );
+
+
+        steps.forEach(
+            (step, index) => {
+
+                const element =
+                    document.getElementById(
+                        step.id
+                    );
+
+
+                element.classList.remove(
+                    "completed"
+                );
+
+                element.classList.remove(
+                    "current"
+                );
+
+
+                if (
+                    currentIndex >= 0 &&
+                    index < currentIndex
+                ) {
+
+                    element.classList.add(
+                        "completed"
+                    );
+
+                }
+
+
+                if (
+                    currentIndex >= 0 &&
+                    index === currentIndex
+                ) {
+
+                    element.classList.add(
+                        "current"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* ENTER KEY */
+
+    document
+        .getElementById("donationIdInput")
+        .addEventListener(
+            "keypress",
+            function(event) {
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+                    trackDonation();
+
+                }
+
+            }
+        );
+
+
+</script>
+
+
+</body>
+
+</html>
