@@ -1,1 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ReConnect | Connect. Donate. Make a Difference.</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5fff9;
+            color: #173b32;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            background: white;
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #159957;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #173b32;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #159957;
+        }
+
+        .login-btn {
+            background: #159957;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 22px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 600px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 70px 8%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dffff0,
+                    #e7f5ff,
+                    #fff5d8
+                );
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .tag {
+            display: inline-block;
+
+            background: white;
+            color: #159957;
+
+            padding: 9px 17px;
+
+            border-radius: 25px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.1;
+
+            margin-bottom: 22px;
+
+            color: #123c31;
+        }
+
+        .hero h1 span {
+            color: #159957;
+        }
+
+        .hero p {
+            font-size: 19px;
+            line-height: 1.7;
+
+            color: #58736b;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+
+            padding: 15px 28px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .primary {
+            background: #159957;
+            color: white;
+        }
+
+        .secondary {
+            background: white;
+            color: #159957;
+
+            border: 2px solid #159957;
+        }
+
+        /* HERO VISUAL */
+
+        .hero-visual {
+            margin-left: auto;
+
+            width: 400px;
+            height: 400px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 150px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.10);
+        }
+
+        /* STATS */
+
+        .stats {
+            max-width: 1100px;
+
+            margin: -45px auto 60px;
+
+            background: white;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.08);
+        }
+
+        .stat {
+            text-align: center;
+
+            border-right: 1px solid #e5eee9;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat h2 {
+            color: #159957;
+            font-size: 32px;
+            margin-bottom: 6px;
+        }
+
+        .stat p {
+            color: #6a8179;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #173b32;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #71867f;
+            font-size: 17px;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 22px;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+        .feature {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            text-align: center;
+
+            box-shadow:
+                0 6px 22px rgba(0,0,0,0.06);
+
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-7px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 20px;
+
+            background: #e2f8ec;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 35px;
+        }
+
+        .feature h3 {
+            margin-bottom: 12px;
+            color: #173b32;
+        }
+
+        .feature p {
+            color: #70847d;
+            line-height: 1.6;
+        }
+
+        /* HOW IT WORKS */
+
+        .steps {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .number {
+            width: 60px;
+            height: 60px;
+
+            background: #159957;
+            color: white;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: auto auto 18px;
+
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #71867f;
+            line-height: 1.5;
+        }
+
+        /* CTA */
+
+        .cta {
+            margin: 30px 8% 70px;
+
+            padding: 55px;
+
+            border-radius: 30px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #159957,
+                    #087f5b
+                );
+
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+            font-size: 17px;
+        }
+
+        .cta .btn {
+            background: white;
+            color: #159957;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #102d26;
+
+            color: white;
+
+            padding: 35px 8%;
+
+            text-align: center;
+        }
+
+        footer p {
+            color: #c5d5d0;
+            margin-top: 8px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                margin: 40px auto 0;
+                width: 280px;
+                height: 280px;
+                font-size: 100px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                margin: 20px;
+            }
+
+            .stat {
+                border-right: none;
+                margin-bottom: 20px;
+            }
+
+            .features,
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .features,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 50px 6%;
+            }
+
+            .cta {
+                margin: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <a href="index.html" class="logo">
+        🌱 ReConnect
+    </a>
+
+    <ul>
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="ngos.html">
+                Find NGOs
+            </a>
+        </li>
+
+        <li>
+            <a href="volunteer.html">
+                Volunteer
+            </a>
+        </li>
+
+        <li>
+            <a href="reuse.html">
+                Reuse & Recycle
+            </a>
+        </li>
+
+        <li>
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="tag">
+            🌱 One platform. Multiple ways to help.
+        </span>
+
+        <h1>
+            Connect.
+            <span>Donate.</span>
+            Create Real Impact.
+        </h1>
+
+        <p>
+            ReConnect brings donors, volunteers, NGOs and
+            college clubs together to make giving more
+            transparent, meaningful and impactful.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="ngos.html"
+                class="btn primary"
+            >
+                🔎 Find an NGO
+            </a>
+
+            <a
+                href="donate.html"
+                class="btn secondary"
+            >
+                ❤️ Start Donating
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        🌱
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+    <div class="stat">
+
+        <h2>311+</h2>
+
+        <p>
+            NGOs Listed
+        </p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>100%</h2>
+
+        <p>
+            Transparency Focus
+        </p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>4+</h2>
+
+        <p>
+            Ways to Contribute
+        </p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>1</h2>
+
+        <p>
+            Community Platform
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- WHAT YOU CAN DO -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>
+            Make a Difference Your Way
+        </h2>
+
+        <p>
+            Choose how you want to contribute to your community.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ❤️
+            </div>
+
+            <h3>
+                Donate
+            </h3>
+
+            <p>
+                Support verified NGOs with money or
+                useful items they need.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🙋
+            </div>
+
+            <h3>
+                Volunteer
+            </h3>
+
+            <p>
+                Find meaningful volunteer opportunities
+                and contribute your time.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ♻️
+            </div>
+
+            <h3>
+                Reuse & Recycle
+            </h3>
+
+            <p>
+                Give old items a second life instead of
+                sending them to waste.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🎓
+            </div>
+
+            <h3>
+                College Clubs
+            </h3>
+
+            <p>
+                Connect student clubs with NGOs and
+                organize meaningful drives.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>
+            How ReConnect Works
+        </h2>
+
+        <p>
+            Making social contribution simple and transparent.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="number">
+                1
+            </div>
+
+            <h3>
+                Find
+            </h3>
+
+            <p>
+                Explore NGOs and their areas of work.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                2
+            </div>
+
+            <h3>
+                Contribute
+            </h3>
+
+            <p>
+                Donate money, items or your time.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                3
+            </div>
+
+            <h3>
+                Track
+            </h3>
+
+            <p>
+                Keep track of your contribution and updates.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                4
+            </div>
+
+            <h3>
+                Impact
+            </h3>
+
+            <p>
+                See how your contribution creates change.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<div class="cta">
+
+    <h2>
+        Ready to Make an Impact?
+    </h2>
+
+    <p>
+        Your time, items and support can make a real difference.
+    </p>
+
+    <a
+        href="ngos.html"
+        class="btn"
+    >
+        Explore NGOs →
+    </a>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        🌱 ReConnect
+    </h3>
+
+    <p>
+        Connect. Donate. Create Real Impact.
+    </p>
+
+    <p>
+        © 2026 ReConnect
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
