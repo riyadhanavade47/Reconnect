@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Volunteer Opportunities | ReConnect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4faf6;
+            color: #24352d;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: white;
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #176b4d;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34443c;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #176b4d;
+        }
+
+        .active {
+            color: #176b4d !important;
+        }
+
+        .register-btn {
+            background: #176b4d;
+            color: white !important;
+            padding: 10px 17px;
+            border-radius: 25px;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #176b4d, #3d9b70);
+            color: white;
+            padding: 65px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            color: #176b4d;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #68756f;
+        }
+
+        /* SEARCH */
+        .search-box {
+            background: white;
+            padding: 22px;
+            border-radius: 15px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            margin-bottom: 35px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #d3ddd7;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #176b4d;
+            box-shadow: 0 0 0 3px rgba(23,107,77,0.1);
+        }
+
+        /* ACTIVITY GRID */
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .activity-icon {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8f5ed;
+            font-size: 65px;
+        }
+
+        .activity-content {
+            padding: 22px;
+        }
+
+        .activity-content h3 {
+            color: #176b4d;
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .activity-content p {
+            color: #66736c;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            background: #eef7f1;
+            color: #176b4d;
+            padding: 7px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .volunteer-btn {
+            width: 100%;
+            border: none;
+            background: #176b4d;
+            color: white;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .volunteer-btn:hover {
+            background: #0f563d;
+        }
+
+        /* NO RESULTS */
+        #noResults {
+            display: none;
+            text-align: center;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            color: #68756f;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 500;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.45);
+            padding: 30px 15px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 22px;
+            top: 15px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #68756f;
+        }
+
+        .close:hover {
+            color: #176b4d;
+        }
+
+        .modal-content h2 {
+            color: #176b4d;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            line-height: 1.6;
+            color: #53625a;
+            margin-bottom: 12px;
+        }
+
+        .form-group {
+            margin-top: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d3ddd7;
+            border-radius: 9px;
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            margin-top: 22px;
+            width: 100%;
+            border: none;
+            background: #176b4d;
+            color: white;
+            padding: 13px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #0f563d;
+        }
+
+        /* SUCCESS */
+        .success {
+            display: none;
+            background: #e8f7ee;
+            border: 1px solid #a9d9bb;
+            color: #176b4d;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* INFO SECTION */
+        .info-section {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            margin-top: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .info-section h2 {
+            color: #176b4d;
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            color: #66736c;
+            line-height: 1.7;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .step-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .step h3 {
+            color: #176b4d;
+            margin-bottom: 7px;
+        }
+
+        .step p {
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #123d2d;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 55px;
+        }
+
+        footer p {
+            margin-top: 7px;
+            color: #d5e7de;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+
+            .activity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+    <div class="logo">
+        🌱 ReConnect
+    </div>
+
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="ngos.html">Find NGOs</a>
+        </li>
+
+        <li>
+            <a href="donate.html">Donate</a>
+        </li>
+
+        <li>
+            <a href="volunteer.html" class="active">
+                Volunteer
+            </a>
+        </li>
+
+        <li>
+            <a href="reuse.html">
+                Reuse & Recycle
+            </a>
+        </li>
+
+        <li>
+            <a href="ngo-register.html" class="register-btn">
+                Register NGO
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <h1>🤝 Volunteer & Make a Difference</h1>
+
+    <p>
+        Use your time, skills and energy to support meaningful
+        social activities and help create real impact in your community.
+    </p>
+
+</section>
+
+
+<div class="container">
+
+    <!-- SEARCH -->
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search volunteer opportunities..."
+            onkeyup="searchActivities()"
+        >
+
+    </div>
+
+
+    <!-- TITLE -->
+    <div class="section-title">
+
+        <h2>🌟 Volunteer Opportunities</h2>
+
+        <p>
+            Find an activity that matches your interests.
+        </p>
+
+    </div>
+
+
+    <!-- ACTIVITIES -->
+    <div class="activity-grid" id="activityGrid">
+
+
+        <!-- ACTIVITY 1 -->
+        <div
+            class="activity-card"
+            data-search="teaching education children students"
+        >
+
+            <div class="activity-icon">
+                📚
+            </div>
+
+            <div class="activity-content">
+
+                <h3>
+                    Teaching Assistant Drive
+                </h3>
+
+                <p>
+                    Help children with basic education,
+                    reading and learning activities.
+                </p>
+
+                <div class="details">
+
+                    <span class="tag">
+                        📍 Mumbai
+                    </span>
+
+                    <span class="tag">
+                        👥 10 Volunteers
+                    </span>
+
+                    <span class="tag">
+                        🎓 Education
+                    </span>
+
+                </div>
+
+                <button
+                    class="volunteer-btn"
+                    onclick="openVolunteerForm('Teaching Assistant Drive')"
+                >
+                    Join Activity →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 2 -->
+        <div
+            class="activity-card"
+            data-search="flood relief disaster food distribution community"
+        >
+
+            <div class="activity-icon">
+                🧺
+            </div>
+
+            <div class="activity-content">
+
+                <h3>
+                    Flood Relief Distribution
+                </h3>
+
+                <p>
+                    Assist with organising and distributing
+                    essential supplies to affected communities.
+                </p>
+
+                <div class="details">
+
+                    <span class="tag">
+                        📍 Maharashtra
+                    </span>
+
+                    <span class="tag">
+                        👥 20 Volunteers
+                    </span>
+
+                    <span class="tag">
+                        ❤️ Relief
+                    </span>
+
+                </div>
+
+                <button
+                    class="volunteer-btn"
+                    onclick="openVolunteerForm('Flood Relief Distribution')"
+                >
+                    Join Activity →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 3 -->
+        <div
+            class="activity-card"
+            data-search="child rights awareness children campaign social"
+        >
+
+            <div class="activity-icon">
+                🧒
+            </div>
+
+            <div class="activity-content">
+
+                <h3>
+                    Child Rights Awareness Campaign
+                </h3>
+
+                <p>
+                    Participate in awareness activities focused
+                    on children's rights and education.
+                </p>
+
+                <div class="details">
+
+                    <span class="tag">
+                        📍 Mumbai
+                    </span>
+
+                    <span class="tag">
+                        👥 8 Volunteers
+                    </span>
+
+                    <span class="tag">
+                        ⚖️ Awareness
+                    </span>
+
+                </div>
+
+                <button
+                    class="volunteer-btn"
+                    onclick="openVolunteerForm('Child Rights Awareness Campaign')"
+                >
+                    Join Activity →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 4 -->
+        <div
+            class="activity-card"
+            data-search="food donation food drive distribution community"
+        >
+
+            <div class="activity-icon">
+                🍱
+            </div>
+
+            <div class="activity-content">
+
+                <h3>
+                    Community Food Drive
+                </h3>
+
+                <p>
+                    Help collect, organise and distribute food
+                    to communities that need support.
+                </p>
+
+                <div class="details">
+
+                    <span class="tag">
+                        📍 Mumbai
+                    </span>
+
+                    <span class="tag">
+                        👥 15 Volunteers
+                    </span>
+
+                    <span class="tag">
+                        🍱 Food
+                    </span>
+
+                </div>
+
+                <button
+                    class="volunteer-btn"
+                    onclick="openVolunteerForm('Community Food Drive')"
+                >
+                    Join Activity →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 5 -->
+        <div
+            class="activity-card"
+            data-search="tree plantation environment climate nature green"
+        >
+
+            <div class="activity-icon">
+                🌳
+            </div>
+
+            <div class="activity-content">
+
+                <h3>
+                    Tree Plantation Drive
+                </h3>
+
+                <p>
+                    Participate in a community plantation activity
+                    and help create a greener environment.
+                </p>
+
+                <div class="details">
+
+                    <span class="tag">
+                        📍 Mumbai
+                    </span>
+
+                    <span class="tag">
+                        👥 25 Volunteers
+                    </span>
+
+                    <span class="tag">
+                        🌱 Environment
+                    </span>
+
+                </div>
+
+                <button
+                    class="volunteer-btn"
+                    onclick="openVolunteerForm('Tree Plantation Drive')"
+                >
+                    Join Activity →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 6 -->
+        <div
+            class="activity-card"
+            data-search="old clothes reuse recycling donation sorting"
+        >
+
+            <div class="activity-icon">
+                ♻️
+            </div>
+
+            <div class="activity-content">
+
+                <h3>
+                    Clothes Reuse & Collection Drive
+                </h3>
+
+                <p>
+                    Help collect, sort and organise reusable clothes
+                    for donation and reuse.
+                </p>
+
+                <div class="details">
+
+                    <span class="tag">
+                        📍 Mumbai
+                    </span>
+
+                    <span class="tag">
+                        👥 12 Volunteers
+                    </span>
+
+                    <span class="tag">
+                        ♻️ Reuse
+                    </span>
+
+                </div>
+
+                <button
+                    class="volunteer-btn"
+                    onclick="openVolunteerForm('Clothes Reuse & Collection Drive')"
+                >
+                    Join Activity →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NO RESULTS -->
+    <div id="noResults">
+
+        <h3>😕 No opportunities found</h3>
+
+        <p>
+            Try searching with another keyword.
+        </p>
+
+    </div>
+
+
+    <!-- HOW IT WORKS -->
+    <div class="info-section">
+
+        <h2>💚 How Volunteering Works</h2>
+
+        <p>
+            ReConnect makes it simple to find and participate
+            in meaningful volunteer activities.
+        </p>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🔍
+                </div>
+
+                <h3>1. Explore</h3>
+
+                <p>
+                    Browse available volunteer opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    ❤️
+                </div>
+
+                <h3>2. Choose</h3>
+
+                <p>
+                    Select an activity that interests you.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    📝
+                </div>
+
+                <h3>3. Register</h3>
+
+                <p>
+                    Submit your details to join the activity.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🌱
+                </div>
+
+                <h3>4. Make Impact</h3>
+
+                <p>
+                    Participate and contribute to the community.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- VOLUNTEER MODAL -->
+<div
+    class="modal"
+    id="volunteerModal"
+>
+
+    <div class="modal-content">
+
+        <span
+            class="close"
+            onclick="closeVolunteerForm()"
+        >
+            &times;
+        </span>
+
+
+        <h2>🤝 Join Volunteer Activity</h2>
+
+
+        <p>
+            You are registering for:
+        </p>
+
+
+        <p>
+            <strong id="selectedActivity"></strong>
+        </p>
+
+
+        <div class="form-group">
+
+            <label>Your Name *</label>
+
+            <input
+                type="text"
+                id="volunteerName"
+                placeholder="Enter your name"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Email *</label>
+
+            <input
+                type="email"
+                id="volunteerEmail"
+                placeholder="Enter your email"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Contact Number *</label>
+
+            <input
+                type="tel"
+                id="volunteerContact"
+                placeholder="Enter your contact number"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Why would you like to volunteer?</label>
+
+            <textarea
+                id="volunteerReason"
+                placeholder="Tell us briefly..."
+            ></textarea>
+
+        </div>
+
+
+        <button
+            class="submit-btn"
+            onclick="submitVolunteer()"
+        >
+            ✅ Register as Volunteer
+        </button>
+
+
+        <div
+            class="success"
+            id="volunteerSuccess"
+        >
+
+            <strong>🎉 Registration Successful!</strong>
+
+            <p>
+                Your volunteer registration has been saved.
+            </p>
+
+            <p id="volunteerId"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <h3>🌱 ReConnect</h3>
+
+    <p>
+        Connect. Donate. Create Real Impact.
+    </p>
+
+    <p>
+        Transparent donations • Volunteer engagement • Item reuse
+    </p>
+
+</footer>
+
+
+<script>
+
+/* --------------------------------
+   SEARCH ACTIVITIES
+-------------------------------- */
+
+function searchActivities() {
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cards =
+        document.querySelectorAll(".activity-card");
+
+    let visibleCount = 0;
+
+
+    cards.forEach(function(card) {
+
+        const text =
+            card
+            .getAttribute("data-search")
+            .toLowerCase();
+
+
+        if (text.includes(search)) {
+
+            card.style.display = "block";
+
+            visibleCount++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    const noResults =
+        document.getElementById("noResults");
+
+
+    if (visibleCount === 0) {
+
+        noResults.style.display = "block";
+
+    } else {
+
+        noResults.style.display = "none";
+
+    }
+
+}
+
+
+/* --------------------------------
+   OPEN VOLUNTEER FORM
+-------------------------------- */
+
+let selectedActivityName = "";
+
+
+function openVolunteerForm(activityName) {
+
+    selectedActivityName = activityName;
+
+
+    document.getElementById(
+        "selectedActivity"
+    ).textContent = activityName;
+
+
+    document.getElementById(
+        "volunteerModal"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "volunteerSuccess"
+    ).style.display = "none";
+
+}
+
+
+/* --------------------------------
+   CLOSE FORM
+-------------------------------- */
+
+function closeVolunteerForm() {
+
+    document.getElementById(
+        "volunteerModal"
+    ).style.display = "none";
+
+}
+
+
+/* --------------------------------
+   SUBMIT VOLUNTEER REGISTRATION
+-------------------------------- */
+
+function submitVolunteer() {
+
+    const name =
+        document
+        .getElementById("volunteerName")
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById("volunteerEmail")
+        .value
+        .trim();
+
+
+    const contact =
+        document
+        .getElementById("volunteerContact")
+        .value
+        .trim();
+
+
+    const reason =
+        document
+        .getElementById("volunteerReason")
+        .value
+        .trim();
+
+
+    if (
+        name === "" ||
+        email === "" ||
+        contact === ""
+    ) {
+
+        alert(
+            "Please fill all required fields."
+        );
+
+        return;
+
+    }
+
+
+    /* Create volunteer ID */
+
+    const volunteerId =
+        "VOL-" +
+        new Date()
+        .getTime()
+        .toString()
+        .slice(-8);
+
+
+    /* Create registration object */
+
+    const registration = {
+
+        volunteerId: volunteerId,
+
+        activity: selectedActivityName,
+
+        name: name,
+
+        email: email,
+
+        contact: contact,
+
+        reason: reason,
+
+        registrationDate:
+            new Date().toLocaleString(),
+
+        status:
+            "Registered"
+
+    };
+
+
+    /* Get previous registrations */
+
+    let registrations =
+        JSON.parse(
+            localStorage.getItem(
+                "reconnectVolunteerRegistrations"
+            )
+        ) || [];
+
+
+    /* Add new registration */
+
+    registrations.push(registration);
+
+
+    /* Save */
+
+    localStorage.setItem(
+        "reconnectVolunteerRegistrations",
+        JSON.stringify(registrations)
+    );
+
+
+    /* Show success */
+
+    document.getElementById(
+        "volunteerSuccess"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "volunteerId"
+    ).innerHTML =
+        "<strong>Volunteer ID:</strong> " +
+        volunteerId;
+
+
+    /* Clear form */
+
+    document.getElementById(
+        "volunteerName"
+    ).value = "";
+
+    document.getElementById(
+        "volunteerEmail"
+    ).value = "";
+
+    document.getElementById(
+        "volunteerContact"
+    ).value = "";
+
+    document.getElementById(
+        "volunteerReason"
+    ).value = "";
+
+
+    console.log(
+        "Volunteer Registration Saved:",
+        registration
+    );
+
+}
+
+
+/* --------------------------------
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+-------------------------------- */
+
+window.onclick = function(event) {
+
+    const modal =
+        document.getElementById(
+            "volunteerModal"
+        );
+
+
+    if (event.target === modal) {
+
+        closeVolunteerForm();
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>
